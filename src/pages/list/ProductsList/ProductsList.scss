@@ -1,0 +1,84 @@
+@import "../../../styles/variables.scss";
+
+.productsList {
+  padding-top: 10px;
+  .productWrap {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+
+    > li {
+      padding: 0 5px 30px;
+    }
+  }
+
+  .thumbnail {
+    position: relative;
+    width: 100%;
+
+    &:hover .thumbHover {
+      opacity: 0;
+      transition: opacity 0.3s ease-out;
+    }
+
+    img {
+      width: inherit;
+
+      &.thumbHover {
+        left: 0;
+        position: absolute;
+        z-index: 1;
+        transition: opacity 0.3s ease-in;
+      }
+    }
+  }
+
+  .tag {
+    display: flex;
+    justify-content: center;
+    > li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 3px;
+      color: #fff;
+      span {
+        text-align: center;
+        width: 60px;
+        height: 24px;
+        border-radius: 12px;
+        line-height: 26px;
+        font-size: $font-S;
+
+        &.new {
+          background-color: $color-tag-green;
+        }
+        &.best {
+          background-color: $color-tag-lightGreen;
+        }
+      }
+    }
+  }
+
+  .info {
+    text-align: center;
+    padding: 10px 0;
+
+    .name {
+      font-size: $font-M;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .desc {
+      font-size: $font-S;
+      padding-top: 5px;
+      color: $color-font-lightGray;
+    }
+  }
+  .cost {
+    padding-top: 10px;
+    text-align: center;
+    font-size: $font-M;
+  }
+}
