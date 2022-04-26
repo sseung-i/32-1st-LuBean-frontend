@@ -1,0 +1,109 @@
+@import "../../components/Button/Button.scss";
+button {
+  @include button(500px, 300px, 15px, rgb(216, 111, 111), #fff, #000);
+}
+
+.detail {
+  display: block;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    z-index: 0;
+
+    .mainPic {
+      position: relative;
+      width: 100%;
+      min-width: 500px;
+      text-align: center;
+      overflow: hidden;
+      // margin-left: 40px;
+    }
+
+    .mainContent {
+      width: 100%;
+      padding: 50px;
+    }
+
+    .mainName {
+      position: relative;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e7e7e7;
+
+      .firstName {
+        font-size: 28px;
+        line-height: 34px;
+        padding-right: 60px;
+      }
+
+      .secondName {
+        padding-top: 8px;
+        font-size: 16px;
+        color: #808080;
+      }
+    }
+    .price {
+      display: flex;
+      margin-bottom: 20px;
+
+      .priceName {
+        padding-top: 8px;
+        padding-right: 10px;
+      }
+
+      .priceWon {
+        padding-top: 8px;
+        font-size: 16px;
+      }
+    }
+    .mainWeight {
+      display: flex;
+      .weightName {
+        padding-top: 8px;
+        padding-right: 10px;
+      }
+
+      .dropdown {
+        .dropdownContent {
+          padding: 5px 10px;
+          width: 324px;
+        }
+      }
+    }
+  }
+  .buttonCart {
+    display: flex;
+    margin-top: 20px;
+    margin: 40px 0px;
+
+    .cartBtn {
+      width: 100%;
+      height: 50px;
+      margin-right: 10px;
+      font-size: 15px;
+      background: #ffffff;
+      color: #000000;
+      border: 1px solid #000000;
+    }
+
+    .orderBtn {
+      width: 100%;
+      height: 50px;
+      font-size: 15px;
+      background: #000000;
+      color: #ffffff;
+    }
+  }
+  .tab {
+    padding: 100px 0 0;
+    .wrap {
+      display: table;
+    }
+  }
+}
