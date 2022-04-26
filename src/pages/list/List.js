@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import Country from "../Country/Country";
 import "./List.scss";
 import ProductsList from "./ProductsList/ProductsList";
 
@@ -6,7 +8,7 @@ const productsData = [
     id: 1,
     name: "산 안토니오 챠기테 [강배전]",
     desc: "San Antonio Chaguite",
-    country_name: "Guatemala",
+    country_name: "과테말라",
     weight: "200g",
     tag: ["new"],
     price: `${Math.ceil(Math.random() * 99)}000`,
@@ -20,7 +22,7 @@ const productsData = [
     id: 2,
     name: "폰테 알타 내추럴",
     desc: "Ponte Alta Natural",
-    country_name: "Brazil",
+    country_name: "브라질",
     weight: "100g",
     tag: ["new", "best"],
     price: `${Math.ceil(Math.random() * 99)}000`,
@@ -34,7 +36,7 @@ const productsData = [
     id: 3,
     name: "라 벤디시온 파카마라 내추럴",
     desc: "La Bendicion Pacamara Natural",
-    country_name: "Nicaragua",
+    country_name: "니카라과",
     weight: "100g",
     tag: ["new"],
     price: `${Math.ceil(Math.random() * 99)}000`,
@@ -47,8 +49,8 @@ const productsData = [
   {
     id: 4,
     name: "보카 [강배전]",
-    desc: "Papua New Guinea",
-    country_name: "Boka",
+    desc: "파푸아뉴기니",
+    country_name: "보카",
     weight: "100g",
     tag: [],
     price: `${Math.ceil(Math.random() * 99)}000`,
@@ -62,7 +64,7 @@ const productsData = [
     id: 5,
     name: "배드블러드",
     desc: "La Bendicion Pacamara Natural",
-    country_name: "Boka",
+    country_name: "보카",
     weight: "100g",
     tag: [],
     price: `${Math.ceil(Math.random() * 99)}000`,
@@ -75,8 +77,8 @@ const productsData = [
   {
     id: 6,
     name: "니카라과",
-    desc: "Papua New Guinea",
-    country_name: "Boka",
+    desc: "파푸아뉴기니",
+    country_name: "보카",
     weight: "100g",
     tag: [],
     price: `${Math.ceil(Math.random() * 99)}000`,
@@ -90,7 +92,7 @@ const productsData = [
     id: 7,
     name: "보카 [강배전]",
     desc: "La Bendicion Pacamara Natural",
-    country_name: "Papua New Guinea",
+    country_name: "파푸아뉴기니",
     weight: "100g",
     tag: [],
     price: `${Math.ceil(Math.random() * 99)}000`,
@@ -103,8 +105,8 @@ const productsData = [
   {
     id: 8,
     name: "라스 라하스 펠라 네그라",
-    desc: "Guatemala",
-    country_name: "Papua New Guinea",
+    desc: "과테말라",
+    country_name: "파푸아뉴기니",
     weight: "100g",
     tag: ["best"],
     price: `${Math.ceil(Math.random() * 99)}000`,
@@ -118,7 +120,7 @@ const productsData = [
     id: 9,
     name: "폰테 알타 내추럴",
     desc: "Ponte Alta Natural",
-    country_name: "Brazil",
+    country_name: "브라질",
     weight: "100g",
     tag: [],
     price: `${Math.ceil(Math.random() * 99)}000`,
@@ -132,7 +134,7 @@ const productsData = [
     id: 10,
     name: "라 벤디시온 파카마라 내추럴",
     desc: "La Bendicion Pacamara Natural",
-    country_name: "Nicaragua",
+    country_name: "니카라과",
     weight: "100g",
     tag: [],
     price: `${Math.ceil(Math.random() * 99)}000`,
@@ -145,8 +147,8 @@ const productsData = [
   {
     id: 11,
     name: "누에바 루즈 파라이네마",
-    desc: "Papua New Guinea",
-    country_name: "Papua New Guinea",
+    desc: "파푸아뉴기니",
+    country_name: "파푸아뉴기니",
     weight: "100g",
     tag: ["best"],
     price: `${Math.ceil(Math.random() * 99)}000`,
@@ -159,14 +161,69 @@ const productsData = [
 ];
 
 const List = () => {
-  const countryCount = {};
-  productsData.filter(item =>
-    countryCount[item.country_name]
-      ? (countryCount[item.country_name] += 1)
-      : (countryCount[item.country_name] = 1)
-  );
+  const [originalData, setOriginalData] = useState([]);
+  const [filterData, setFilterData] = useState([]);
+  const [target, setTarget] = useState("all");
 
-  // console.log(countryCount);
+  useEffect(() => {
+    setOriginalData(productsData);
+    setFilterData(productsData);
+  }, []);
+
+  const selectValue = [
+    { id: 0, value: "recommend", text: "추천순" },
+    { id: 1, value: "Ascending", text: "가격낮은순" },
+    { id: 2, value: "Descending", text: "가격높은순" },
+    { id: 3, value: "Word", text: "가나다순" },
+  ];
+
+  const dataFiltering = (e, copyOriginData) => {
+    const filterData = copyOriginData.filter(
+      it => it.country_name === e.target.dataset.id
+    );
+    setFilterData(filterData);
+  };
+
+  const countryClick = e => {
+    setTarget(e.target.dataset.id);
+    // e.target.classList.add("nowView");
+    const copyOriginData = [...originalData];
+    e.target.dataset.id === "all"
+      ? setFilterData(copyOriginData)
+      : dataFiltering(e, copyOriginData);
+  };
+
+  const changeSelector = e => {
+    const copyOriginData = [...originalData];
+    if (e.target.value === "recommend") {
+      const bestProducts = copyOriginData.filter(it => it.tag.includes("best"));
+      const remainProducts = copyOriginData.filter(
+        it => !it.tag.includes("best")
+      );
+      return setFilterData(bestProducts.concat(remainProducts));
+    }
+    if (e.target.value === "Ascending") {
+      const sortProducts = copyOriginData.sort(
+        (a, b) => a.price * 1 - b.price * 1
+      );
+      return setFilterData(sortProducts);
+    }
+    if (e.target.value === "Descending") {
+      const sortProducts = copyOriginData.sort(
+        (a, b) => b.price * 1 - a.price * 1
+      );
+      return setFilterData(sortProducts);
+    }
+    if (e.target.value === "Word") {
+      const sortProducts = copyOriginData.sort((a, b) => {
+        if (a.name < b.name) return -1;
+        if (a.name > b.name) return 1;
+        return 0;
+      });
+      return setFilterData(sortProducts);
+    }
+  };
+
   return (
     <div className="list">
       <section className="title">
@@ -176,31 +233,20 @@ const List = () => {
       <section className="products">
         <article className="top">
           <h3>싱글 오리진 (Single Origin)</h3>
-          <select className="listSort">
-            <option>추천순</option>
-            <option>가격낮은순</option>
-            <option>가격높은순</option>
-            <option>이름순</option>
+          <select className="listSort" onChange={changeSelector}>
+            {selectValue.map(({ id, value, text }) => (
+              <option key={id} value={value}>
+                {text}
+              </option>
+            ))}
           </select>
         </article>
-        <ul className="country">
-          <li className="nowView">
-            전체<span>({productsData.length})</span>
-          </li>
-          <li>
-            과테말라<span>({countryCount.Guatemala})</span>
-          </li>
-          <li>
-            브라질<span>({countryCount.Brazil})</span>
-          </li>
-          <li>
-            니카라과<span>({countryCount.Nicaragua})</span>
-          </li>
-          <li>
-            파푸아뉴기니<span>({countryCount["Papua New Guinea"]})</span>
-          </li>
-        </ul>
-        <ProductsList productsData={productsData} />
+        <Country
+          data={originalData}
+          countryClick={countryClick}
+          target={target}
+        />
+        <ProductsList data={filterData} />
       </section>
     </div>
   );
