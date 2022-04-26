@@ -1,0 +1,28 @@
+@import "../../styles/variables.scss";
+@import "../Login/LoginSingUp.scss";
+
+.all {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 300px;
+
+  .join_text {
+    @include LnJfont_XL;
+    margin-bottom: 50px;
+  }
+
+  .join_button {
+    @include ButtonBlack;
+    width: 400px;
+    height: 57px;
+    margin-bottom: 70px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  // span {
+  //   margin: 0;
+  // }
+}
