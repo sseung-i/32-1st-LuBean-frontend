@@ -1,0 +1,15 @@
+@mixin button(
+  $width: 100%,
+  $height: 100%,
+  $fontSize: 15px,
+  $backgroundColor: #000,
+  $fontColor: #fff,
+  $borderColor: #000
+) {
+  width: $width;
+  height: $height;
+  font-size: $fontSize;
+  background: $backgroundColor;
+  color: $fontColor;
+  border: 1px solid $borderColor;
+}
