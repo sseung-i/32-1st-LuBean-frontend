@@ -59,23 +59,6 @@
     }
   }
 
-  .info {
-    text-align: center;
-    padding: 10px 0;
-
-    .name {
-      font-size: $font-M;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-
-    .desc {
-      font-size: $font-S;
-      padding-top: 5px;
-      color: $color-font-lightGray;
-    }
-  }
   .cost {
     padding-top: 10px;
     text-align: center;

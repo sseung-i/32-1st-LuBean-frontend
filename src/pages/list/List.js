@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
 import "./List.scss";
 import ProductsList from "./ProductsList/ProductsList";
 
-const productData = [
+const productsData = [
   {
     id: 1,
     name: "산 안토니오 챠기테 [강배전]",
     desc: "San Antonio Chaguite",
     country_name: "Guatemala",
     weight: "200g",
+    tag: ["new"],
     price: `${Math.ceil(Math.random() * 99)}000`,
     menus: "singleOrigin",
     imgUrl: [
@@ -20,8 +20,9 @@ const productData = [
     id: 2,
     name: "폰테 알타 내추럴",
     desc: "Ponte Alta Natural",
-    country_name: "brazil",
+    country_name: "Brazil",
     weight: "100g",
+    tag: ["new", "best"],
     price: `${Math.ceil(Math.random() * 99)}000`,
     menus: "singleOrigin",
     imgUrl: [
@@ -35,6 +36,7 @@ const productData = [
     desc: "La Bendicion Pacamara Natural",
     country_name: "Nicaragua",
     weight: "100g",
+    tag: ["new"],
     price: `${Math.ceil(Math.random() * 99)}000`,
     menus: "singleOrigin",
     imgUrl: [
@@ -48,6 +50,7 @@ const productData = [
     desc: "Papua New Guinea",
     country_name: "Boka",
     weight: "100g",
+    tag: [],
     price: `${Math.ceil(Math.random() * 99)}000`,
     menus: "singleOrigin",
     imgUrl: [
@@ -61,6 +64,7 @@ const productData = [
     desc: "La Bendicion Pacamara Natural",
     country_name: "Boka",
     weight: "100g",
+    tag: [],
     price: `${Math.ceil(Math.random() * 99)}000`,
     menus: "singleOrigin",
     imgUrl: [
@@ -74,6 +78,7 @@ const productData = [
     desc: "Papua New Guinea",
     country_name: "Boka",
     weight: "100g",
+    tag: [],
     price: `${Math.ceil(Math.random() * 99)}000`,
     menus: "singleOrigin",
     imgUrl: [
@@ -85,8 +90,9 @@ const productData = [
     id: 7,
     name: "보카 [강배전]",
     desc: "La Bendicion Pacamara Natural",
-    country_name: "Boka",
+    country_name: "Papua New Guinea",
     weight: "100g",
+    tag: [],
     price: `${Math.ceil(Math.random() * 99)}000`,
     menus: "singleOrigin",
     imgUrl: [
@@ -98,8 +104,9 @@ const productData = [
     id: 8,
     name: "라스 라하스 펠라 네그라",
     desc: "Guatemala",
-    country_name: "Boka",
+    country_name: "Papua New Guinea",
     weight: "100g",
+    tag: ["best"],
     price: `${Math.ceil(Math.random() * 99)}000`,
     menus: "singleOrigin",
     imgUrl: [
@@ -111,8 +118,9 @@ const productData = [
     id: 9,
     name: "폰테 알타 내추럴",
     desc: "Ponte Alta Natural",
-    country_name: "brazil",
+    country_name: "Brazil",
     weight: "100g",
+    tag: [],
     price: `${Math.ceil(Math.random() * 99)}000`,
     menus: "singleOrigin",
     imgUrl: [
@@ -126,6 +134,7 @@ const productData = [
     desc: "La Bendicion Pacamara Natural",
     country_name: "Nicaragua",
     weight: "100g",
+    tag: [],
     price: `${Math.ceil(Math.random() * 99)}000`,
     menus: "singleOrigin",
     imgUrl: [
@@ -137,8 +146,9 @@ const productData = [
     id: 11,
     name: "누에바 루즈 파라이네마",
     desc: "Papua New Guinea",
-    country_name: "Boka",
+    country_name: "Papua New Guinea",
     weight: "100g",
+    tag: ["best"],
     price: `${Math.ceil(Math.random() * 99)}000`,
     menus: "singleOrigin",
     imgUrl: [
@@ -150,7 +160,7 @@ const productData = [
 
 const List = () => {
   const countryCount = {};
-  productData.filter(item =>
+  productsData.filter(item =>
     countryCount[item.country_name]
       ? (countryCount[item.country_name] += 1)
       : (countryCount[item.country_name] = 1)
@@ -175,22 +185,22 @@ const List = () => {
         </article>
         <ul className="country">
           <li className="nowView">
-            전체<span>({0})</span>
+            전체<span>({productsData.length})</span>
           </li>
           <li>
-            과테말라<span>({0})</span>
+            과테말라<span>({countryCount.Guatemala})</span>
           </li>
           <li>
-            브라질<span>({0})</span>
+            브라질<span>({countryCount.Brazil})</span>
           </li>
           <li>
-            니카라과<span>({0})</span>
+            니카라과<span>({countryCount.Nicaragua})</span>
           </li>
           <li>
-            파푸아뉴기니<span>({0})</span>
+            파푸아뉴기니<span>({countryCount["Papua New Guinea"]})</span>
           </li>
         </ul>
-        <ProductsList productData={productData} />
+        <ProductsList productsData={productsData} />
       </section>
     </div>
   );
