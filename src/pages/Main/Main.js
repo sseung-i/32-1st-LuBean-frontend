@@ -3,23 +3,39 @@ import "./Main.scss";
 
 const Main = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [index, setIndex] = useState(0);
+  const container = useRef(null);
 
-  const ref = useRef(null);
+  function handleBtnClick(event) {
+    setCurrentIndex(event.target.dataset.id);
+  }
 
-  function handleBtnClick() {
+  // setInterval(
+  //   useEffect(() => {
+  //     container.current.style.transform = `translate(-${currentIndex}00vw)`;
+  //     // container.current.classList.add("active");
+  //     // container.current.animation =
+  //   }, [currentIndex]),
+  //   3000
+  // );
+
+  if (currentIndex < 5) {
     setCurrentIndex(currentIndex + 1);
+  }
+  function carousel() {
+    container.current.style.transform = `translate(-${currentIndex}00vw)`;
   }
 
   useEffect(() => {
-    ref.current.style.transform = `translate(-${currentIndex}00vw)`;
+    setInterval(carousel, 3000);
+    // container.current.classList.add("active");
+    // container.current.animation =
   }, [currentIndex]);
 
   return (
     <div className="main">
       {/* 위쪽 배너 슬라이드 */}
       <div className="topWrapper">
-        <div ref={ref} className="topContainer">
+        <div ref={container} className="topContainer">
           <div className="inner">
             <img className="item" alt="item1" src="./images/slides/main1.jpg" />
           </div>
@@ -37,11 +53,31 @@ const Main = () => {
           </div>
         </div>
       </div>
-      <button onClick={handleBtnClick} className={`btn${currentIndex}`} />
-      <button onClick={handleBtnClick} className={`btn${currentIndex}`} />
-      <button onClick={handleBtnClick} className={`btn${currentIndex}`} />
-      <button onClick={handleBtnClick} className={`btn${currentIndex}`} />
-      <button onClick={handleBtnClick} className={`btn${currentIndex}`} />
+      <button
+        data-id="0"
+        onClick={handleBtnClick}
+        className={`btn${currentIndex}`}
+      />
+      <button
+        data-id="1"
+        onClick={handleBtnClick}
+        className={`btn${currentIndex}`}
+      />
+      <button
+        data-id="2"
+        onClick={handleBtnClick}
+        className={`btn${currentIndex}`}
+      />
+      <button
+        data-id="3"
+        onClick={handleBtnClick}
+        className={`btn${currentIndex}`}
+      />
+      <button
+        data-id="4"
+        onClick={handleBtnClick}
+        className={`btn${currentIndex}`}
+      />
 
       {/* 가운데 상품 슬라이드 */}
       <div className="bottomContainer">
