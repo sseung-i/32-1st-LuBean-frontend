@@ -186,7 +186,6 @@ const List = () => {
 
   const countryClick = e => {
     setTarget(e.target.dataset.id);
-    // e.target.classList.add("nowView");
     const copySortData = [...originalData];
     e.target.dataset.id === "all"
       ? setFilterData(copySortData)
