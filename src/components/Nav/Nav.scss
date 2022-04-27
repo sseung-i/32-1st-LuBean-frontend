@@ -1,0 +1,25 @@
+@import "../../styles/variables.scss";
+
+nav {
+  width: 100vw;
+  background-color: #000;
+
+  .navWrap {
+    max-width: 1200px;
+    .logoWrap {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100px;
+      width: 30%;
+
+      img {
+        height: 30px;
+      }
+    }
+
+    .rigintWrap {
+      width: 70%;
+    }
+  }
+}
