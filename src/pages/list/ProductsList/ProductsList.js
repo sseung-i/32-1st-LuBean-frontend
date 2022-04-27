@@ -7,21 +7,19 @@ const ProductsList = ({ data }) => {
   return (
     <article className="productsList">
       <ul className="productWrap">
-        {data.map(({ id, name, desc, country_name, price, tag, imgUrl }) => (
-          <li key={id} data-country={country_name}>
+        {data.map(({ id, name, desc, price, tag, imgUrl }) => (
+          <li key={id}>
             <div className="thumbnail">
               <img className="thumb" alt={name} src={imgUrl[0]} />
               <img className="thumbHover" alt={name} src={imgUrl[1]} />
             </div>
-            {tag.length ? <Tag tag={tag} /> : null}
-            {tag.length ? (
-              <Info name={name} desc={desc} />
-            ) : (
-              <Info name={name} desc={desc} padding="40px" />
-            )}
+            {tag && <Tag tag={tag} />}
+            <Info name={name} desc={desc} isTag={tag.length} />
             <p className="cost">
               <span>₩ </span>
-              {`${price.slice(0, price.length - 3)},${price.slice(-3)}`}
+              {`${String(price).slice(0, String(price).length - 3)},${String(
+                price
+              ).slice(-3)}`}
             </p>
           </li>
         ))}

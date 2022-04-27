@@ -3,173 +3,22 @@ import Country from "../Country/Country";
 import ProductsList from "./ProductsList/ProductsList";
 import "./List.scss";
 
-const productsData = [
-  {
-    id: 1,
-    name: "산 안토니오 챠기테 [강배전]",
-    desc: "San Antonio Chaguite",
-    country_name: "과테말라",
-    weight: "200g",
-    tag: ["new"],
-    price: `${Math.ceil(Math.random() * 99)}000`,
-    menus: "singleOrigin",
-    imgUrl: [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg",
-    ],
-  },
-  {
-    id: 2,
-    name: "폰테 알타 내추럴",
-    desc: "Ponte Alta Natural",
-    country_name: "브라질",
-    weight: "100g",
-    tag: ["new", "best"],
-    price: `${Math.ceil(Math.random() * 99)}000`,
-    menus: "singleOrigin",
-    imgUrl: [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg",
-    ],
-  },
-  {
-    id: 3,
-    name: "라 벤디시온 파카마라 내추럴",
-    desc: "La Bendicion Pacamara Natural",
-    country_name: "니카라과",
-    weight: "100g",
-    tag: ["new"],
-    price: `${Math.ceil(Math.random() * 99)}000`,
-    menus: "singleOrigin",
-    imgUrl: [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg",
-    ],
-  },
-  {
-    id: 4,
-    name: "보카 [강배전]",
-    desc: "파푸아뉴기니",
-    country_name: "보카",
-    weight: "100g",
-    tag: [],
-    price: `${Math.ceil(Math.random() * 99)}000`,
-    menus: "singleOrigin",
-    imgUrl: [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg",
-    ],
-  },
-  {
-    id: 5,
-    name: "배드블러드",
-    desc: "La Bendicion Pacamara Natural",
-    country_name: "보카",
-    weight: "100g",
-    tag: [],
-    price: `${Math.ceil(Math.random() * 99)}000`,
-    menus: "singleOrigin",
-    imgUrl: [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg",
-    ],
-  },
-  {
-    id: 6,
-    name: "니카라과",
-    desc: "파푸아뉴기니",
-    country_name: "보카",
-    weight: "100g",
-    tag: [],
-    price: `${Math.ceil(Math.random() * 99)}000`,
-    menus: "singleOrigin",
-    imgUrl: [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg",
-    ],
-  },
-  {
-    id: 7,
-    name: "보카 [강배전]",
-    desc: "La Bendicion Pacamara Natural",
-    country_name: "파푸아뉴기니",
-    weight: "100g",
-    tag: [],
-    price: `${Math.ceil(Math.random() * 99)}000`,
-    menus: "singleOrigin",
-    imgUrl: [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg",
-    ],
-  },
-  {
-    id: 8,
-    name: "라스 라하스 펠라 네그라",
-    desc: "과테말라",
-    country_name: "파푸아뉴기니",
-    weight: "100g",
-    tag: ["best"],
-    price: `${Math.ceil(Math.random() * 99)}000`,
-    menus: "singleOrigin",
-    imgUrl: [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg",
-    ],
-  },
-  {
-    id: 9,
-    name: "폰테 알타 내추럴",
-    desc: "Ponte Alta Natural",
-    country_name: "브라질",
-    weight: "100g",
-    tag: [],
-    price: `${Math.ceil(Math.random() * 99)}000`,
-    menus: "singleOrigin",
-    imgUrl: [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg",
-    ],
-  },
-  {
-    id: 10,
-    name: "라 벤디시온 파카마라 내추럴",
-    desc: "La Bendicion Pacamara Natural",
-    country_name: "니카라과",
-    weight: "100g",
-    tag: [],
-    price: `${Math.ceil(Math.random() * 99)}000`,
-    menus: "singleOrigin",
-    imgUrl: [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg",
-    ],
-  },
-  {
-    id: 11,
-    name: "누에바 루즈 파라이네마",
-    desc: "파푸아뉴기니",
-    country_name: "파푸아뉴기니",
-    weight: "100g",
-    tag: ["best"],
-    price: `${Math.ceil(Math.random() * 99)}000`,
-    menus: "singleOrigin",
-    imgUrl: [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg",
-    ],
-  },
-];
-
 const List = () => {
   const [originalData, setOriginalData] = useState([]);
   const [options, setOptions] = useState({ target: "all", sort: "recommend" });
+
+  useEffect(() => {
+    fetch("data/productsData.json")
+      .then(res => res.json())
+      .then(data => setOriginalData(data));
+  }, []);
+
+  let sortedData;
 
   const countryData =
     options.target === "all"
       ? originalData
       : originalData.filter(el => el.country_name === options.target);
-
-  let sortedData;
 
   if (options.sort === "recommend") {
     const bestProducts = countryData.filter(it => it.tag.includes("best"));
@@ -177,10 +26,10 @@ const List = () => {
     sortedData = bestProducts.concat(remainProducts);
   }
   if (options.sort === "Ascending") {
-    sortedData = countryData.sort((a, b) => a.price * 1 - b.price * 1);
+    sortedData = countryData.sort((a, b) => a.price - b.price);
   }
   if (options.sort === "Descending") {
-    sortedData = countryData.sort((a, b) => b.price * 1 - a.price * 1);
+    sortedData = countryData.sort((a, b) => b.price - a.price);
   }
   if (options.sort === "Word") {
     sortedData = countryData.sort((a, b) => {
@@ -189,10 +38,6 @@ const List = () => {
       return 0;
     });
   }
-
-  useEffect(() => {
-    setOriginalData(productsData);
-  }, []);
 
   const selectValue = [
     { id: 0, value: "recommend", text: "추천순" },

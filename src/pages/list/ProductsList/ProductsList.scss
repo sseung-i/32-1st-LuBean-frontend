@@ -2,9 +2,10 @@
 
 .productsList {
   padding-top: 10px;
+
   .productWrap {
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: (repeat(4, 1fr));
 
     > li {
       padding: 0 5px 30px;
@@ -24,37 +25,10 @@
       width: inherit;
 
       &.thumbHover {
-        left: 0;
         position: absolute;
-        z-index: 1;
+        left: 0;
         transition: opacity 0.3s ease-in;
-      }
-    }
-  }
-
-  .tag {
-    display: flex;
-    justify-content: center;
-    > li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 3px;
-      color: #fff;
-      span {
-        text-align: center;
-        width: 60px;
-        height: 24px;
-        border-radius: 12px;
-        line-height: 26px;
-        font-size: $font-S;
-
-        &.new {
-          background-color: $color-tag-green;
-        }
-        &.best {
-          background-color: $color-tag-lightGreen;
-        }
+        z-index: 1;
       }
     }
   }
