@@ -1,0 +1,19 @@
+@import "../../Login/LoginSingUp.scss";
+
+.input {
+  display: flex;
+  justify-content: left;
+
+  width: 700px;
+  padding-top: 30px;
+
+  p {
+    width: 180px;
+    font-size: 20px;
+  }
+
+  input {
+    width: 350px;
+    height: 30px;
+  }
+}
