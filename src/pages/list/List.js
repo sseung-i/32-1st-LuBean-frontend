@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Country from "../Country/Country";
-import "./List.scss";
 import ProductsList from "./ProductsList/ProductsList";
+import "./List.scss";
 
 const productsData = [
   {
@@ -162,12 +162,36 @@ const productsData = [
 
 const List = () => {
   const [originalData, setOriginalData] = useState([]);
-  const [filterData, setFilterData] = useState([]);
-  const [target, setTarget] = useState("all");
+  const [options, setOptions] = useState({ target: "all", sort: "recommend" });
+
+  const countryData =
+    options.target === "all"
+      ? originalData
+      : originalData.filter(el => el.country_name === options.target);
+
+  let sortedData;
+
+  if (options.sort === "recommend") {
+    const bestProducts = countryData.filter(it => it.tag.includes("best"));
+    const remainProducts = countryData.filter(it => !it.tag.includes("best"));
+    sortedData = bestProducts.concat(remainProducts);
+  }
+  if (options.sort === "Ascending") {
+    sortedData = countryData.sort((a, b) => a.price * 1 - b.price * 1);
+  }
+  if (options.sort === "Descending") {
+    sortedData = countryData.sort((a, b) => b.price * 1 - a.price * 1);
+  }
+  if (options.sort === "Word") {
+    sortedData = countryData.sort((a, b) => {
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
+      return 0;
+    });
+  }
 
   useEffect(() => {
     setOriginalData(productsData);
-    setFilterData(productsData);
   }, []);
 
   const selectValue = [
@@ -177,50 +201,12 @@ const List = () => {
     { id: 3, value: "Word", text: "가나다순" },
   ];
 
-  const dataFiltering = (e, copySortData) => {
-    const filterData = copySortData.filter(
-      it => it.country_name === e.target.dataset.id
-    );
-    setFilterData(filterData);
-  };
-
   const countryClick = e => {
-    setTarget(e.target.dataset.id);
-    const copySortData = [...originalData];
-    e.target.dataset.id === "all"
-      ? setFilterData(copySortData)
-      : dataFiltering(e, copySortData);
+    setOptions({ ...options, target: e.target.dataset.id });
   };
 
   const changeSelector = e => {
-    const copySortData = [...filterData];
-    if (e.target.value === "recommend") {
-      const bestProducts = copySortData.filter(it => it.tag.includes("best"));
-      const remainProducts = copySortData.filter(
-        it => !it.tag.includes("best")
-      );
-      return setFilterData(bestProducts.concat(remainProducts));
-    }
-    if (e.target.value === "Ascending") {
-      const sortProducts = copySortData.sort(
-        (a, b) => a.price * 1 - b.price * 1
-      );
-      return setFilterData(sortProducts);
-    }
-    if (e.target.value === "Descending") {
-      const sortProducts = copySortData.sort(
-        (a, b) => b.price * 1 - a.price * 1
-      );
-      return setFilterData(sortProducts);
-    }
-    if (e.target.value === "Word") {
-      const sortProducts = copySortData.sort((a, b) => {
-        if (a.name < b.name) return -1;
-        if (a.name > b.name) return 1;
-        return 0;
-      });
-      return setFilterData(sortProducts);
-    }
+    setOptions({ ...options, sort: e.target.value });
   };
 
   return (
@@ -243,9 +229,9 @@ const List = () => {
         <Country
           data={originalData}
           countryClick={countryClick}
-          target={target}
+          target={options.target}
         />
-        <ProductsList data={filterData} />
+        <ProductsList data={sortedData} />
       </section>
     </div>
   );

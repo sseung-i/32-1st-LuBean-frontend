@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
+
 const Country = ({ data, countryClick, target }) => {
   const countryCount = {};
 
@@ -8,15 +9,11 @@ const Country = ({ data, countryClick, target }) => {
       : (countryCount[item.country_name] = 1)
   );
 
-  useEffect(() => {
-    document.querySelector(".countryAll").classList.add("nowView");
-  }, []);
-
   return (
     <ul className="country">
       <li
         data-id="all"
-        className={`countryAll ${target !== "all" ? "" : "nowView"}`}
+        className={`countryAll ${target === "all" ? "nowView" : ""}`}
         onClick={countryClick}
       >
         전체({data.length})
