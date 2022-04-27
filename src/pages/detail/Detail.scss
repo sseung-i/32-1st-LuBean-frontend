@@ -1,7 +1,7 @@
-@import "../../components/Button/Button.scss";
-button {
-  @include button(30px, 30px, 15px, rgb(129, 126, 126), #fff, #000);
-}
+// @import "../../components/Button/Button.scss";
+// button {
+//   @include button(30px, 30px, 15px, rgb(129, 126, 126), #fff, #000);
+// }
 
 .detail {
   display: block;
@@ -158,12 +158,6 @@ button {
       color: #ffffff;
     }
   }
-  // .tab {
-  //   padding: 100px 0 0;
-  //   .wrap {
-  //     display: table;
-  //   }
-  // }
 
   .mainContainer {
     width: 100%;
@@ -351,6 +345,8 @@ button {
     }
   }
   .review {
+    padding: 100px 0 0;
+    // background-color: rgb(245, 245, 176);
     .reContainer {
       .reHeader {
         .reHeaderFirst {
@@ -378,9 +374,146 @@ button {
           .reviewForm {
             .reMainStar {
               display: flex;
+              width: 99.8%;
+              margin-top: 20px;
+              border: 1px solid #dbdbdb;
+              border-bottom: 0;
+              padding: 20px;
+              .starText {
+                font-size: 13px;
+                // width: 30%;
+                margin-right: 30px;
+                text-align: center;
+              }
+              .radio {
+                padding-left: 50px;
+
+                input {
+                  margin-right: 10px;
+                }
+                label {
+                  margin-right: 10px;
+                }
+              }
+            }
+            .reviewArea {
+              padding: 20px;
+              border: 1px solid #dbdbdb;
+              width: 99.8%;
+
+              .reviewTextArea {
+                resize: none;
+                width: 99.8%;
+                outline: none;
+                border: none;
+                resize: none;
+                height: 220px;
+              }
+            }
+            .reviewBtn {
+              display: flex;
+              justify-content: flex-end;
+              border: 1px solid #dbdbdb;
+              width: 99.8%;
+              .reviewButton {
+                width: 140px;
+                height: 60px;
+                font-size: 15px;
+                font-weight: bold;
+                border: 1px solid #000;
+                letter-spacing: -0.5px;
+                line-height: 1.4;
+                background-color: #fff;
+                color: #333;
+              }
             }
           }
         }
+        .reviewList {
+          .reviewlistContainer {
+            margin-top: 30px;
+            width: 100%;
+            padding-top: 0px;
+            border-bottom: 2px solid #dbdbdb;
+
+            .reviewListBox {
+              .reviewArticle {
+                display: flex;
+
+                padding: 23px 20px;
+
+                .summary {
+                  width: 120px;
+                  .star {
+                    color: #333;
+                    font-size: 17px;
+                    line-height: 17px;
+                    margin-bottom: 22px;
+                  }
+                  .date {
+                    margin-bottom: 5px;
+                  }
+                }
+                .reviewContent {
+                  display: flex;
+                  align-items: center;
+                  width: 100%;
+                  .content {
+                    margin-left: 20px;
+                    // margin-right: 700px;
+                    width: 100%;
+                  }
+                }
+                .reviewBtn {
+                  display: flex;
+                  align-items: flex-end;
+
+                  .btnDel {
+                    width: 60px;
+                    height: 26px;
+                    font-size: 12px;
+                    color: #fff;
+                    background-color: #c7c7c7;
+                    &:hover {
+                      background-color: rgb(118, 118, 118);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .delivery {
+    padding: 100px 0 0;
+    // background-color: rgb(109, 245, 245);
+    padding-bottom: 100px;
+    .deliveryWrap {
+    }
+    .inWidthWrap {
+      margin: 20px 0px;
+      h3 {
+        display: none;
+        padding: 0 0 17px;
+        color: #000;
+        font-size: 20px;
+      }
+      .adminMsg {
+        width: 90%;
+        margin: 0 auto;
+        line-height: 1.8;
+        font-size: 10pt;
+        color: rgb(37, 37, 37);
+      }
+      .adminMsgPage {
+        padding-top: 20px;
+        width: 90%;
+        margin: 0 auto;
+        line-height: 1.8;
+        font-size: 10pt;
+        color: rgb(37, 37, 37);
       }
     }
   }
