@@ -2,20 +2,20 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 //Main
-import Main from "./pages/main/Main";
+import Main from "./pages/Main/Main";
 //List
-import List from "./pages/list/List";
+import List from "./pages/List/List";
 //Detail
-import Detail from "./pages/detail/Detail";
+import Detail from "./pages/Detail/Detail";
 //Login
-import Login from "./pages/login/Login";
+import Login from "./pages/Login/Login";
 //SignUp
-import SignUp from "./pages/signup/SignUp";
+import SignUp from "./pages/Signup/SignUp";
 
 //Nav
-import Nav from "./components/nav/Nav";
+import Nav from "./components/Nav/Nav";
 //Footer
-import Footer from "./components/footer/Footer";
+import Footer from "./components/Footer/Footer";
 
 const Router = () => {
   return (

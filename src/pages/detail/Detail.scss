@@ -1,6 +1,6 @@
 @import "../../components/Button/Button.scss";
 button {
-  @include button(500px, 300px, 15px, rgb(216, 111, 111), #fff, #000);
+  @include button(30px, 30px, 15px, rgb(129, 126, 126), #fff, #000);
 }
 
 .detail {
@@ -64,16 +64,74 @@ button {
     }
     .mainWeight {
       display: flex;
-      .weightName {
-        padding-top: 8px;
-        padding-right: 10px;
+
+      padding-bottom: 16px;
+      border-bottom: 1px solid #e7e7e7;
+
+      .weight {
+        align-items: center;
+        padding-left: 25px;
+      }
+    }
+
+    .itemCount {
+      padding: 25px;
+      .countContainer {
+        border: 1px solid #e7e7e7;
+        padding: 13px;
+        margin: 20px;
+        .minusBtn {
+          width: 50px;
+          height: 40px;
+          border: none;
+          outline: none;
+          color: #000000;
+          background-color: #fff;
+        }
+        .countBox {
+          width: 50px;
+          height: 40px;
+          outline: none;
+          border: none;
+          text-align: center;
+        }
+        .plusBtn {
+          width: 50px;
+          height: 40px;
+          border: none;
+          outline: none;
+          color: #000000;
+          background-color: #fff;
+        }
+      }
+      .total {
+        min-width: auto;
+        padding: 0 8px 0 20px;
+        color: #000;
+        line-height: 40px;
+        font-size: 14px;
+        font-weight: normal;
+      }
+      .totalDelBtn {
+        color: #000;
+        background-color: #fff;
+        border: 1px solid #e7e7e7;
+        font-size: 1.2em;
+      }
+    }
+
+    .totalPrice {
+      display: flex;
+      justify-content: right;
+      align-items: center;
+      margin-bottom: 10px;
+      .priceText {
+        text-align: center;
       }
 
-      .dropdown {
-        .dropdownContent {
-          padding: 5px 10px;
-          width: 324px;
-        }
+      .priceNum {
+        margin-left: 10px;
+        font-size: 1.5em;
       }
     }
   }
@@ -100,10 +158,230 @@ button {
       color: #ffffff;
     }
   }
-  .tab {
-    padding: 100px 0 0;
-    .wrap {
-      display: table;
+  // .tab {
+  //   padding: 100px 0 0;
+  //   .wrap {
+  //     display: table;
+  //   }
+  // }
+
+  .mainContainer {
+    width: 100%;
+    max-width: 1200px;
+    // background-color: tomato;
+
+    .sectionHeader {
+      padding-top: 144px;
+      margin-bottom: 144px;
+
+      .headerInner {
+        text-align: center;
+        .headerCategory {
+          color: #000;
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 1;
+          margin-bottom: 24px;
+        }
+        .headerTitle {
+          font-size: 36px;
+          font-weight: 700;
+          .titleKr {
+            margin-bottom: 16px;
+            line-height: 1.35;
+            display: block;
+          }
+          .titleEn {
+            font-size: 24px;
+            line-height: 1.38;
+          }
+        }
+      }
+    }
+    .sectionImg {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+
+      .titleImg {
+        .bgImg {
+          // overflow: hidden;
+          // width: 80%;
+
+          img {
+            width: 100%;
+          }
+        }
+        .reviewBox {
+          position: absolute;
+          bottom: 0;
+          left: 13%;
+          width: 30%;
+          background-color: #fff;
+          z-index: 2;
+          // bottom: 313px;
+          .boxInner {
+            padding: 30px 30px 50px 50px;
+
+            .boxTitle {
+              margin-bottom: 25px;
+              font-size: 24px;
+              font-weight: 700;
+            }
+
+            .boxContent {
+              line-height: 32px;
+              text-align: left;
+            }
+          }
+        }
+        width: 80%;
+        height: fit-content;
+      }
+    }
+    .sectionNote {
+      padding-top: 144px;
+      .innerNote {
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+        // max-width: 960px;
+        .titleNote {
+          margin-bottom: 40px;
+          padding-top: 75px;
+          text-align: left;
+
+          .titleHead {
+            font-size: 36px;
+            font-weight: 700;
+            padding-top: 20px;
+          }
+
+          .infoSub {
+            position: relative;
+            padding-left: 11px;
+            color: #6b6b6b;
+            font-size: 16px;
+            font-weight: 300;
+          }
+          .notelist {
+            font-size: 20px;
+            padding-top: 20px;
+            li {
+              padding-top: 10px;
+            }
+          }
+        }
+
+        .noteList {
+          .noteItem1 {
+            display: inline-block;
+            width: 192px;
+            text-align: center;
+            vertical-align: top;
+
+            .noteThumb {
+              position: relative;
+              width: 100%;
+              height: 191px;
+              overflow: hidden;
+              img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                border-radius: 100px;
+              }
+            }
+
+            .itemText {
+              margin-top: 10px;
+              .itemTitle {
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 1.4;
+              }
+              .itemDesc {
+                min-height: 48px;
+                margin-top: 8px;
+                color: #6b6b6b;
+                font-size: 16px;
+                line-height: 24px;
+              }
+            }
+          }
+          .blacktea {
+            display: inline-block;
+            width: 192px;
+            text-align: center;
+            margin-left: 110px;
+
+            .noteThumb {
+              position: relative;
+              width: 100%;
+              height: 191px;
+              overflow: hidden;
+              img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                border-radius: 100px;
+              }
+            }
+            .itemText {
+              margin-top: 10px;
+              .itemTitle {
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 1.4;
+              }
+              .itemDesc {
+                min-height: 48px;
+                margin-top: 8px;
+                color: #6b6b6b;
+                font-size: 16px;
+                line-height: 24px;
+              }
+            }
+          }
+          .apple {
+            margin-right: 40px;
+          }
+        }
+      }
+    }
+  }
+  .review {
+    .reContainer {
+      .reHeader {
+        .reHeaderFirst {
+          display: flex;
+          align-items: center;
+
+          .reHeaderName {
+            font-size: 30px;
+          }
+
+          .reHeaderStar {
+            padding-left: 15px;
+            font-size: 16px;
+          }
+        }
+        .reHeaderSecond {
+          width: 100%;
+          font-size: 18px;
+          font-weight: normal;
+          line-height: 30px;
+        }
+      }
+      .reMain {
+        .starRadioBtn {
+          .reviewForm {
+            .reMainStar {
+              display: flex;
+            }
+          }
+        }
+      }
     }
   }
 }
