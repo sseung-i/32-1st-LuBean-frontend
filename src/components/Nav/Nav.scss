@@ -2,15 +2,20 @@
 
 nav {
   width: 100vw;
+  height: 100px;
   background-color: #000;
 
   .navWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
     max-width: 1200px;
+    height: 100%;
     .logoWrap {
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      height: 100px;
       width: 30%;
 
       img {
@@ -20,6 +25,21 @@ nav {
 
     .rigintWrap {
       width: 70%;
+      .menuWrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        li {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: calc(100% / 5);
+          height: 100px;
+          color: #fff;
+          text-align: center;
+          cursor: pointer;
+        }
+      }
     }
   }
 }
