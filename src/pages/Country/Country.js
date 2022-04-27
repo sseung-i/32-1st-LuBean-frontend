@@ -1,9 +1,10 @@
 import React from "react";
 
 const Country = ({ data, countryClick, target }) => {
+  console.log("안쪽", data);
   const countryCount = {};
 
-  data.filter(item =>
+  data.map(item =>
     countryCount[item.country_name]
       ? (countryCount[item.country_name] += 1)
       : (countryCount[item.country_name] = 1)
