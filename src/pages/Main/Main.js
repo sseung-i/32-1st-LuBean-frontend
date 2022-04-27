@@ -10,10 +10,13 @@ const Main = () => {
     setCurrentIndex(event.target.dataset.id);
   }
 
-  useEffect(() => {
-    container.current.style.transform = `translate(-${currentIndex}00vw)`;
-    button.current.style.backgroundColor = "white";
-  }, [currentIndex]);
+  useEffect(
+    event => {
+      container.current.style.transform = `translate(-${currentIndex}00vw)`;
+      button.current.style.backgroundColor = "white";
+    },
+    [currentIndex]
+  );
 
   // if (currentIndex < 5) {
   //   setCurrentIndex(currentIndex + 1);
@@ -120,10 +123,10 @@ const Main = () => {
 
       {/* 이벤트 페이지 그리드 */}
       <div className="girdContainer">
-        <div className="itemLeft" />
-        <div className="itemRightTop" />
-        <div className="itemRightBottomLeft" />
-        <div className="itemRightBottomRight" />
+        <img alt="item1" src="./images/slides/grid1.jpg" className="item1" />
+        <img alt="item2" src="./images/slides/grid2.jpg" className="item2" />
+        <img alt="item3" src="./images/slides/grid3.jpg" className="item3" />
+        <img alt="item4" src="./images/slides/grid4.jpg" className="item4" />
       </div>
 
       {/* 브랜드 설명*/}
