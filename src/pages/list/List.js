@@ -177,8 +177,8 @@ const List = () => {
     { id: 3, value: "Word", text: "가나다순" },
   ];
 
-  const dataFiltering = (e, copyOriginData) => {
-    const filterData = copyOriginData.filter(
+  const dataFiltering = (e, copySortData) => {
+    const filterData = copySortData.filter(
       it => it.country_name === e.target.dataset.id
     );
     setFilterData(filterData);
@@ -187,35 +187,35 @@ const List = () => {
   const countryClick = e => {
     setTarget(e.target.dataset.id);
     // e.target.classList.add("nowView");
-    const copyOriginData = [...originalData];
+    const copySortData = [...originalData];
     e.target.dataset.id === "all"
-      ? setFilterData(copyOriginData)
-      : dataFiltering(e, copyOriginData);
+      ? setFilterData(copySortData)
+      : dataFiltering(e, copySortData);
   };
 
   const changeSelector = e => {
-    const copyOriginData = [...originalData];
+    const copySortData = [...filterData];
     if (e.target.value === "recommend") {
-      const bestProducts = copyOriginData.filter(it => it.tag.includes("best"));
-      const remainProducts = copyOriginData.filter(
+      const bestProducts = copySortData.filter(it => it.tag.includes("best"));
+      const remainProducts = copySortData.filter(
         it => !it.tag.includes("best")
       );
       return setFilterData(bestProducts.concat(remainProducts));
     }
     if (e.target.value === "Ascending") {
-      const sortProducts = copyOriginData.sort(
+      const sortProducts = copySortData.sort(
         (a, b) => a.price * 1 - b.price * 1
       );
       return setFilterData(sortProducts);
     }
     if (e.target.value === "Descending") {
-      const sortProducts = copyOriginData.sort(
+      const sortProducts = copySortData.sort(
         (a, b) => b.price * 1 - a.price * 1
       );
       return setFilterData(sortProducts);
     }
     if (e.target.value === "Word") {
-      const sortProducts = copyOriginData.sort((a, b) => {
+      const sortProducts = copySortData.sort((a, b) => {
         if (a.name < b.name) return -1;
         if (a.name > b.name) return 1;
         return 0;
