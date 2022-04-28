@@ -211,9 +211,9 @@ const Main = () => {
   return (
     <div className="main">
       {/* 위쪽 배너 슬라이드 */}
-      <div className="WRAPPER">
-        <div className="topWrapper">
-          <div ref={container} className="topContainer">
+      <div className="bannerContainerWrapper">
+        <div className="bannerContainer">
+          <div ref={container} className="carousel">
             <div className="inner">
               <img
                 className="item"
