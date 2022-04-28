@@ -1,5 +1,4 @@
 @import "../../styles/variables.scss";
-@import "../Login/LoginSingUp.scss";
 
 .all {
   display: flex;
@@ -15,14 +14,15 @@
 
   .join_button {
     @include ButtonBlack;
+    margin-bottom: 70px;
     width: 400px;
     height: 57px;
-    margin-bottom: 70px;
     font-size: 15px;
     font-weight: 500;
   }
 
-  // span {
-  //   margin: 0;
-  // }
+  span {
+    margin-left: 10px;
+    border-bottom: 1px black solid;
+  }
 }

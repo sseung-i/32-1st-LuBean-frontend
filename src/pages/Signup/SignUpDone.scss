@@ -1,5 +1,4 @@
 @import "../../styles/variables.scss";
-@import "../Login/LoginSingUp.scss";
 
 .signUpDoneAll {
   display: flex;
@@ -8,12 +7,12 @@
   justify-content: center;
 
   .joinText {
-    margin: 100px 100px 50px 100px;
+    margin: 200px 100px 30px 100px;
     @include LnJfont_XXL;
   }
 
   span {
-    margin: 40px 30px 70px 30px;
+    margin: 0px 30px 50px 30px;
     @include LnJfont_M;
   }
 
@@ -25,6 +24,7 @@
     .imgCover {
       width: 450px;
       padding-right: 45px;
+
       img {
         width: 100%;
         // width: inherit;
@@ -46,15 +46,15 @@
       .con {
         @include LnJfont_L;
         margin-bottom: 30px;
+        color: $color-main-gray;
         font-size: 20px;
         font-weight: bolder;
-        color: $color-main-gray;
       }
 
       .enj {
+        color: $color-font-lightGray;
         font-size: 15px;
         font-weight: 500;
-        color: $color-font-lightGray;
       }
     }
   }
@@ -62,7 +62,7 @@
     @include ButtonBlack;
     width: 280px;
     height: 63px;
-    margin-top: 100px;
+    margin-top: 50px;
     font-size: 15px;
     font-weight: 600;
   }

@@ -1,12 +1,16 @@
 import React from "react";
 import "./Input.scss";
 
-function Input({ labelName, className, type }) {
+function Input({ important, labelName, name, type }) {
+  console.log(important);
   return (
     <>
       <div className="input">
+        <div className="redPointBox">
+          {important && <span className="redPoint" />}
+        </div>
         <p>{labelName}</p>
-        <input className={className} type={type} />
+        <input name={name} type={type} />
       </div>
     </>
   );

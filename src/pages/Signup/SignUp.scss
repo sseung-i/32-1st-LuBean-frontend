@@ -1,5 +1,4 @@
 @import "../../styles/variables.scss";
-@import "./../Login/LoginSingUp.scss";
 
 .signupAll {
   display: flex;
@@ -14,15 +13,12 @@
 
   .location {
     display: flex;
-
     justify-content: space-between;
     margin-top: 50px;
     margin-bottom: 80px;
-
     width: 180px;
-
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 900;
 
     // .info {
 
@@ -35,34 +31,35 @@
       color: $color-main-gray;
     }
   }
-  .basicInfoBox {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 900px;
-    height: 65px;
-    border-bottom: 2px solid black;
+  .signupInfoBox {
+    width: 65%;
+    margin-bottom: 30px;
 
-    .basicInfo {
-      font-size: 20px;
-      font-weight: 800;
-      color: $color-main-black;
-    }
-    .desc {
-      font-size: 12px;
-      font-weight: 500;
-      color: $color-font-lightGray;
+    .infoTitle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      // width: 900px;
+      height: 65px;
+      border-bottom: 2px solid black;
+
+      .basicInfo {
+        font-size: 21px;
+        font-weight: 800;
+        color: $color-main-black;
+      }
+      .desc {
+        font-size: 12px;
+        font-weight: 500;
+        color: $color-font-lightGray;
+      }
     }
   }
-
   .signupbutton {
     @include ButtonBlack;
     width: 335px;
     height: 50px;
     font-size: 15px;
     font-weight: 600;
-  }
-  .signUpInputBox {
-    background-color: yellow;
   }
 }

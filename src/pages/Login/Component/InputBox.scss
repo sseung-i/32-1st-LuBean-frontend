@@ -1,0 +1,29 @@
+.idIuputBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0px 10px 15px 10px;
+  width: 335px;
+  height: 50px;
+
+  border: gray solid 1px;
+
+  span {
+    margin: 5px 5px 5px 20px;
+    // border: red solid 2px;
+  }
+
+  input {
+    margin-bottom: 8px;
+    margin-top: 7px;
+    width: 280px;
+    height: 45px;
+    // border: skyblue solid 2px;
+    border: none;
+  }
+  input::placeholder {
+    text-align: center;
+    font-size: large;
+  }
+}

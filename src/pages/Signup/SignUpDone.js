@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./SignUp_Done.scss";
+import "./SignUpDone.scss";
 
-function SignUp_Done() {
+function SignUpDone() {
   const navigate = useNavigate();
 
   const goToLogin = () => {
@@ -16,7 +16,7 @@ function SignUp_Done() {
 
       <div className="welcomeBox">
         <div className="imgCover">
-          <img alt="Gift" src="/images/Signup/gift.jpg" />
+          <img alt="Gift" src="/images/Signup/coffeeTable.jpg" />
         </div>
         <div className="textCover">
           <p className="welcomeM">환영합니다.</p>
@@ -35,4 +35,4 @@ function SignUp_Done() {
   );
 }
 
-export default SignUp_Done;
+export default SignUpDone;
