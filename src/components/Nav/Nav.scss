@@ -12,6 +12,7 @@ nav {
     margin: 0 auto;
     max-width: 1200px;
     height: 100%;
+
     .logoWrap {
       display: flex;
       justify-content: flex-start;
@@ -24,11 +25,15 @@ nav {
     }
 
     .rigintWrap {
+      display: flex;
       width: 70%;
+
       .menuWrap {
+        width: 70%;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
+
         li {
           display: flex;
           justify-content: center;
@@ -37,9 +42,53 @@ nav {
           height: 100px;
           color: #fff;
           text-align: center;
+          word-break: keep-all;
           cursor: pointer;
         }
       }
+
+      .btnWrap {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 30%;
+
+        .fa-solid {
+          margin-left: 40px;
+          color: #fff;
+        }
+
+        div {
+          position: relative;
+
+          .itemNum {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            right: -5px;
+            bottom: -10px;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7em;
+            border-radius: 9px;
+            color: #000;
+            border: 1px solid #000;
+            background-color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .dropMenu {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    height: 100%;
+    background-color: #ddd;
+    div {
+      padding-left: 30%;
     }
   }
 }
