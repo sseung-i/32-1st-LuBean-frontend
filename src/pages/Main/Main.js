@@ -1,12 +1,61 @@
 import React, { useEffect, useState, useRef } from "react";
+import { createPortal } from "react-dom";
+import Buttons from "./Buttons/Buttons";
 import "./Main.scss";
-
 const Main = () => {
+  const [imgNum, setImgNum] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentIndex2, setCurrentIndex2] = useState(0);
-  const container = useRef(null);
-  const container2 = useRef(null);
-  const button = useRef(null);
+  const bannerContainer = useRef(null);
+  const productContainer = useRef(null);
+  const BUTTONS_PRODUCT = [
+    {
+      "data-id": 0,
+      className: `btn${currentIndex2}`,
+    },
+    {
+      "data-id": 1,
+      className: `btn${currentIndex2}`,
+    },
+    {
+      "data-id": 2,
+      className: `btn${currentIndex2}`,
+    },
+  ];
+
+  const INNER__BANNER = [
+    {
+      "data-id": 0,
+      className: "item",
+      alt: `item0`,
+      src: `./images/slides/main0.jpg`,
+    },
+    {
+      "data-id": 1,
+      className: "item",
+      alt: `item1`,
+      src: `./images/slides/main1.jpg`,
+    },
+    {
+      "data-id": 2,
+      className: "item",
+      alt: `item2`,
+      src: `./images/slides/main2.jpg`,
+    },
+    {
+      "data-id": 3,
+      className: "item",
+      alt: `item3`,
+      src: `./images/slides/main3.jpg`,
+    },
+    {
+      "data-id": 4,
+      className: "item",
+      alt: `item4`,
+      src: `./images/slides/main4.jpg`,
+    },
+  ];
+
   const productsData = [
     {
       id: 1,
@@ -178,21 +227,24 @@ const Main = () => {
     },
   ];
 
-  function handleBtnClick(event) {
-    setCurrentIndex(event.target.dataset.id);
+  function handleBtnClick(e) {
+    const { id } = e.target.dataset;
+    setCurrentIndex(id);
+    setImgNum(Number(id));
   }
 
   function handleBtnClick2(event) {
     setCurrentIndex2(event.target.dataset.id);
   }
   useEffect(() => {
-    container.current.style.transform = `translate(-${currentIndex}00vw)`;
-    button.current.style.backgroundColor = "white";
+    bannerContainer.current.style.transform = `translate(-${currentIndex}00vw)`;
   }, [currentIndex]);
 
   useEffect(() => {
-    container2.current.style.transform = `translate(-${currentIndex2}00vw)`;
-    container2.current.style.transition = `transform 800ms`;
+    productContainer.current.style.transform = `translate(-${
+      currentIndex2 * 12
+    }00px)`;
+    productContainer.current.style.transition = `transform 800ms`;
   }, [currentIndex2]);
 
   // if (currentIndex < 5) {
@@ -213,83 +265,28 @@ const Main = () => {
       {/* 위쪽 배너 슬라이드 */}
       <div className="bannerContainerWrapper">
         <div className="bannerContainer">
-          <div ref={container} className="carousel">
-            <div className="inner">
-              <img
-                className="item"
-                alt="item1"
-                src="./images/slides/main1.jpg"
-              />
-            </div>
-            <div className="inner">
-              <img
-                className="item"
-                alt="item2"
-                src="./images/slides/main2.jpg"
-              />
-            </div>
-            <div className="inner">
-              <img
-                className="item"
-                alt="item3"
-                src="./images/slides/main3.jpg"
-              />
-            </div>
-            <div className="inner">
-              <img
-                className="item"
-                alt="item4"
-                src="./images/slides/main4.jpg"
-              />
-            </div>
-            <div className="inner">
-              <img
-                className="item"
-                alt="item5"
-                src="./images/slides/main5.jpg"
-              />
-            </div>
+          <div ref={bannerContainer} className="carousel">
+            {INNER__BANNER.map(inner => {
+              return (
+                <div key={inner["data-id"]} className="inner">
+                  <img className="item" alt={inner.alt} src={inner.src} />
+                </div>
+              );
+            })}
           </div>
         </div>
-        <div className="buttons">
-          <button
-            ref={button}
-            data-id="0"
-            onClick={handleBtnClick}
-            className={`btn${currentIndex}`}
-          />
-          <button
-            ref={button}
-            data-id="1"
-            onClick={handleBtnClick}
-            className={`btn${currentIndex}`}
-          />
-          <button
-            ref={button}
-            data-id="2"
-            onClick={handleBtnClick}
-            className={`btn${currentIndex}`}
-          />
-          <button
-            ref={button}
-            data-id="3"
-            onClick={handleBtnClick}
-            className={`btn${currentIndex}`}
-          />
-          <button
-            ref={button}
-            data-id="4"
-            onClick={handleBtnClick}
-            className={`btn${currentIndex}`}
-          />
-        </div>
+        <Buttons
+          imgLength={INNER__BANNER.length}
+          imgNum={imgNum}
+          handleBtnClick={handleBtnClick}
+        />
       </div>
 
       {/* 가운데 상품 슬라이드 */}
       <div className="productContainer">
         <h2 className="title">인기 원두 Top 12</h2>
         <div className="carousel">
-          <ul ref={container2} className="productWrap">
+          <ul ref={productContainer} className="productWrap">
             {productsData.map(
               ({ id, name, desc, country_name, price, tag, imgUrl }) => (
                 <li key={id} data-country={country_name}>
@@ -311,21 +308,16 @@ const Main = () => {
           </ul>
         </div>
         <div className="buttons">
-          <button
-            data-id="0"
-            onClick={handleBtnClick2}
-            className={`btn${currentIndex2}`}
-          />
-          <button
-            data-id="1"
-            onClick={handleBtnClick2}
-            className={`btn${currentIndex2}`}
-          />
-          <button
-            data-id="2"
-            onClick={handleBtnClick2}
-            className={`btn${currentIndex2}`}
-          />
+          {BUTTONS_PRODUCT.map(button => {
+            return (
+              <button
+                key={button["data-id"]}
+                data-id={button["data-id"]}
+                onClick={handleBtnClick2}
+                className={button.className}
+              />
+            );
+          })}
         </div>
       </div>
 
