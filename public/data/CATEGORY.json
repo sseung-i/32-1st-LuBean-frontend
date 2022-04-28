@@ -1,0 +1,7 @@
+[
+  { "id": 0, "title": "사이트소개", "name": "lubinSite" },
+  { "id": 1, "title": "원두", "name": "products" },
+  { "id": 2, "title": "굿즈", "name": "goods" },
+  { "id": 3, "title": "매장", "name": "stores" },
+  { "id": 4, "title": "이벤트", "name": "event" }
+]

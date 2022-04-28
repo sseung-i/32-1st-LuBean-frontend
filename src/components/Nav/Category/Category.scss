@@ -1,0 +1,25 @@
+@import "../../../styles/variables.scss";
+$categoryW: calc(100% / 5);
+
+.category {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $categoryW;
+  height: 100px;
+  color: #fff;
+  text-align: center;
+  word-break: keep-all;
+  cursor: pointer;
+
+  .dropTriangle {
+    position: absolute;
+    left: calc(50% - 5px);
+    bottom: -5px;
+    width: 10px;
+    height: 10px;
+    transform: rotate(-45deg);
+    background-color: $color-main-black;
+  }
+}

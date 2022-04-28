@@ -1,0 +1,62 @@
+@import "../../../styles/variables.scss";
+
+.dropMenu {
+  position: absolute;
+  top: 100px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-main-black;
+
+  .menuWrap {
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    width: 100%;
+
+    .mainMenu {
+      display: flex;
+      align-items: flex-start;
+      padding: 55px 50px;
+
+      .title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #fff;
+        font-weight: 700;
+        font-size: $font-L;
+
+        span {
+          cursor: pointer;
+          margin-bottom: 15px;
+        }
+
+        .subMenu {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          li {
+            padding: 10px 0;
+            span {
+              color: $color-main-gray;
+              font-size: $font-S;
+              transition: color 0.3s;
+
+              &:hover {
+                color: #fff;
+                transition: color 0.3s;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
