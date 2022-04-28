@@ -18,13 +18,13 @@ const Footer = () => {
           <p className="leftTop">
             고객센터 1644-2357
             <br />
-            <span>
+            <a>
               webmaster@lubean.co.kr
               <br />
               상담전화 13:00~16:00(평일)
               <br />
               상담톡 10:00~16:00(평일)
-            </span>
+            </a>
           </p>
           <p className="leftBottom">
             기업선물 070-4713-8543
@@ -46,22 +46,22 @@ const Footer = () => {
         <div className="infoRight">
           <ul className="menu">
             <li>
-              <span>스카우트</span>
+              <a>스카우트</a>
             </li>
             <li>
-              <span>회사소개</span>
+              <a>회사소개</a>
             </li>
             <li>
-              <span>개인정보처리방침</span>
+              <a className="policy">개인정보처리방침</a>
             </li>
             <li>
-              <span>영상정보관리지침</span>
+              <a>영상정보관리지침</a>
             </li>
             <li>
-              <span>이용약관</span>
+              <a>이용약관</a>
             </li>
             <li>
-              <span>고객센터</span>
+              <a>고객센터</a>
             </li>
           </ul>
           <form className="subscribe">
@@ -75,7 +75,8 @@ const Footer = () => {
             매주 월요일 오후, 구독자님을 위한 제품과 브랜드 이야기를
             전해드립니다.
             <br />
-            구독은 언제든지 해지하실 수 있습니다. <span>미리보기</span>
+            구독은 언제든지 해지하실 수 있습니다.
+            <a className="preview">미리보기</a>
           </p>
           <p className="address">
             서울특별시 서초구 서운로 138(서초동이타워)6층|사이트 운영자:주식회사
