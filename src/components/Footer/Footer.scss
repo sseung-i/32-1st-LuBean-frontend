@@ -1,0 +1,122 @@
+@import "src/styles/variables.scss";
+
+.footer {
+  * {
+    word-break: keep-all;
+  }
+  width: 100vw;
+  padding-top: 300px;
+  background-color: black;
+  .icons {
+    width: 100%;
+    height: 171.09px;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    i {
+      font-size: 80px;
+    }
+  }
+
+  .info {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 423.8px;
+    display: flex;
+    align-items: center;
+    color: white;
+
+    .infoLeft {
+      width: 300px;
+
+      .logo {
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 55px;
+      }
+
+      .leftTop,
+      .leftBottom {
+        font-size: 16px;
+        margin-bottom: 33px;
+        span {
+          font-size: 14px;
+          line-height: 1.5;
+        }
+      }
+
+      .favicons {
+        font-size: 18px;
+
+        i {
+          border-radius: 50%;
+          background-color: #808080;
+          color: black;
+          text-align: center;
+          padding: 8px;
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .infoRight {
+      width: 900px;
+      margin-bottom: 40px;
+      overflow: hidden;
+      .menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        font-size: 14px;
+        margin-bottom: 55px;
+
+        li {
+          padding: 5px 30px 5px 0;
+
+          span {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .subscribe {
+        width: 70%;
+        border: 1px white solid;
+        margin-bottom: 12px;
+
+        .subscribeInput {
+          width: 80%;
+          padding: 10px;
+          outline: none;
+          border: none;
+        }
+
+        button {
+          background-color: black;
+          color: white;
+          padding-left: 25px;
+        }
+      }
+
+      .description {
+        line-height: 1.5;
+        margin-bottom: 24px;
+      }
+
+      .address {
+        font-size: 14px;
+        color: #828282;
+        line-height: 1.5;
+        margin-bottom: 24px;
+      }
+
+      .copyright {
+        font-size: 14px;
+        color: #828282;
+        line-height: 1.5;
+      }
+    }
+  }
+}
