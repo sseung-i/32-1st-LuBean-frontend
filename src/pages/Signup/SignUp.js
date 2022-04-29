@@ -69,7 +69,9 @@ function SignUp() {
       labelName: "비밀번호",
       name: "pwInput",
       type: "password",
-      checkResult: "비밀번호 형식에 맞지않습니다.-wrong",
+      rules: signUpValues.pwInput.length >= 8,
+      checkMPass: "사용가능한 비밀번호입니다.",
+      checkMtWrong: "",
     },
     {
       important: true,
@@ -77,7 +79,9 @@ function SignUp() {
       labelName: "비밀번호 확인",
       name: "pwInputCheck",
       type: "password",
-      checkResult: "비밀번호가 일치하지않습니다.-wrong",
+      rules: signUpValues.pwInput === signUpValues.pwInputCheck,
+      checkMPass: "비밀번호가 일치합니다.",
+      checkMtWrong: "비밀번호가 일치하지 않습니다.",
     },
     {
       important: true,
@@ -85,7 +89,9 @@ function SignUp() {
       labelName: "이름",
       name: "nameInput",
       type: "text",
-      checkResult: "",
+      rules: signUpValues.idInput.length > 1,
+      checkMPass: "사용가능한 이름입니다.",
+      checkMtWrong: "",
     },
     {
       important: true,
@@ -93,7 +99,11 @@ function SignUp() {
       labelName: "이메일",
       name: "emailInput",
       type: "text",
-      checkResult: "이메일 형식이 아닙니다.-wrong",
+      rules:
+        signUpValues.idInput.includes("@") &&
+        signUpValues.idInput.includes("."),
+      checkMPass: "사용가능한 이메일입니다.",
+      checkMtWrong: "이메일 형식에 맞지않습니다.",
     },
     {
       important: true,
@@ -101,7 +111,9 @@ function SignUp() {
       labelName: "휴대폰번호",
       name: "phoneInput",
       type: "text",
-      checkResult: "번호가 너무 길거나 짧습니다.-wrong",
+      rules: signUpValues.phoneInput.length === 11,
+      checkMPass: "",
+      checkMtWrong: "휴대폰번호를 다시 확인해주세요.",
     },
   ];
 

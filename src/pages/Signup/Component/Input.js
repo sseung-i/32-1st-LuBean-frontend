@@ -20,9 +20,11 @@ function Input({
         </div>
         <p>{labelName}</p>
         <input onChange={handleInput} name={name} type={type} value={value} />
+        {rules && <span className="good">{checkMPass}</span>}
+        {!rules && value.length >= 1 && (
+          <span className="wrong">{checkMtWrong}</span>
+        )}
       </div>
-      {rules && <p>{checkMPass}</p>}
-      {!rules && value.length >= 1 && <p>{checkMtWrong}</p>}
       {/* // !true === false
       // !false === true
 
