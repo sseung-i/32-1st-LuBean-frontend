@@ -4,9 +4,10 @@ import Buttons from "./Buttons/Buttons";
 import "./Main.scss";
 const Main = () => {
   const [imgNum, setImgNum] = useState(0);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [currentIndex2, setCurrentIndex2] = useState(0);
-  const bannerContainer = useRef(null);
+  const [slideIndex, setSlideIndex] = useState(0);
+  // const bannerContainer = useRef(null);
+  const banner = useRef(null);
   const productContainer = useRef(null);
   const BUTTONS_PRODUCT = [
     {
@@ -229,41 +230,35 @@ const Main = () => {
 
   function handleBtnClick(e) {
     const { id } = e.target.dataset;
-    setCurrentIndex(id);
     setImgNum(Number(id));
+    banner.current.style.animation = "fadeout ease 2s";
+    // banner.current.style.animation = "fadein 2s ease-in-out forwards";
+    banner.current.style["animation-iteration-count"] = "1";
+    // banner.current.style["animation-fill-mode"] = "forwards";
+    // banner.current.style.animation = "fadeout 1s";
   }
-
   function handleBtnClick2(event) {
     setCurrentIndex2(event.target.dataset.id);
   }
-  useEffect(() => {
-    bannerContainer.current.style.transform = `translate(-${currentIndex}00vw)`;
-  }, [currentIndex]);
-
+  // useEffect(() => {
+  //   bannerContainer.current.style.transform = `translate(-${imgNum}00vw)`;
+  // }, [imgNum]);
   useEffect(() => {
     productContainer.current.style.transform = `translate(-${
       currentIndex2 * 12
     }00px)`;
     productContainer.current.style.transition = `transform 800ms`;
   }, [currentIndex2]);
-
-  // if (currentIndex < 5) {
-  //   setCurrentIndex(currentIndex + 1);
-  // }
-  // function carousel() {
-  //   container.current.style.transform = `translate(-${currentIndex}00vw)`;
-  // }
-
-  // useEffect(() => {
-  //   setInterval(carousel, 3000);
-  //   // container.current.classList.add("active");
-  //   // container.current.animation =
-  // }, [currentIndex]);
+  useEffect(() => {
+    setInterval(function () {
+      setImgNum(prevImg => (prevImg < 4 ? (prevImg += 1) : (prevImg = 0)));
+    }, 3000);
+  }, []);
 
   return (
     <div className="main">
       {/* 위쪽 배너 슬라이드 */}
-      <div className="bannerContainerWrapper">
+      {/* <div className="bannerContainerWrapper">
         <div className="bannerContainer">
           <div ref={bannerContainer} className="carousel">
             {INNER__BANNER.map(inner => {
@@ -280,8 +275,23 @@ const Main = () => {
           imgNum={imgNum}
           handleBtnClick={handleBtnClick}
         />
+      </div> */}
+      <div className="bannerContainerWrapper">
+        <div className="bannerContainer">
+          <img
+            ref={banner}
+            data-id={`${imgNum}`}
+            className="inner"
+            alt={`item${imgNum}`}
+            src={`./images/slides/main${imgNum}.jpg`}
+          />
+          <Buttons
+            imgLength={INNER__BANNER.length}
+            imgNum={imgNum}
+            handleBtnClick={handleBtnClick}
+          />
+        </div>
       </div>
-
       {/* 가운데 상품 슬라이드 */}
       <div className="productContainer">
         <h2 className="title">인기 원두 Top 12</h2>
@@ -307,6 +317,11 @@ const Main = () => {
             )}
           </ul>
         </div>
+        {/* <Buttons
+          imgLength={productsData.length}
+          imgNum={imgNum}
+          handleBtnClick={handleBtnClick2}
+        /> */}
         <div className="buttons">
           {BUTTONS_PRODUCT.map(button => {
             return (
@@ -349,5 +364,4 @@ const Main = () => {
     </div>
   );
 };
-
 export default Main;
