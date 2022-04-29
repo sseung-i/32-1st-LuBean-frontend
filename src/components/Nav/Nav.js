@@ -1,23 +1,38 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import BtnWrap from "./BtnWrap/BtnWrap";
 import Category from "./Category/Category";
 import DropMenu from "./DropMenu/DropMenu";
+import { USER, CATEGORY, PRODUCTS_SUBMENU, GOODS_SUBMENU } from "./NAV_DATA";
 import "./Nav.scss";
 
 const Nav = () => {
-  const [category, setCategory] = useState([]);
   const [isEnter, setIsEnter] = useState(false);
-  const [cartNum, setCartNum] = useState(0);
+  const [nowTarget, setNowTarget] = useState(null);
+  const [subMenuData, setSubMenuData] = useState([]);
 
   useEffect(() => {
-    fetch("data/CATEGORY.json")
+    fetch("./NAV_DATA.js")
       .then(res => res.json())
-      .then(data => setCategory(data));
-    setCartNum(0);
+      .then(data => console.log(data.USER));
   }, []);
 
+  useEffect(() => {
+    if (nowTarget === "products") {
+      setSubMenuData(PRODUCTS_SUBMENU);
+    } else if (nowTarget === "goods") {
+      setSubMenuData(GOODS_SUBMENU);
+    }
+  }, [nowTarget]);
+
   const onDropMenu = e => {
-    e.target.dataset.text === "products" && setIsEnter(true);
+    const { text } = e.target.dataset;
+    if (text === "products" || text === "goods") {
+      setNowTarget(text);
+      setIsEnter(true);
+    } else {
+      return;
+    }
   };
 
   const onLeaveMenu = () => {
@@ -34,39 +49,25 @@ const Nav = () => {
         </div>
         <div className="rigintWrap">
           <ul className="menuWrap">
-            {category.map(({ id, title, name }) => (
+            {CATEGORY.map(({ id, text, name }) => (
               <Category
                 key={id}
-                id={id}
-                title={title}
+                text={text}
                 name={name}
                 isEnter={isEnter}
-                setIsEnter={setIsEnter}
+                nowTarget={nowTarget}
                 onDropMenu={onDropMenu}
               />
             ))}
           </ul>
-          <div className="btnWrap">
-            <Link to="/main">
-              <div className="iconBtn">
-                <i className="fa-solid fa-xl fa-magnifying-glass" />
-              </div>
-            </Link>
-            <Link to="/main">
-              <div className="iconBtn">
-                <span className="itemNum">{cartNum}</span>
-                <i className="fa-solid fa-xl fa-basket-shopping" />
-              </div>
-            </Link>
-            <Link to="/main">
-              <div className="iconBtn">
-                <i className="fa-solid fa-xl fa-circle-user" />
-              </div>
-            </Link>
-          </div>
+          <BtnWrap cartNum={USER.cart.length} />
         </div>
       </section>
-      <DropMenu isEnter={isEnter} onDropMenu={onDropMenu} />
+      <DropMenu
+        isEnter={isEnter}
+        onDropMenu={onDropMenu}
+        subMenuData={subMenuData}
+      />
     </nav>
   );
 };
