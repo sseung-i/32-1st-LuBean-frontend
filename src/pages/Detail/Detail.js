@@ -6,8 +6,12 @@ import Delivery from "./Delivery/Delivery";
 import "./Detail.scss";
 
 const Detail = () => {
-  // const [clickTab, setClickTab] = useState([]);
   const [value, setValue] = useState(0);
+
+  const goToOrder = () => {
+    alert("주문성공!!");
+  };
+
   return (
     //디테일 윗부분
     <div className="detail">
@@ -59,25 +63,31 @@ const Detail = () => {
                 +
               </button>
             </span>
-            <span class="total">125g/ 30,000원</span>
-            <button className="totalDelBtn">x</button>
+            {/* <span class="total">125g/ 30,000원</span>
+            <button className="totalDelBtn">x</button> */}
           </div>
 
           <div className="totalPrice">
             <div>총합계금액 </div>
-            <div className="priceNum">30,000</div>
+            <div className="priceNum">
+              {/* 가격 정규식 */}
+              {/* {String(value * 30000).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원 */}
+              {(value * 30000).toLocaleString()}
+            </div>
           </div>
 
           <div className="buttonCart">
             <button className="cartBtn">장바구니</button>
-            <button className="orderBtn">주문하기</button>
+            <button className="orderBtn" onClick={goToOrder}>
+              주문하기
+            </button>
           </div>
         </section>
       </div>
       {/* tab */}
 
-      <div id="tab01">
-        <Tab />
+      <div id="info">
+        <Tab region="info" />
       </div>
       <div className="mainContainer">
         <Info />
@@ -86,15 +96,15 @@ const Detail = () => {
       {/* 리뷰 */}
 
       <div className="review">
-        <div id="tab02">
-          <Tab />
+        <div id="reviewList">
+          <Tab region="reviewList" />
         </div>
         <ReviewList />
       </div>
       {/* 배송/교환 */}
       <div className="delivery">
-        <div id="tab03">
-          <Tab />
+        <div id="delivery">
+          <Tab region="delivery" />
         </div>
         <Delivery />
       </div>

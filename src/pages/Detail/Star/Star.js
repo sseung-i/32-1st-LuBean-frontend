@@ -20,19 +20,3 @@ const Star = ({ onStarChange }) => {
 };
 
 export default Star;
-
-{
-  /* {reviewList.map(review => {
-        <label htmlFor="star5">
-          <input
-            type="radio"
-            id="star5"
-            name="star"
-            value={rateValue}
-            onClick={onStarChange}
-          />
-          ★★★★★
-        </label>;
-      })}
-    </div> */
-}

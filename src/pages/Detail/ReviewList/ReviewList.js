@@ -47,6 +47,7 @@ const ReviewList = () => {
   };
 
   console.log(rateValue, typeof rateValue);
+  console.log(inputValue);
 
   return (
     <div>
