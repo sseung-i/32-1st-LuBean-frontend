@@ -123,17 +123,31 @@ function SignUp() {
             </p>
           </div>
           <div className="inputBox"></div>
-          {INPUT_LIST.map(({ important, id, labelName, name, type, rules }) => (
-            <Input
-              handleInput={handleInput}
-              important={important}
-              key={id}
-              labelName={labelName}
-              name={name}
-              type={type}
-              rules={rules}
-            />
-          ))}
+          {INPUT_LIST.map(
+            ({
+              important,
+              id,
+              labelName,
+              name,
+              type,
+              rules,
+              checkMPass,
+              checkMtWrong,
+            }) => (
+              <Input
+                handleInput={handleInput}
+                important={important}
+                key={id}
+                labelName={labelName}
+                name={name}
+                type={type}
+                rules={rules}
+                value={signUpValues[name]}
+                checkMPass={checkMPass}
+                checkMtWrong={checkMtWrong}
+              />
+            )
+          )}
         </div>
       </div>
       <button className="signupbutton" onClick={goToSignUpDone}>
