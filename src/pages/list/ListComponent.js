@@ -7,8 +7,6 @@ const ListComponent = ({ originalData }) => {
 
   let sortedData;
 
-  console.log(options);
-
   const countryData =
     options.target === "all"
       ? originalData
@@ -40,12 +38,28 @@ const ListComponent = ({ originalData }) => {
     { id: 3, value: "Word", text: "가나다순" },
   ];
 
+  const pageChangeRequest = postData => {
+    const api_url = "";
+    // fetch(api_url, {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     //내용 postData
+    //   }),
+    // })
+    //   .then(res => res.json())
+    //   .then(result => na);
+  };
+
   const countryClick = e => {
-    setOptions({ ...options, target: e.target.dataset.id });
+    const countryData = e.target.dataset.id;
+    pageChangeRequest(countryData);
+    // setOptions({ ...options, target: e.target.dataset.id });
   };
 
   const changeSelector = e => {
-    setOptions({ ...options, sort: e.target.value });
+    const selectorData = e.target.value;
+    pageChangeRequest(selectorData);
+    // setOptions({ ...options, sort: e.target.value });
   };
 
   return (

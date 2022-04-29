@@ -4,7 +4,6 @@ import "./List.scss";
 
 const List = () => {
   const [originalData, setOriginalData] = useState([]);
-  console.log("최상위", originalData);
 
   useEffect(() => {
     fetch("data/productsData.json")
