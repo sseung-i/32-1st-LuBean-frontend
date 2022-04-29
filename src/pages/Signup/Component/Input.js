@@ -1,8 +1,16 @@
 import React from "react";
 import "./Input.scss";
 
-function Input({ important, labelName, name, type }) {
-  console.log(important);
+function Input({
+  handleInput,
+  important,
+  labelName,
+  name,
+  type,
+  checkMPass,
+  checkMtWrong,
+}) {
+  // console.log(rules);
   return (
     <>
       <div className="input">
@@ -10,8 +18,9 @@ function Input({ important, labelName, name, type }) {
           {important && <span className="redPoint" />}
         </div>
         <p>{labelName}</p>
-        <input name={name} type={type} />
+        <input onChange={handleInput} name={name} type={type} />
       </div>
+      <p>{}</p>
     </>
   );
 }

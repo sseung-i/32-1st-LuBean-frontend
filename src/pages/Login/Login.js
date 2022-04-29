@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import InputBox from "./Component/InputBox";
 import LOGIN_LIST from "./Component/LOGIN_LIST";
@@ -6,11 +6,35 @@ import "./Login.scss";
 import "@fortawesome/fontawesome-free/js/all.js";
 
 function Login() {
+  const [inputValues, setInputValues] = useState({
+    id: "",
+    pw: "",
+  });
+
+  const handleInput = e => {
+    const { name, value } = e.target;
+    setInputValues({ ...inputValues, [name]: value });
+  };
+
   const navigate = useNavigate();
 
-  const goToMain = () => {
+  const goToMain = e => {
     navigate("/main");
   };
+
+  const goToSignUp = () => {
+    navigate("/signup");
+  };
+
+  const onLoginBtnClick = () => {
+    idRules && pwRules ? goToMain() : checkLogin();
+  };
+  const checkLogin = () => {
+    alert("아이디와 비밀번호를 확인해주세요");
+  };
+
+  const idRules = inputValues.id.includes("@") && inputValues.id.includes(".");
+  const pwRules = inputValues.pw.length >= 8;
 
   return (
     <div className="loginAll">
@@ -19,8 +43,14 @@ function Login() {
         <div className="memberText">회원</div>
 
         <div className="inputBoxes">
-          {LOGIN_LIST.map(({ iconName, type, placeholder }) => (
-            <InputBox potato={iconName} type={type} placeholder={placeholder} />
+          {LOGIN_LIST.map(({ iconName, name, type, placeholder }) => (
+            <InputBox
+              handleInput={handleInput}
+              potato={iconName}
+              name={name}
+              type={type}
+              placeholder={placeholder}
+            />
           ))}
         </div>
         <div className="saveID">
@@ -29,10 +59,12 @@ function Login() {
             아이디 저장
           </label>
         </div>
-        <button className="loginButton" onClick={goToMain}>
+        <button className="loginButton" onClick={onLoginBtnClick}>
           로그인
         </button>
-        <span className="other">회원가입 | 아이디찾기 | 비밀번호찾기 </span>
+        <span className="other" onClick={goToSignUp}>
+          회원가입
+        </span>
       </div>
     </div>
   );

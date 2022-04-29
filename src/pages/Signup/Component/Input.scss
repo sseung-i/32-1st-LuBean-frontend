@@ -26,7 +26,19 @@
   }
 
   input {
-    width: 350px;
+    width: 370px;
     height: 30px;
+  }
+
+  .good {
+    margin-left: 10px;
+    color: green;
+    font-weight: 600;
+  }
+
+  .worng {
+    margin-left: 10px;
+    color: green;
+    font-weight: 600;
   }
 }

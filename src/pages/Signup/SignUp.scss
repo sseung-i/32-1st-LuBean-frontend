@@ -3,55 +3,64 @@
 .signupAll {
   display: flex;
   align-items: center;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: column;
   margin-top: 150px;
 
-  .signupText {
-    @include LnJfont_XL;
-  }
-
-  .location {
+  .signupBox {
     display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
-    margin-bottom: 80px;
-    width: 180px;
-    font-size: 15px;
-    font-weight: 900;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 800px;
+    // background-color: yellow;
 
-    // .info {
-
-    // }
-
-    .sideBar {
-      color: $color-main-gray;
+    .signupText {
+      @include LnJfont_XL;
     }
-    .done {
-      color: $color-main-gray;
-    }
-  }
-  .signupInfoBox {
-    width: 65%;
-    margin-bottom: 30px;
 
-    .infoTitle {
+    .location {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      // width: 900px;
-      height: 65px;
-      border-bottom: 2px solid black;
+      margin-top: 50px;
+      margin-bottom: 80px;
+      width: 180px;
+      font-size: 15px;
+      font-weight: 900;
 
-      .basicInfo {
-        font-size: 21px;
-        font-weight: 800;
-        color: $color-main-black;
+      // .info {
+
+      // }
+
+      .sideBar {
+        color: $color-main-gray;
       }
-      .desc {
-        font-size: 12px;
-        font-weight: 500;
-        color: $color-font-lightGray;
+      .done {
+        color: $color-main-gray;
+      }
+    }
+    .signupInfoBox {
+      width: 100%;
+      margin-bottom: 30px;
+
+      .infoTitle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // width: 900px;
+        height: 65px;
+        border-bottom: 2px solid black;
+
+        .basicInfo {
+          font-size: 21px;
+          font-weight: 800;
+          color: $color-main-black;
+        }
+        .desc {
+          font-size: 12px;
+          font-weight: 500;
+          color: $color-font-lightGray;
+        }
       }
     }
   }
