@@ -1,0 +1,96 @@
+.review {
+  padding: 100px 0 0;
+  // background-color: rgb(245, 245, 176);
+  .reContainer {
+    .reHeader {
+      .reHeaderFirst {
+        display: flex;
+        align-items: center;
+
+        .reHeaderName {
+          font-size: 30px;
+        }
+
+        .reHeaderStar {
+          padding-left: 15px;
+          font-size: 16px;
+        }
+      }
+      .reHeaderSecond {
+        width: 100%;
+        font-size: 18px;
+        font-weight: normal;
+        line-height: 30px;
+      }
+    }
+    .reMain {
+      .starRadioBtn {
+        .reviewForm {
+          .reMainStar {
+            display: flex;
+            width: 99.8%;
+            margin-top: 20px;
+            border: 1px solid #dbdbdb;
+            border-bottom: 0;
+            padding: 20px;
+            .starText {
+              font-size: 13px;
+              // width: 30%;
+              margin-right: 30px;
+              text-align: center;
+            }
+            .radio {
+              padding-left: 50px;
+
+              input {
+                margin-right: 10px;
+              }
+              label {
+                margin-right: 10px;
+              }
+            }
+          }
+          .reviewArea {
+            padding: 20px;
+            border: 1px solid #dbdbdb;
+            width: 99.8%;
+
+            .reviewTextArea {
+              resize: none;
+              width: 99.8%;
+              outline: none;
+              border: none;
+              resize: none;
+              height: 220px;
+            }
+          }
+          .reviewBtn {
+            display: flex;
+            justify-content: flex-end;
+            border: 1px solid #dbdbdb;
+            width: 99.8%;
+            .reviewButton {
+              width: 140px;
+              height: 60px;
+              font-size: 15px;
+              font-weight: bold;
+              border: 1px solid #000;
+              letter-spacing: -0.5px;
+              line-height: 1.4;
+              background-color: #fff;
+              color: #333;
+            }
+          }
+        }
+      }
+      .reviewList {
+        .reviewListContainer {
+          margin-top: 30px;
+          width: 100%;
+          padding-top: 0px;
+          border-bottom: 2px solid #dbdbdb;
+        }
+      }
+    }
+  }
+}

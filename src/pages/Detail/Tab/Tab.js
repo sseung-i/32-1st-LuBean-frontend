@@ -3,23 +3,18 @@ import "../Tab/Tab.scss";
 
 const Tab = () => {
   return (
-    <div>
+    <div className="tab">
       <ul className="tabNav">
-        <li className="col-sm-4">
-          <a href="#tab01 ">탭1</a>
+        <li className="tabBlock">
+          <a href="#tab01 ">상품상세정보</a>
         </li>
-        <li className="col-sm-4">
-          <a href="#tab02">탭2</a>
+        <li className="tabBlock">
+          <a href="#tab02">상품후기</a>
         </li>
-        <li className="col-sm-4">
-          <a href="#tab03">탭3</a>
+        <li className="tabBlock">
+          <a href="#tab03">배송/교환 및 반품안내</a>
         </li>
       </ul>
-      <div class="tabContent">
-        <div id="tab01">tab1 content</div>
-        <div id="tab02">tab2 content</div>
-        <div id="tab03">tab3 content</div>
-      </div>
     </div>
   );
 };
