@@ -5,12 +5,12 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="icons">
-        <i class="fa-solid fa-mug-hot" />
-        <i class="fa-solid fa-mug-saucer" />
-        <i class="fa-solid fa-mug-hot" />
-        <i class="fa-solid fa-mug-saucer" />
-        <i class="fa-solid fa-mug-hot" />
-        <i class="fa-solid fa-mug-saucer" />
+        <i className="fa-solid fa-mug-hot" />
+        <i className="fa-solid fa-mug-saucer" />
+        <i className="fa-solid fa-mug-hot" />
+        <i className="fa-solid fa-mug-saucer" />
+        <i className="fa-solid fa-mug-hot" />
+        <i className="fa-solid fa-mug-saucer" />
       </div>
       <div className="info">
         <div className="infoLeft">
@@ -18,13 +18,13 @@ const Footer = () => {
           <p className="leftTop">
             고객센터 1644-2357
             <br />
-            <a>
+            <span>
               webmaster@lubean.co.kr
               <br />
               상담전화 13:00~16:00(평일)
               <br />
               상담톡 10:00~16:00(평일)
-            </a>
+            </span>
           </p>
           <p className="leftBottom">
             기업선물 070-4713-8543
@@ -36,11 +36,11 @@ const Footer = () => {
             </span>
           </p>
           <div className="favicons">
-            <i class="fa-brands fa-facebook-f" />
-            <i class="fa-brands fa-instagram" />
-            <i class="fa-brands fa-youtube" />
-            <i class="fa-brands fa-pinterest-p" />
-            <i class="fa-brands fa-twitter" />
+            <i className="fa-brands fa-facebook-f" />
+            <i className="fa-brands fa-instagram" />
+            <i className="fa-brands fa-youtube" />
+            <i className="fa-brands fa-pinterest-p" />
+            <i className="fa-brands fa-twitter" />
           </div>
         </div>
         <div className="infoRight">
