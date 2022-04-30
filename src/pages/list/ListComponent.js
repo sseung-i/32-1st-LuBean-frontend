@@ -1,35 +1,37 @@
 import React, { useState } from "react";
+// import { Navigate } from "react-router-dom";
 import Country from "../Country/Country";
 import ProductsList from "./ProductsList/ProductsList";
 
 const ListComponent = ({ originalData }) => {
+  const { title, title_en, desc, topImg, listItem } = originalData;
   const [options, setOptions] = useState({ target: "all", sort: "recommend" });
 
-  let sortedData;
+  let sortedData = listItem;
 
-  const countryData =
-    options.target === "all"
-      ? originalData
-      : originalData.filter(el => el.country_name === options.target);
+  // const countryData =
+  //   options.target === "all"
+  //     ? originalData
+  //     : originalData.filter(el => el.country_name === options.target);
 
-  if (options.sort === "recommend") {
-    const bestProducts = countryData.filter(it => it.tag.includes("best"));
-    const remainProducts = countryData.filter(it => !it.tag.includes("best"));
-    sortedData = bestProducts.concat(remainProducts);
-  }
-  if (options.sort === "Ascending") {
-    sortedData = countryData.sort((a, b) => a.price - b.price);
-  }
-  if (options.sort === "Descending") {
-    sortedData = countryData.sort((a, b) => b.price - a.price);
-  }
-  if (options.sort === "Word") {
-    sortedData = countryData.sort((a, b) => {
-      if (a.name < b.name) return -1;
-      if (a.name > b.name) return 1;
-      return 0;
-    });
-  }
+  // if (options.sort === "recommend") {
+  //   const bestProducts = countryData.filter(it => it.tag.includes("best"));
+  //   const remainProducts = countryData.filter(it => !it.tag.includes("best"));
+  //   sortedData = bestProducts.concat(remainProducts);
+  // }
+  // if (options.sort === "Ascending") {
+  //   sortedData = countryData.sort((a, b) => a.price - b.price);
+  // }
+  // if (options.sort === "Descending") {
+  //   sortedData = countryData.sort((a, b) => b.price - a.price);
+  // }
+  // if (options.sort === "Word") {
+  //   sortedData = countryData.sort((a, b) => {
+  //     if (a.name < b.name) return -1;
+  //     if (a.name > b.name) return 1;
+  //     return 0;
+  //   });
+  // }
 
   const selectValue = [
     { id: 0, value: "recommend", text: "추천순" },
@@ -40,14 +42,14 @@ const ListComponent = ({ originalData }) => {
 
   const pageChangeRequest = postData => {
     const api_url = "";
-    // fetch(api_url, {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     //내용 postData
-    //   }),
-    // })
-    //   .then(res => res.json())
-    //   .then(result => na);
+    fetch(api_url, {
+      method: "POST",
+      body: JSON.stringify({
+        //내용 postData
+      }),
+    })
+      .then(res => res.json())
+      .then(result => console.log(result));
   };
 
   const countryClick = e => {
@@ -64,13 +66,15 @@ const ListComponent = ({ originalData }) => {
 
   return (
     <div className="list">
-      <section className="title">
-        <h2>싱글 오리진</h2>
-        <p>각 생산지의 맛의 특색을 느껴보세요</p>
+      <section className="title" style={{ backgroundImage: `URL(${topImg})` }}>
+        <h2>{title}</h2>
+        <p>{desc}</p>
       </section>
       <section className="products">
         <article className="top">
-          <h3>싱글 오리진 (Single Origin)</h3>
+          <h3>
+            {title} ({title_en})
+          </h3>
           <select className="listSort" onChange={changeSelector}>
             {selectValue.map(({ id, value, text }) => (
               <option key={id} value={value}>
@@ -80,11 +84,11 @@ const ListComponent = ({ originalData }) => {
           </select>
         </article>
         <Country
-          data={originalData}
+          data={listItem}
           countryClick={countryClick}
           target={options.target}
         />
-        <ProductsList data={sortedData} />
+        <ProductsList data={listItem} />
       </section>
     </div>
   );

@@ -1,156 +1,177 @@
-[
-  {
-    "id": 1,
-    "name": "산 안토니오 챠기테 [강배전]",
-    "desc": "San Antonio Chaguite",
-    "country_name": "과테말라",
-    "weight": "200g",
-    "tag": ["new"],
-    "price": 12000,
-    "menus": "singleOrigin",
-    "imgUrl": [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg"
-    ]
-  },
-  {
-    "id": 2,
-    "name": "폰테 알타 내추럴",
-    "desc": "Ponte Alta Natural",
-    "country_name": "브라질",
-    "weight": "100g",
-    "tag": ["new", "best"],
-    "price": 13000,
-    "menus": "singleOrigin",
-    "imgUrl": [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg"
-    ]
-  },
-  {
-    "id": 3,
-    "name": "라 벤디시온 파카마라 내추럴",
-    "desc": "La Bendicion Pacamara Natural",
-    "country_name": "니카라과",
-    "weight": "100g",
-    "tag": ["new"],
-    "price": 14000,
-    "menus": "singleOrigin",
-    "imgUrl": [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg"
-    ]
-  },
-  {
-    "id": 4,
-    "name": "보카 [강배전]",
-    "desc": "파푸아뉴기니",
-    "country_name": "보카",
-    "weight": "100g",
-    "tag": [],
-    "price": 12000,
-    "menus": "singleOrigin",
-    "imgUrl": [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg"
-    ]
-  },
-  {
-    "id": 5,
-    "name": "배드블러드",
-    "desc": "La Bendicion Pacamara Natural",
-    "country_name": "보카",
-    "weight": "100g",
-    "tag": [],
-    "price": 12500,
-    "menus": "singleOrigin",
-    "imgUrl": [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg"
-    ]
-  },
-  {
-    "id": 6,
-    "name": "니카라과",
-    "desc": "파푸아뉴기니",
-    "country_name": "보카",
-    "weight": "100g",
-    "tag": [],
-    "price": 16000,
-    "menus": "singleOrigin",
-    "imgUrl": [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg"
-    ]
-  },
-  {
-    "id": 7,
-    "name": "보카 [강배전]",
-    "desc": "La Bendicion Pacamara Natural",
-    "country_name": "파푸아뉴기니",
-    "weight": "100g",
-    "tag": [],
-    "price": 11000,
-    "menus": "singleOrigin",
-    "imgUrl": [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg"
-    ]
-  },
-  {
-    "id": 8,
-    "name": "라스 라하스 펠라 네그라",
-    "desc": "과테말라",
-    "country_name": "파푸아뉴기니",
-    "weight": "100g",
-    "tag": ["best"],
-    "price": 7000,
-    "menus": "singleOrigin",
-    "imgUrl": [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg"
-    ]
-  },
-  {
-    "id": 9,
-    "name": "폰테 알타 내추럴",
-    "desc": "Ponte Alta Natural",
-    "country_name": "브라질",
-    "weight": "100g",
-    "tag": [],
-    "price": 12700,
-    "menus": "singleOrigin",
-    "imgUrl": [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg"
-    ]
-  },
-  {
-    "id": 10,
-    "name": "라 벤디시온 파카마라 내추럴",
-    "desc": "La Bendicion Pacamara Natural",
-    "country_name": "니카라과",
-    "weight": "100g",
-    "tag": [],
-    "price": 8500,
-    "menus": "singleOrigin",
-    "imgUrl": [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg"
-    ]
-  },
-  {
-    "id": 11,
-    "name": "누에바 루즈 파라이네마",
-    "desc": "파푸아뉴기니",
-    "country_name": "파푸아뉴기니",
-    "weight": "100g",
-    "tag": ["best"],
-    "price": 11500,
-    "menus": "singleOrigin",
-    "imgUrl": [
-      "/images/products/coffee_pkg_1.jpeg",
-      "/images/products/coffee_pkg_2.jpeg"
-    ]
-  }
-]
+{
+  "title": "싱글 오리진",
+  "title_en": "Single Origin",
+  "desc": "각 생산지의 맛의 특색을 느껴보세요",
+  "topImg": "images/products/top/single_origin_bg.jpg",
+  "listItem": [
+    {
+      "id": 1,
+      "name": "산 안토니오 챠기테 [강배전]",
+      "country_name": "과테말라",
+      "weight": "200g",
+      "tag": ["new"],
+      "price": 12000,
+      "menus": "singleOrigin",
+      "imgUrl": [
+        "https://drive.google.com/uc?id=1kqgpBDg8qJLO0Ag--NcZ8sb9jYOTSVeX",
+        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "폰테 알타 내추럴",
+      "country_name": "브라질",
+      "weight": "100g",
+      "tag": ["new", "best"],
+      "price": 13000,
+      "menus": "singleOrigin",
+      "imgUrl": [
+        "https://drive.google.com/uc?id=15fUPS4mhqDJJ1kYKwb_u6fYsB-4HIfrL",
+        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "라 벤디시온 파카마라 내추럴",
+      "country_name": "니카라과",
+      "weight": "100g",
+      "tag": ["new"],
+      "price": 14000,
+      "menus": "singleOrigin",
+      "imgUrl": [
+        "/images/products/thumbnail/singleorigin/singleorigin_nicaragua.jpeg",
+        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "보카 [강배전]",
+      "country_name": "에티오피아",
+      "weight": "100g",
+      "tag": [],
+      "price": 12000,
+      "menus": "singleOrigin",
+      "imgUrl": [
+        "/images/products/thumbnail/singleorigin/singleorigin_ethiopia.jpeg",
+        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "배드블러드",
+      "country_name": "엘살바도르",
+      "weight": "100g",
+      "tag": [],
+      "price": 12500,
+      "menus": "singleOrigin",
+      "imgUrl": [
+        "/images/products/thumbnail/singleorigin/singleorigin_elsalvador.jpeg",
+        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "니카라과",
+      "country_name": "인도네시아",
+      "weight": "100g",
+      "tag": [],
+      "price": 16000,
+      "menus": "singleOrigin",
+      "imgUrl": [
+        "/images/products/thumbnail/singleorigin/singleorigin_indonesia.jpeg",
+        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "보카 [강배전]",
+      "country_name": "케냐",
+      "weight": "100g",
+      "tag": [],
+      "price": 11000,
+      "menus": "singleOrigin",
+      "imgUrl": [
+        "/images/products/thumbnail/singleorigin/singleorigin_kenya.jpeg",
+        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "라스 라하스 펠라 네그라",
+      "country_name": "코스타리카",
+      "weight": "100g",
+      "tag": ["best"],
+      "price": 7000,
+      "menus": "singleOrigin",
+      "imgUrl": [
+        "/images/products/thumbnail/singleorigin/singleorigin_costarica.jpeg",
+        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "폰테 알타 내추럴",
+      "country_name": "콜롬비아",
+      "weight": "100g",
+      "tag": [],
+      "price": 12700,
+      "menus": "singleOrigin",
+      "imgUrl": [
+        "/images/products/thumbnail/singleorigin/singleorigin_colombia.jpeg",
+        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "라 벤디시온 파카마라 내추럴",
+      "country_name": "탄자니아",
+      "weight": "100g",
+      "tag": [],
+      "price": 8500,
+      "menus": "singleOrigin",
+      "imgUrl": [
+        "/images/products/thumbnail/singleorigin/singleorigin_tanzania.jpeg",
+        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "누에바 루즈 파라이네마",
+      "country_name": "파나마",
+      "weight": "100g",
+      "tag": [],
+      "price": 12700,
+      "menus": "singleOrigin",
+      "imgUrl": [
+        "/images/products/thumbnail/singleorigin/singleorigin_panama.jpeg",
+        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "누에바 루즈 파라이네마",
+      "country_name": "파푸아뉴기니",
+      "weight": "100g",
+      "tag": ["best"],
+      "price": 11500,
+      "menus": "singleOrigin",
+      "imgUrl": [
+        "/images/products/thumbnail/singleorigin/singleorigin_papuanewguinea.jpeg",
+        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "누에바 루즈 파라이네마",
+      "country_name": "파나마",
+      "weight": "100g",
+      "tag": ["best"],
+      "price": 11500,
+      "menus": "singleOrigin",
+      "imgUrl": [
+        "/images/products/thumbnail/singleorigin/singleorigin_panama.jpeg",
+        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+      ]
+    }
+  ]
+}

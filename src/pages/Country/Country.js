@@ -1,4 +1,5 @@
 import React from "react";
+import "./Country.scss";
 
 const Country = ({ data, countryClick, target }) => {
   const countryCount = {};

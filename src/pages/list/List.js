@@ -3,7 +3,9 @@ import ListComponent from "./ListComponent";
 import "./List.scss";
 
 const List = () => {
-  const [originalData, setOriginalData] = useState([]);
+  const [originalData, setOriginalData] = useState({});
+
+  // console.log(originalData);
 
   useEffect(() => {
     fetch("data/productsData.json")
@@ -11,7 +13,7 @@ const List = () => {
       .then(data => setOriginalData(data));
   }, []);
 
-  return <ListComponent originalData={originalData} />;
+  return originalData.listItem && <ListComponent originalData={originalData} />;
 };
 
 export default List;
