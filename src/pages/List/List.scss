@@ -1,0 +1,57 @@
+@import "../../styles/variables.scss";
+
+.list {
+  .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 500px;
+    color: white;
+    // background-image: url(./images/single_origin_bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #000;
+    background-size: 100%;
+
+    h2 {
+      font-size: 68px;
+      font-weight: 900;
+      text-shadow: 0 0 7px rgba(0, 0, 0, 0.7);
+    }
+
+    p {
+      margin-top: 20px;
+      font-size: 26px;
+      font-weight: 400;
+      text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+    }
+  }
+
+  .products {
+    max-width: 1200px;
+    margin: 77px auto 100px;
+
+    h3 {
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #000;
+
+      .listSort {
+        display: inline-block;
+        width: 100px;
+        height: 30px;
+        padding-left: 8px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+      }
+    }
+  }
+}

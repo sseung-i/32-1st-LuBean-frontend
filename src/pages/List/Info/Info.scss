@@ -1,0 +1,21 @@
+@import "../../../styles/variables.scss";
+
+.info {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  cursor: pointer;
+
+  .name {
+    font-size: $font-M;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .desc {
+    padding-top: 5px;
+    color: $color-font-lightGray;
+    font-size: $font-S;
+  }
+}
