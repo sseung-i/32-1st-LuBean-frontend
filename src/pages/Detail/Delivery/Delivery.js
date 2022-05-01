@@ -6,7 +6,7 @@ const Delivery = () => {
     <div>
       <div className="inWidthWrap">
         <h3>배송안내</h3>
-        <div class="adminMsg">
+        <div className="adminMsg">
           <p>
             <span> ◼︎ </span>
             <span>
@@ -31,7 +31,7 @@ const Delivery = () => {
         </div>
 
         <h3>배송안내</h3>
-        <div class="adminMsg">
+        <div className="adminMsg">
           <p>
             <span>
               {" "}

@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Review from "../Review/Review";
 import Star from "../Star/Star";
 import "./ReviewList.scss";
 
 const REVIEW_BOX = [
-  { id: 1, userName: "이**", content: "너무 좋아요!", star: 4 },
-  { id: 2, userName: "김**", content: "향기로워요!", star: 5 },
-  { id: 3, userName: "박**", content: "역시 원두는 게이샤죠!", star: 3 },
+  { id: 0, userName: "이**", content: "너무 좋아요!", star: 4 },
+  { id: 1, userName: "김**", content: "향기로워요!", star: 5 },
+  { id: 2, userName: "박**", content: "역시 원두는 게이샤죠!", star: 3 },
 ];
 
 const ReviewList = () => {
@@ -14,6 +14,14 @@ const ReviewList = () => {
   const [inputValue, setInputValue] = useState("");
   const [rateValue, setRateValue] = useState(1);
   const [reviewCounter, setReviewCounter] = useState(4);
+
+  useEffect(() => {
+    const resetId = reviewList.map((it, index) => ({
+      ...it,
+      id: index,
+    }));
+    setReviewList(resetId);
+  }, [reviewList.length]);
 
   const rate = rateValue;
 
@@ -46,9 +54,6 @@ const ReviewList = () => {
     setReviewList(reviewList.filter(review => review.id !== id));
   };
 
-  console.log(rateValue, typeof rateValue);
-  console.log(inputValue);
-
   return (
     <div>
       <div className="reContainer">
@@ -61,7 +66,6 @@ const ReviewList = () => {
             나만의 원두를 맛과 향을 리뷰해주세요!
           </div>
         </div>
-        {/* 별이랑 리뷰 */}
         <div className="reMain">
           <div className="starRadioBtn">
             <form className="reviewForm" onSubmit={onFormSubmit}>
@@ -69,47 +73,6 @@ const ReviewList = () => {
                 <div className="starText">평가</div>
                 <div className="radio">
                   <Star onStarChange={onStarChange} />
-
-                  {/* <label htmlFor="star4">
-                    <input
-                      type="radio"
-                      id="star4"
-                      name="star"
-                      value={rateValue}
-                      onClick={onStarChange}
-                    />
-                    ★★★★☆
-                  </label>
-                  <label htmlFor="star3">
-                    <input
-                      type="radio"
-                      id="star3"
-                      name="star"
-                      value={rateValue}
-                      onClick={onStarChange}
-                    />
-                    ★★★☆☆
-                  </label>
-                  <label htmlFor="star2">
-                    <input
-                      type="radio"
-                      id="star2"
-                      name="star"
-                      value={rateValue}
-                      onClick={onStarChange}
-                    />
-                    ★★☆☆☆
-                  </label>
-                  <label htmlFor="star1">
-                    <input
-                      type="radio"
-                      id="star1"
-                      name="star"
-                      value={rateValue}
-                      onClick={onStarChange}
-                    />
-                    ★☆☆☆☆
-                  </label> */}
                 </div>
               </div>
               <div className="reviewArea">
@@ -125,11 +88,14 @@ const ReviewList = () => {
               </div>
             </form>
           </div>
-          {/* 댓글달리는곳 */}
           <div className="reviewList">
             <ul className="reviewListContainer">
-              {reviewList.map(review => (
-                <Review review={review} removeReview={removeReview} />
+              {reviewList.map((review, index) => (
+                <Review
+                  key={index}
+                  review={review}
+                  removeReview={removeReview}
+                />
               ))}
             </ul>
           </div>

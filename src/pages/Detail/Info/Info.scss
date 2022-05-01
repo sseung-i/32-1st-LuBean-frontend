@@ -72,9 +72,10 @@
   .innerNote {
     position: relative;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     // max-width: 960px;
     .titleNote {
+      width: 60%;
       margin-bottom: 40px;
       padding-top: 75px;
       text-align: left;
@@ -102,15 +103,22 @@
     }
 
     .noteList {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
       .noteItem1 {
-        display: inline-block;
-        width: 192px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        // display: inline-block;
+        width: 35%;
+        // width: 192px;
         text-align: center;
         vertical-align: top;
 
         .noteThumb {
           position: relative;
-          width: 100%;
+          width: 191px;
           height: 191px;
           overflow: hidden;
           img {
@@ -137,43 +145,43 @@
           }
         }
       }
-      .blacktea {
-        display: inline-block;
-        width: 192px;
-        text-align: center;
-        margin-left: 110px;
+      // .blacktea {
+      //   display: inline-block;
+      //   width: 192px;
+      //   text-align: center;
+      //   margin-left: 110px;
 
-        .noteThumb {
-          position: relative;
-          width: 100%;
-          height: 191px;
-          overflow: hidden;
-          img {
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-            border-radius: 100px;
-          }
-        }
-        .itemText {
-          margin-top: 10px;
-          .itemTitle {
-            font-size: 20px;
-            font-weight: 700;
-            line-height: 1.4;
-          }
-          .itemDesc {
-            min-height: 48px;
-            margin-top: 8px;
-            color: #6b6b6b;
-            font-size: 16px;
-            line-height: 24px;
-          }
-        }
-      }
-      .apple {
-        margin-right: 40px;
-      }
+      //   .noteThumb {
+      //     position: relative;
+      //     width: 100%;
+      //     height: 191px;
+      //     overflow: hidden;
+      //     img {
+      //       object-fit: cover;
+      //       width: 100%;
+      //       height: 100%;
+      //       border-radius: 100px;
+      //     }
+      //   }
+      //   .itemText {
+      //     margin-top: 10px;
+      //     .itemTitle {
+      //       font-size: 20px;
+      //       font-weight: 700;
+      //       line-height: 1.4;
+      //     }
+      //     .itemDesc {
+      //       min-height: 48px;
+      //       margin-top: 8px;
+      //       color: #6b6b6b;
+      //       font-size: 16px;
+      //       line-height: 24px;
+      //     }
+      //   }
+      // }
+      // .apple {
+      //   margin-right: 40px;
+      // }
     }
   }
 }
