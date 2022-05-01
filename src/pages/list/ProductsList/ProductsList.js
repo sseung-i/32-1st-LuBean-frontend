@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import Info from "../Info/Info";
 import Tag from "../Tag/Tag";
@@ -9,7 +8,7 @@ const ProductsList = ({ data }) => {
 
   const productClick = (id, name) => {
     navigate(`${process.env.PUBLIC_URL}/detail/${id}`);
-    console.log(id, name);
+    // console.log(id, name);
   };
 
   return (
@@ -32,9 +31,7 @@ const ProductsList = ({ data }) => {
             />
             <p className="cost">
               <span>₩ </span>
-              {`${String(price).slice(0, String(price).length - 3)},${String(
-                price
-              ).slice(-3)}`}
+              {price.toLocaleString()}
             </p>
           </li>
         ))}

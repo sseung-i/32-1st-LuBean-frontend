@@ -1,8 +1,8 @@
 {
-  "title": "싱글 오리진",
-  "title_en": "Single Origin",
-  "desc": "각 생산지의 맛의 특색을 느껴보세요",
-  "topImg": "images/products/top/single_origin_bg.jpg",
+  "title": "디카페인",
+  "title_en": "Decaffein",
+  "desc": "카페인 없이 커피의 맛과 향을 즐겨보세요",
+  "topImg": "images/products/top/decaffein_bg.jpg",
   "listItem": [
     {
       "id": 1,
@@ -13,8 +13,8 @@
       "price": 12000,
       "menus": "singleOrigin",
       "imgUrl": [
-        "https://drive.google.com/uc?id=1kqgpBDg8qJLO0Ag--NcZ8sb9jYOTSVeX",
-        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+        "/images/products/thumbnail/decaffein/decaffein_beans.jpeg",
+        "/images/products/thumbnail/decaffein/decaffein_pkg.jpeg"
       ]
     },
     {
@@ -26,8 +26,8 @@
       "price": 13000,
       "menus": "singleOrigin",
       "imgUrl": [
-        "https://drive.google.com/uc?id=15fUPS4mhqDJJ1kYKwb_u6fYsB-4HIfrL",
-        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+        "/images/products/thumbnail/decaffein/decaffein_beans.jpeg",
+        "/images/products/thumbnail/decaffein/decaffein_pkg.jpeg"
       ]
     },
     {
@@ -39,8 +39,8 @@
       "price": 14000,
       "menus": "singleOrigin",
       "imgUrl": [
-        "/images/products/thumbnail/singleorigin/singleorigin_nicaragua.jpeg",
-        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+        "/images/products/thumbnail/decaffein/decaffein_beans.jpeg",
+        "/images/products/thumbnail/decaffein/decaffein_pkg.jpeg"
       ]
     },
     {
@@ -52,8 +52,8 @@
       "price": 12000,
       "menus": "singleOrigin",
       "imgUrl": [
-        "/images/products/thumbnail/singleorigin/singleorigin_ethiopia.jpeg",
-        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+        "/images/products/thumbnail/decaffein/decaffein_beans.jpeg",
+        "/images/products/thumbnail/decaffein/decaffein_pkg.jpeg"
       ]
     },
     {
@@ -65,8 +65,8 @@
       "price": 12500,
       "menus": "singleOrigin",
       "imgUrl": [
-        "/images/products/thumbnail/singleorigin/singleorigin_elsalvador.jpeg",
-        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+        "/images/products/thumbnail/decaffein/decaffein_beans.jpeg",
+        "/images/products/thumbnail/decaffein/decaffein_pkg.jpeg"
       ]
     },
     {
@@ -78,8 +78,8 @@
       "price": 16000,
       "menus": "singleOrigin",
       "imgUrl": [
-        "/images/products/thumbnail/singleorigin/singleorigin_indonesia.jpeg",
-        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+        "/images/products/thumbnail/decaffein/decaffein_beans.jpeg",
+        "/images/products/thumbnail/decaffein/decaffein_pkg.jpeg"
       ]
     },
     {
@@ -91,8 +91,8 @@
       "price": 11000,
       "menus": "singleOrigin",
       "imgUrl": [
-        "/images/products/thumbnail/singleorigin/singleorigin_kenya.jpeg",
-        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+        "/images/products/thumbnail/decaffein/decaffein_beans.jpeg",
+        "/images/products/thumbnail/decaffein/decaffein_pkg.jpeg"
       ]
     },
     {
@@ -104,8 +104,8 @@
       "price": 7000,
       "menus": "singleOrigin",
       "imgUrl": [
-        "/images/products/thumbnail/singleorigin/singleorigin_costarica.jpeg",
-        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+        "/images/products/thumbnail/decaffein/decaffein_beans.jpeg",
+        "/images/products/thumbnail/decaffein/decaffein_pkg.jpeg"
       ]
     },
     {
@@ -117,8 +117,8 @@
       "price": 12700,
       "menus": "singleOrigin",
       "imgUrl": [
-        "/images/products/thumbnail/singleorigin/singleorigin_colombia.jpeg",
-        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+        "/images/products/thumbnail/decaffein/decaffein_beans.jpeg",
+        "/images/products/thumbnail/decaffein/decaffein_pkg.jpeg"
       ]
     },
     {
@@ -130,8 +130,8 @@
       "price": 8500,
       "menus": "singleOrigin",
       "imgUrl": [
-        "/images/products/thumbnail/singleorigin/singleorigin_tanzania.jpeg",
-        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+        "/images/products/thumbnail/decaffein/decaffein_beans.jpeg",
+        "/images/products/thumbnail/decaffein/decaffein_pkg.jpeg"
       ]
     },
     {
@@ -143,8 +143,8 @@
       "price": 12700,
       "menus": "singleOrigin",
       "imgUrl": [
-        "/images/products/thumbnail/singleorigin/singleorigin_panama.jpeg",
-        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+        "/images/products/thumbnail/decaffein/decaffein_beans.jpeg",
+        "/images/products/thumbnail/decaffein/decaffein_pkg.jpeg"
       ]
     },
     {
@@ -156,8 +156,8 @@
       "price": 11500,
       "menus": "singleOrigin",
       "imgUrl": [
-        "/images/products/thumbnail/singleorigin/singleorigin_papuanewguinea.jpeg",
-        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+        "/images/products/thumbnail/decaffein/decaffein_beans.jpeg",
+        "/images/products/thumbnail/decaffein/decaffein_pkg.jpeg"
       ]
     },
     {
@@ -169,8 +169,8 @@
       "price": 11500,
       "menus": "singleOrigin",
       "imgUrl": [
-        "/images/products/thumbnail/singleorigin/singleorigin_panama.jpeg",
-        "/images/products/thumbnail/singleorigin/singleorigin_pkg.jpeg"
+        "/images/products/thumbnail/decaffein/decaffein_beans.jpeg",
+        "/images/products/thumbnail/decaffein/decaffein_pkg.jpeg"
       ]
     }
   ]

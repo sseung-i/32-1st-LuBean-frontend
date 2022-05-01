@@ -1,13 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import { Navigate } from "react-router-dom";
 import Country from "../Country/Country";
 import ProductsList from "./ProductsList/ProductsList";
+
+const widthEa = 4;
+const line = 3;
 
 const ListComponent = ({ originalData }) => {
   const { title, title_en, desc, topImg, listItem } = originalData;
   const [options, setOptions] = useState({ target: "all", sort: "recommend" });
 
-  let sortedData = listItem;
+  const [limit, setLimit] = useState(line);
+  const [nowData, setNowData] = useState(listItem);
+
+  useEffect(() => {
+    setNowData(listItem.slice(0, widthEa * limit));
+  }, [limit]);
+
+  // let sortedData = listItem;
 
   // const countryData =
   //   options.target === "all"
@@ -40,7 +50,7 @@ const ListComponent = ({ originalData }) => {
     { id: 3, value: "Word", text: "가나다순" },
   ];
 
-  const pageChangeRequest = postData => {
+  useEffect(() => {
     const api_url = "";
     fetch(api_url, {
       method: "POST",
@@ -50,19 +60,26 @@ const ListComponent = ({ originalData }) => {
     })
       .then(res => res.json())
       .then(result => console.log(result));
-  };
+  }, [options]);
 
   const countryClick = e => {
     const countryData = e.target.dataset.id;
-    pageChangeRequest(countryData);
-    // setOptions({ ...options, target: e.target.dataset.id });
+    setOptions({ ...options, target: countryData });
+    // pageChangeRequest(countryData);
   };
 
   const changeSelector = e => {
     const selectorData = e.target.value;
-    pageChangeRequest(selectorData);
-    // setOptions({ ...options, sort: e.target.value });
+    setOptions({ ...options, sort: selectorData });
+    // pageChangeRequest(selectorData);
   };
+
+  const onMoreClick = e => {
+    e.preventDefault();
+    setLimit(curr => curr + line);
+  };
+
+  console.log(listItem.length - nowData.length);
 
   return (
     <div className="list">
@@ -83,12 +100,19 @@ const ListComponent = ({ originalData }) => {
             ))}
           </select>
         </article>
-        <Country
-          data={listItem}
-          countryClick={countryClick}
-          target={options.target}
-        />
-        <ProductsList data={listItem} />
+        {title_en === "Single Origin" && (
+          <Country
+            data={listItem}
+            countryClick={countryClick}
+            target={options.target}
+          />
+        )}
+        {nowData && <ProductsList data={nowData} />}
+        {listItem.length - nowData.length > 0 && (
+          <button className="moreBtn" onClick={onMoreClick}>
+            더보기
+          </button>
+        )}
       </section>
     </div>
   );

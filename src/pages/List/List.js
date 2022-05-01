@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ListComponent from "./ListComponent";
 import "./List.scss";
 
 const List = () => {
   const [originalData, setOriginalData] = useState({});
 
-  // console.log(originalData);
-
   useEffect(() => {
-    fetch("data/productsData.json")
+    fetch("data/singleOriginData.json")
+      // fetch("data/blendedData.json")
+      // fetch("data/decaffeinData.json")
       .then(res => res.json())
       .then(data => setOriginalData(data));
   }, []);
