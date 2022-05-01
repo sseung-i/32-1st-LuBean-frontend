@@ -53,12 +53,12 @@ function Login() {
             />
           ))}
         </div>
-        <div className="saveID">
-          <label htmlFor="idSave">
-            <input id="idSave" type="checkBox" />
-            아이디 저장
-          </label>
-        </div>
+
+        <label htmlFor="saveID">
+          <input type="checkBox" />
+          아이디 저장
+        </label>
+
         <button className="loginButton" onClick={onLoginBtnClick}>
           로그인
         </button>

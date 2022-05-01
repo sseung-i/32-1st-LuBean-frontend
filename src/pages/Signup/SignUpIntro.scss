@@ -8,7 +8,7 @@
   margin-top: 300px;
 
   .join_text {
-    @include LnJfont_XL;
+    @include LnBfont(40px, 600);
     margin-bottom: 50px;
   }
 
@@ -20,9 +20,13 @@
     font-size: 15px;
     font-weight: 500;
   }
-
-  span {
-    margin-left: 10px;
-    border-bottom: 1px black solid;
+  p {
+    display: flex;
+    justify-content: center;
+    width: 280px;
+    span {
+      margin-left: 10px;
+      border-bottom: 1px black solid;
+    }
   }
 }

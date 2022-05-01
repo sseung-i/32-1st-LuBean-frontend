@@ -21,7 +21,7 @@ function SignUpIntro() {
       </button>
 
       <p>
-        이미 쇼핑몰 회원이세요? <span onClick={goToLogin}>로그인 </span>
+        이미 쇼핑몰 회원이세요? <span onClick={goToLogin}> 로그인 </span>
       </p>
     </div>
   );

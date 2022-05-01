@@ -7,54 +7,65 @@
   justify-content: center;
 
   .joinText {
-    margin: 200px 100px 30px 100px;
-    @include LnJfont_XXL;
+    @include LnBfont(50px, 900);
+    margin: 200px 100px 50px 100px;
   }
 
-  span {
-    margin: 0px 30px 50px 30px;
-    @include LnJfont_M;
+  .location {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 70px;
+    width: 200px;
+    font-size: 15px;
+    font-weight: 900;
+
+    .info {
+      color: $color-main-gray;
+    }
+
+    .sideBar {
+      color: $color-main-gray;
+    }
   }
 
   .welcomeBox {
     display: flex;
     justify-content: space-between;
-    width: 700px;
+    width: 43%;
 
     .imgCover {
-      width: 450px;
-      padding-right: 45px;
+      display: flex;
+      justify-content: flex-end;
+      height: 450px;
 
       img {
-        width: 100%;
-        // width: inherit;
+        width: inherit;
       }
     }
     .textCover {
-      position: relative;
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      width: 390px;
+      flex-direction: column;
+      padding-left: 70px;
+      width: 450px;
 
       .welcomeM {
+        @include LnBfont(28px, 600);
+        width: 80%;
         margin-bottom: 60px;
-        font-size: 28px;
-        font-weight: 600;
       }
 
-      .con {
-        @include LnJfont_L;
+      .conM {
+        @include LnBfont(18px, 600);
+        width: 80%;
         margin-bottom: 30px;
         color: $color-main-gray;
-        font-size: 20px;
-        font-weight: bolder;
       }
 
-      .enj {
+      .enjM {
+        @include LnBfont(15px, 500);
+        width: 80%;
         color: $color-font-lightGray;
-        font-size: 15px;
-        font-weight: 500;
       }
     }
   }

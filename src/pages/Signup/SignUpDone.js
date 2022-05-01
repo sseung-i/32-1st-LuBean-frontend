@@ -12,7 +12,11 @@ function SignUpDone() {
   return (
     <div className="signUpDoneAll">
       <div className="joinText"> JOIN US </div>
-      <span>정보입력 | 가입완료 </span>
+      <div className="location">
+        <span className="info">정보입력</span>
+        <span className="sideBar">|</span>
+        <span className="done">가입완료</span>
+      </div>
 
       <div className="welcomeBox">
         <div className="imgCover">
@@ -20,8 +24,8 @@ function SignUpDone() {
         </div>
         <div className="textCover">
           <p className="welcomeM">환영합니다.</p>
-          <p className="con">LuBean 회원가입을 축하드립니다.</p>
-          <p className="enj">
+          <p className="conM">LuBean 회원가입을 축하드립니다.</p>
+          <p className="enjM">
             로그인 후 러빈의 다양한 서비스를 <br />
             <br />
             이용하실 수 있습니다.

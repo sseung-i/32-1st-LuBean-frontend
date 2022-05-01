@@ -10,7 +10,7 @@ const LOGIN_LIST = [
     // id: 2,
     name: "pw",
     placeholder: "비밀번호",
-    iconName: "fa-solid fa-key fa-2x ",
+    iconName: "fa-solid fa-lock fa-2x ",
   },
 ];
 

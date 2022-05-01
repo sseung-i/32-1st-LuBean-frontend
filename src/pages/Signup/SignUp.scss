@@ -13,10 +13,9 @@
     flex-direction: column;
     justify-content: center;
     width: 900px;
-    // background-color: yellow;
 
     .signupText {
-      @include LnJfont_XL;
+      @include LnBfont(40px, 600);
     }
 
     .location {
@@ -24,7 +23,7 @@
       justify-content: space-between;
       margin-top: 50px;
       margin-bottom: 80px;
-      width: 180px;
+      width: 200px;
       font-size: 15px;
       font-weight: 900;
 
@@ -43,7 +42,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        // width: 900px;
         height: 65px;
         border-bottom: 2px solid black;
 
@@ -51,6 +49,21 @@
           font-size: 21px;
           font-weight: 800;
           color: $color-main-black;
+        }
+
+        .descBox {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          width: 300px;
+          height: 15px;
+
+          .redPoint {
+            width: 4px;
+            height: 4px;
+            margin-right: 10px;
+            background-color: red;
+          }
         }
         .desc {
           width: 265px;

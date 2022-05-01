@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "./Component/Input";
-// import INPUT_LIST from "./Component/INPUT_LIST";
 import "./SignUp.scss";
 
 function SignUp() {
@@ -15,7 +14,6 @@ function SignUp() {
   });
 
   const handleInput = e => {
-    // console.log(e.target.value);
     const { name, value } = e.target;
     setSignUpValues({ ...signUpValues, [name]: value });
   };
@@ -30,8 +28,9 @@ function SignUp() {
   const emailRules =
     signUpValues.idInput.includes("@") && signUpValues.idInput.includes(".");
   const phoneNumRules = signUpValues.phoneInput.length === 11;
+  //정규표현식 가져오기
 
-  const success = () => {
+  const checkSignup = () => {
     idRules &&
     pwRules &&
     pwCheckRules &&
@@ -39,14 +38,14 @@ function SignUp() {
     emailRules &&
     phoneNumRules
       ? goToSignUpDone()
-      : checkSignup();
+      : pleaseConfirm();
   };
 
   const goToSignUpDone = () => {
     navigate("/signup_done");
   };
 
-  const checkSignup = () => {
+  const pleaseConfirm = () => {
     alert("잘못된 내용이 없는지 확인바랍니다.");
   };
 
@@ -82,9 +81,10 @@ function SignUp() {
       rules: signUpValues.pwInput === signUpValues.pwInputCheck,
       checkMPass: "비밀번호가 일치합니다.",
       checkMtWrong: "비밀번호가 일치하지 않습니다.",
+      //정규표현식 가져오면서, 비밀번호 안내 추가
     },
     {
-      important: true,
+      important: false,
       id: 4,
       labelName: "이름",
       name: "nameInput",
@@ -92,18 +92,6 @@ function SignUp() {
       rules: signUpValues.idInput.length > 1,
       checkMPass: "사용가능한 이름입니다.",
       checkMtWrong: "",
-    },
-    {
-      important: true,
-      id: 5,
-      labelName: "이메일",
-      name: "emailInput",
-      type: "text",
-      rules:
-        signUpValues.idInput.includes("@") &&
-        signUpValues.idInput.includes("."),
-      checkMPass: "사용가능한 이메일입니다.",
-      checkMtWrong: "이메일 형식에 맞지않습니다.",
     },
     {
       important: true,
@@ -122,17 +110,20 @@ function SignUp() {
       <div className="signupBox">
         <div className="signupText">JOIN US</div>
         <div className="location">
-          <p className="info">정보입력</p>
-          <p className="sideBar"> | </p>
-          <p className="done"> 가입완료</p>
+          <span className="info">정보입력</span>
+          <span className="sideBar">|</span>
+          <span className="done">가입완료</span>
         </div>
 
         <div className="signupInfoBox">
           <div className="infoTitle">
             <p className="basicInfo">기본정보</p>
-            <p className="desc">
-              필수 항목은 반드시 입력하셔야 하는 항목입니다
-            </p>
+            <div className="descBox">
+              <span className="redPoint"></span>
+              <p className="desc">
+                필수 항목은 반드시 입력하셔야 하는 항목입니다
+              </p>
+            </div>
           </div>
           <div className="inputBox"></div>
           {INPUT_LIST.map(
@@ -162,7 +153,7 @@ function SignUp() {
           )}
         </div>
       </div>
-      <button className="signupbutton" onClick={goToSignUpDone}>
+      <button className="signupbutton" onClick={checkSignup}>
         회원가입
       </button>
     </div>

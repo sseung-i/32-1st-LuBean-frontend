@@ -3,40 +3,47 @@
 .loginAll {
   display: flex;
   align-items: center;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: column;
   margin-top: 130px;
 
   .forCenter {
     display: flex;
-    align-items: center;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+
+    label {
+      display: flex;
+      justify-content: flex-start;
+      width: 120px;
+
+      input {
+        width: 15px;
+        height: 15px;
+        margin-right: 8px;
+      }
+
+      //label&input flex start 적용안됨.
+    }
   }
 
   .loginText {
-    @include LnJfont_XL;
+    @include LnBfont(40px, 600);
     margin: 70px;
   }
 
   .memberText {
-    @include LnJfont_M;
+    @include LnBfont(18px, 600);
     margin-bottom: 70px;
     padding-bottom: 3px;
     border-bottom: 1px solid black;
   }
 
-  .saveID {
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-  }
-
   .loginButton {
     @include ButtonBlack;
+    @include LnBfont(15px, 600);
     width: 335px;
     height: 50px;
-    font-size: 15px;
-    font-weight: 600;
   }
 }
