@@ -3,64 +3,52 @@
 .main {
   .bannerContainerWrapper {
     .bannerContainer {
-      width: 100vw;
+      width: 100%;
       height: 580px;
       margin-top: 100px;
-      overflow: hidden;
 
-      // .carousel {
-      //   width: 500vw;
-      //   height: 580px;
-      //   margin-top: 100px;
+      .carousel {
+        position: relative;
+        height: 580px;
+        overflow: hidden;
 
-      //   .inner {
-      //     float: left;
-      //     width: 100vw;
-      //     height: 100%;
-
-      //     img {
-      //       width: 100%;
-      //       height: auto;
-      //       object-fit: cover;
-      //     }
-      //   }
-
-      @keyframes fadein {
-        from {
+        .inner {
           opacity: 0;
+          transition: opacity 1s;
+
+          .item {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+          }
         }
-        to {
+
+        .active {
           opacity: 1;
-        }
-      }
-      @keyframes fadeout {
-        from {
-          opacity: 1;
-        }
-        to {
-          opacity: 0;
+          transition: opacity 1s;
         }
       }
     }
-  }
 
-  .buttons {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    top: 350px;
-    right: 130px;
+    .buttons {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      top: 350px;
+      right: 130px;
 
-    li {
-      width: 15px;
-      height: 15px;
-      margin-bottom: 10px;
-      border: 2px solid white;
-      border-radius: 50%;
-      cursor: pointer;
+      li {
+        width: 15px;
+        height: 15px;
+        margin-bottom: 10px;
+        border: 2px solid white;
+        border-radius: 50%;
+        cursor: pointer;
 
-      &.nowImg {
-        background-color: #fff;
+        &.nowImg {
+          background-color: #fff;
+        }
       }
     }
   }
@@ -76,21 +64,24 @@
     }
 
     .carousel {
+      display: flex;
+      flex-direction: column;
       width: 1200px;
-      overflow: hidden;
       margin: 0 auto;
+      overflow: hidden;
 
       .productWrap {
         display: flex;
-        > li {
-          // float: left;
-          // height: 285px;
+
+        li {
+          &.nowImg {
+            background-color: #fff;
+          }
         }
 
         .thumbnail {
           position: relative;
           width: 300px;
-          // width: 100%;
 
           &:hover .thumbHover {
             opacity: 0;
@@ -111,7 +102,6 @@
         }
 
         .info {
-          // width: 285px;
           padding-top: 10px;
           padding-bottom: 10px;
           text-align: center;
@@ -131,30 +121,31 @@
         }
 
         .cost {
-          // width: 285px;
           padding-top: 10px;
           font-size: $font-M;
           text-align: center;
         }
       }
-    }
 
-    .buttons {
-      position: relative;
-      top: 80px;
-      left: 50%;
-      width: 100px;
-      margin: 0;
+      .buttons {
+        display: flex;
+        margin: 0 auto;
+        margin-top: 50px;
 
-      button {
-        width: 12px;
-        height: 12px;
-        margin-right: 10px;
-        border: 2px solid black;
-        border-radius: 50%;
-        padding: 4px;
-        background-color: transparent;
-        cursor: pointer;
+        li {
+          width: 12px;
+          height: 12px;
+          margin-right: 10px;
+          border: 2px solid black;
+          border-radius: 50%;
+          padding: 4px;
+          background-color: transparent;
+          cursor: pointer;
+
+          &.nowImg {
+            background-color: black;
+          }
+        }
       }
     }
   }
@@ -200,7 +191,7 @@
     width: 1180px;
     height: 472.8px;
     margin: auto;
-    margin-bottom: 594.89px;
+    margin-bottom: 130px;
     padding-right: 100px;
 
     .text {

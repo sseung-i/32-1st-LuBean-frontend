@@ -1,28 +1,14 @@
 import React, { useEffect, useState, useRef } from "react";
-import { createPortal } from "react-dom";
+// import { createPortal } from "react-dom";
 import Buttons from "./Buttons/Buttons";
 import "./Main.scss";
 const Main = () => {
-  const [imgNum, setImgNum] = useState(0);
-  const [currentIndex2, setCurrentIndex2] = useState(0);
-  const [slideIndex, setSlideIndex] = useState(0);
-  // const bannerContainer = useRef(null);
-  const banner = useRef(null);
+  const [bannerBtnNum, setBannerBtnNum] = useState(0);
+  const [productBtnNum, setProductBtnNum] = useState(0);
+  const [currentBtnNum, setCurrentBtnNum] = useState(0);
+
+  const bannerContainer = useRef(null);
   const productContainer = useRef(null);
-  const BUTTONS_PRODUCT = [
-    {
-      "data-id": 0,
-      className: `btn${currentIndex2}`,
-    },
-    {
-      "data-id": 1,
-      className: `btn${currentIndex2}`,
-    },
-    {
-      "data-id": 2,
-      className: `btn${currentIndex2}`,
-    },
-  ];
 
   const INNER__BANNER = [
     {
@@ -56,10 +42,9 @@ const Main = () => {
       src: `./images/slides/main4.jpg`,
     },
   ];
-
-  const productsData = [
+  const INNER__PRODUCT = [
     {
-      id: 1,
+      "data-id": 1,
       name: "산 안토니오 챠기테 [강배전]",
       desc: "San Antonio Chaguite",
       country_name: "과테말라",
@@ -73,7 +58,7 @@ const Main = () => {
       ],
     },
     {
-      id: 2,
+      "data-id": 2,
       name: "폰테 알타 내추럴",
       desc: "Ponte Alta Natural",
       country_name: "브라질",
@@ -87,7 +72,7 @@ const Main = () => {
       ],
     },
     {
-      id: 3,
+      "data-id": 3,
       name: "라 벤디시온 파카마라 내추럴",
       desc: "La Bendicion Pacamara Natural",
       country_name: "니카라과",
@@ -101,7 +86,7 @@ const Main = () => {
       ],
     },
     {
-      id: 4,
+      "data-id": 4,
       name: "보카 [강배전]",
       desc: "파푸아뉴기니",
       country_name: "보카",
@@ -115,7 +100,7 @@ const Main = () => {
       ],
     },
     {
-      id: 5,
+      "data-id": 5,
       name: "배드블러드",
       desc: "La Bendicion Pacamara Natural",
       country_name: "보카",
@@ -129,7 +114,7 @@ const Main = () => {
       ],
     },
     {
-      id: 6,
+      "data-id": 6,
       name: "니카라과",
       desc: "파푸아뉴기니",
       country_name: "보카",
@@ -143,7 +128,7 @@ const Main = () => {
       ],
     },
     {
-      id: 7,
+      "data-id": 7,
       name: "보카 [강배전]",
       desc: "La Bendicion Pacamara Natural",
       country_name: "파푸아뉴기니",
@@ -157,7 +142,7 @@ const Main = () => {
       ],
     },
     {
-      id: 8,
+      "data-id": 8,
       name: "라스 라하스 펠라 네그라",
       desc: "과테말라",
       country_name: "파푸아뉴기니",
@@ -171,7 +156,7 @@ const Main = () => {
       ],
     },
     {
-      id: 9,
+      "data-id": 9,
       name: "폰테 알타 내추럴",
       desc: "Ponte Alta Natural",
       country_name: "브라질",
@@ -185,7 +170,7 @@ const Main = () => {
       ],
     },
     {
-      id: 10,
+      "data-id": 10,
       name: "라 벤디시온 파카마라 내추럴",
       desc: "La Bendicion Pacamara Natural",
       country_name: "니카라과",
@@ -199,7 +184,7 @@ const Main = () => {
       ],
     },
     {
-      id: 11,
+      "data-id": 11,
       name: "누에바 루즈 파라이네마",
       desc: "파푸아뉴기니",
       country_name: "파푸아뉴기니",
@@ -213,7 +198,7 @@ const Main = () => {
       ],
     },
     {
-      id: 12,
+      "data-id": 12,
       name: "배드블러드",
       desc: "La Bendicion Pacamara Natural",
       country_name: "보카",
@@ -228,42 +213,41 @@ const Main = () => {
     },
   ];
 
-  function handleBtnClick(e) {
+  function bannerBtnClick(e) {
     const { id } = e.target.dataset;
-    setImgNum(Number(id));
-    banner.current.style.animation = "fadeout ease 2s";
-    // banner.current.style.animation = "fadein 2s ease-in-out forwards";
-    banner.current.style["animation-iteration-count"] = "1";
-    // banner.current.style["animation-fill-mode"] = "forwards";
-    // banner.current.style.animation = "fadeout 1s";
+    setBannerBtnNum(Number(id));
   }
-  function handleBtnClick2(event) {
-    setCurrentIndex2(event.target.dataset.id);
+  function productBtnClick(e) {
+    const { id } = e.target.dataset;
+    setProductBtnNum(Number(id));
+    setCurrentBtnNum(e.target.dataset.id);
   }
+
   // useEffect(() => {
-  //   bannerContainer.current.style.transform = `translate(-${imgNum}00vw)`;
-  // }, [imgNum]);
+  //   setInterval(() => {
+  //     setBannerBtnNum(bannerBtnNum < 4 ? bannerBtnNum + 1 : bannerBtnNum);
+  //   }, 4000);
+  // }, [bannerBtnNum]);
+
   useEffect(() => {
     productContainer.current.style.transform = `translate(-${
-      currentIndex2 * 12
+      currentBtnNum * 12
     }00px)`;
     productContainer.current.style.transition = `transform 800ms`;
-  }, [currentIndex2]);
-  useEffect(() => {
-    setInterval(function () {
-      setImgNum(prevImg => (prevImg < 4 ? (prevImg += 1) : (prevImg = 0)));
-    }, 3000);
-  }, []);
+  }, [currentBtnNum]);
 
   return (
     <div className="main">
       {/* 위쪽 배너 슬라이드 */}
-      {/* <div className="bannerContainerWrapper">
+      <div className="bannerContainerWrapper">
         <div className="bannerContainer">
           <div ref={bannerContainer} className="carousel">
-            {INNER__BANNER.map(inner => {
+            {INNER__BANNER.map((inner, index) => {
               return (
-                <div key={inner["data-id"]} className="inner">
+                <div
+                  key={index}
+                  className={`inner ${bannerBtnNum === index && "active"}`}
+                >
                   <img className="item" alt={inner.alt} src={inner.src} />
                 </div>
               );
@@ -272,33 +256,18 @@ const Main = () => {
         </div>
         <Buttons
           imgLength={INNER__BANNER.length}
-          imgNum={imgNum}
-          handleBtnClick={handleBtnClick}
+          btnNum={bannerBtnNum}
+          handleBtnClick={bannerBtnClick}
         />
-      </div> */}
-      <div className="bannerContainerWrapper">
-        <div className="bannerContainer">
-          <img
-            ref={banner}
-            data-id={`${imgNum}`}
-            className="inner"
-            alt={`item${imgNum}`}
-            src={`./images/slides/main${imgNum}.jpg`}
-          />
-          <Buttons
-            imgLength={INNER__BANNER.length}
-            imgNum={imgNum}
-            handleBtnClick={handleBtnClick}
-          />
-        </div>
       </div>
+
       {/* 가운데 상품 슬라이드 */}
       <div className="productContainer">
         <h2 className="title">인기 원두 Top 12</h2>
         <div className="carousel">
           <ul ref={productContainer} className="productWrap">
-            {productsData.map(
-              ({ id, name, desc, country_name, price, tag, imgUrl }) => (
+            {INNER__PRODUCT.map(
+              ({ id, name, desc, country_name, price, imgUrl }) => (
                 <li key={id} data-country={country_name}>
                   <div className="thumbnail">
                     <img className="thumb" alt={name} src={imgUrl[0]} />
@@ -316,23 +285,11 @@ const Main = () => {
               )
             )}
           </ul>
-        </div>
-        {/* <Buttons
-          imgLength={productsData.length}
-          imgNum={imgNum}
-          handleBtnClick={handleBtnClick2}
-        /> */}
-        <div className="buttons">
-          {BUTTONS_PRODUCT.map(button => {
-            return (
-              <button
-                key={button["data-id"]}
-                data-id={button["data-id"]}
-                onClick={handleBtnClick2}
-                className={button.className}
-              />
-            );
-          })}
+          <Buttons
+            imgLength={3}
+            btnNum={productBtnNum}
+            handleBtnClick={productBtnClick}
+          />
         </div>
       </div>
 
