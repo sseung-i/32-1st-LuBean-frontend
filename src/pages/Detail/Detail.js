@@ -4,10 +4,19 @@ import ReviewList from "./ReviewList/ReviewList";
 import Delivery from "./Delivery/Delivery";
 import Info from "./Info/Info";
 import Tab from "./Tab/Tab";
+import Modal from "./Modal/Modal";
 import "./Detail.scss";
 
 const Detail = () => {
   const [feedsList, setFeedsList] = useState({});
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   useEffect(() => {
     fetch("data/detail.json")
@@ -20,7 +29,8 @@ const Detail = () => {
   return (
     <section className="detail">
       <div className="detailWrap" key={feedsList.id}>
-        <SellContainer feedsList={feedsList} />
+        <Modal modalOpen={modalOpen} closeModal={closeModal} />
+        <SellContainer feedsList={feedsList} openModal={openModal} />
         <Tab id="info" region="info" />
         <div className="mainContainer">
           {feedsList.productInfo && <Info infoList={feedsList} />}

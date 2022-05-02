@@ -1,18 +1,9 @@
 import React, { useState } from "react";
-import Modal from "../Modal/Modal";
 
-const SellContainer = ({ feedsList }) => {
+const SellContainer = ({ feedsList, openModal }) => {
   const { itemTitleImg, titleKr, titleEn, price, weight } = feedsList;
 
   const [count, setCount] = useState(1);
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const openModal = () => {
-    setModalOpen(true);
-  };
-  const closeModal = () => {
-    setModalOpen(false);
-  };
 
   const goToOrder = () => {
     alert("주문성공!!");
@@ -74,7 +65,6 @@ const SellContainer = ({ feedsList }) => {
             장바구니
           </button>
 
-          <Modal modalOpen={modalOpen} closeModal={closeModal} />
           <button className="orderBtn" onClick={goToOrder}>
             주문하기
           </button>
