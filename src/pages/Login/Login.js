@@ -18,10 +18,6 @@ function Login() {
 
   const navigate = useNavigate();
 
-  const goToMain = e => {
-    navigate("/main");
-  };
-
   const goToSignUp = () => {
     navigate("/signup");
   };
@@ -43,11 +39,11 @@ function Login() {
             alert("환영합니다!");
             navigate("/main");
           } else {
-            alert("확인해주세요");
+            alert("아이디와 비밀번호 확인바랍니다.");
           }
         });
     } else {
-      alert("이메일 및 비밀번호를 확인해 주세요");
+      alert("아이디와 비밀번호를 확인해주세요");
     }
   };
 

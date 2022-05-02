@@ -12,12 +12,12 @@ function SignUp() {
     emailInput: "",
     phoneInput: "",
   });
-  const { idInput, pwInput, pwInputCheck, nameInput, emailInput, phoneInput } =
-    signUpValues;
+  const { idInput, pwInput, nameInput, phoneInput } = signUpValues;
 
   const handleInput = e => {
     const { name, value } = e.target;
     setSignUpValues({ ...signUpValues, [name]: value });
+    //1. 의미
   };
 
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ function SignUp() {
   const phoneNumRules = signUpValues.phoneInput.length === 11;
 
   const checkSignup = () => {
-    const valid =
+    const signUpCondition =
       idRules &&
       pwRules &&
       pwCheckRules &&
@@ -44,33 +44,27 @@ function SignUp() {
       emailRules &&
       phoneNumRules;
 
-    if (valid) {
-      console.log(idInput, pwInput, nameInput, phoneInput);
+    if (signUpCondition) {
+      //2. e.preventDefault(); ?  <form> 가 있을때 유효 새로고침 방지의 의미
       fetch("http://10.58.7.248:8000/users/signup", {
         method: "POST",
         body: JSON.stringify({
           email: idInput,
           password: pwInput,
-          // pwInputCheck,
           username: nameInput,
-          // emailInput,
           phone_number: phoneInput,
         }),
       })
         .then(response => response.json())
         .then(result => {
           if (result.message === "SUCCESS") {
-            console.log("성공!");
             navigate("/signup_done", { replace: false });
           }
         });
+      //3.여기까지의 의미
     } else {
       alert("잘못된 내용이 없는지 확인바랍니다.");
     }
-  };
-
-  const goToSignUpDone = () => {
-    navigate("/signup_done");
   };
 
   const INPUT_LIST = [
@@ -93,8 +87,8 @@ function SignUp() {
       name: "pwInput",
       type: "password",
       rules: signUpValues.pwInput.length >= 8,
-      checkMPass: "사용가능한 비밀번호입니다.",
-      checkMtWrong: "대소문자와 특수문자를 포함한 8자리로 입력바랍니다.  ",
+      checkMPass: "안전한 비밀번호입니다..",
+      checkMtWrong: "(영문+숫자+특수문자) 8글자가 필요합니다.  ",
     },
     {
       important: true,
@@ -105,7 +99,6 @@ function SignUp() {
       rules: signUpValues.pwInput === signUpValues.pwInputCheck,
       checkMPass: "비밀번호가 일치합니다.",
       checkMtWrong: "비밀번호가 일치하지 않습니다.",
-      //정규표현식 가져오면서, 비밀번호 안내 추가
     },
     {
       important: false,
@@ -149,32 +142,33 @@ function SignUp() {
               </p>
             </div>
           </div>
-          <div className="inputBox"></div>
-          {INPUT_LIST.map(
-            ({
-              important,
-              id,
-              labelName,
-              name,
-              type,
-              rules,
-              checkMPass,
-              checkMtWrong,
-            }) => (
-              <Input
-                handleInput={handleInput}
-                important={important}
-                key={id}
-                labelName={labelName}
-                name={name}
-                type={type}
-                rules={rules}
-                value={signUpValues[name]}
-                checkMPass={checkMPass}
-                checkMtWrong={checkMtWrong}
-              />
-            )
-          )}
+          <div className="inputBox">
+            {INPUT_LIST.map(
+              ({
+                important,
+                id,
+                labelName,
+                name,
+                type,
+                rules,
+                checkMPass,
+                checkMtWrong,
+              }) => (
+                <Input
+                  handleInput={handleInput}
+                  important={important}
+                  key={id}
+                  labelName={labelName}
+                  name={name}
+                  type={type}
+                  rules={rules}
+                  value={signUpValues[name]}
+                  checkMPass={checkMPass}
+                  checkMtWrong={checkMtWrong}
+                />
+              )
+            )}
+          </div>
         </div>
       </div>
       <button className="signupbutton" onClick={checkSignup}>
