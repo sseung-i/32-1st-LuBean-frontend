@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./SellContainer.scss";
 
 const SellContainer = ({ feedsList, openModal }) => {
   const { itemTitleImg, titleKr, titleEn, price, weight } = feedsList;
