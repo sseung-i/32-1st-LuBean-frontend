@@ -1,0 +1,141 @@
+@import "src/styles/variables.scss";
+
+.footer {
+  * {
+    word-break: keep-all;
+  }
+
+  width: 100vw;
+  background-color: black;
+
+  .icons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 171.09px;
+    background-color: #f2f2f2;
+
+    i {
+      font-size: 80px;
+    }
+  }
+
+  .info {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    height: 470px;
+    margin: 0 auto;
+    color: white;
+
+    .infoLeft {
+      width: 300px;
+
+      .logo {
+        margin-bottom: 55px;
+        font-size: 30px;
+        font-weight: 700;
+      }
+
+      .leftTop,
+      .leftBottom {
+        margin-bottom: 33px;
+        font-size: $font-M;
+
+        span {
+          font-size: $font-S;
+          line-height: 1.7;
+        }
+      }
+
+      .favicons {
+        font-size: $font-L;
+
+        .fa-brands {
+          width: 35px;
+          padding: 8px;
+          margin-right: 5px;
+          border-radius: 50%;
+          background-color: #808080;
+          color: black;
+          text-align: center;
+        }
+      }
+    }
+
+    .infoRight {
+      overflow: hidden;
+      width: 900px;
+      margin-bottom: 40px;
+
+      .menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-bottom: 55px;
+        font-size: $font-S;
+        font-weight: 400;
+
+        li {
+          padding: 5px 30px 5px 0;
+
+          a {
+            cursor: pointer;
+          }
+
+          .policy {
+            color: #fbe85e;
+          }
+        }
+      }
+
+      .subscribe {
+        width: 380px;
+        border: 1px white solid;
+        margin-bottom: 12px;
+
+        .subscribeInput {
+          width: 80%;
+          padding: 10px;
+          border: none;
+          outline: none;
+        }
+
+        button {
+          width: 10%;
+          padding-left: 15px;
+          background-color: black;
+          color: white;
+          cursor: pointer;
+        }
+      }
+
+      .description {
+        margin-bottom: 24px;
+        line-height: 1.5;
+
+        .preview {
+          margin-left: 4px;
+          border-bottom: 1px solid white;
+          font-size: $font-S;
+          font-weight: 300;
+          cursor: pointer;
+        }
+      }
+
+      .address {
+        margin-bottom: 24px;
+        color: #828282;
+        font-size: $font-S;
+        line-height: 1.5;
+      }
+
+      .copyright {
+        color: #828282;
+        font-size: $font-S;
+        line-height: 1.5;
+      }
+    }
+  }
+}
