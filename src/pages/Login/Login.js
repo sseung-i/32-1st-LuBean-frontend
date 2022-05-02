@@ -26,11 +26,29 @@ function Login() {
     navigate("/signup");
   };
 
-  const onLoginBtnClick = () => {
-    idRules && pwRules ? goToMain() : checkLogin();
-  };
-  const checkLogin = () => {
-    alert("아이디와 비밀번호를 확인해주세요");
+  const onLoginBtnClick = e => {
+    e.preventDefault();
+    if (idRules && pwRules) {
+      fetch("http://10.58.7.248:8000/users/login", {
+        method: "POST",
+        body: JSON.stringify({
+          email: inputValues.id,
+          password: inputValues.pw,
+        }),
+      })
+        .then(response => response.json())
+        .then(result => {
+          console.log(result);
+          if (result.message === "SUCCESS") {
+            alert("환영합니다!");
+            navigate("/main");
+          } else {
+            alert("확인해주세요");
+          }
+        });
+    } else {
+      alert("이메일 및 비밀번호를 확인해 주세요");
+    }
   };
 
   const idRules = inputValues.id.includes("@") && inputValues.id.includes(".");

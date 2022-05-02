@@ -12,6 +12,8 @@ function SignUp() {
     emailInput: "",
     phoneInput: "",
   });
+  const { idInput, pwInput, pwInputCheck, nameInput, emailInput, phoneInput } =
+    signUpValues;
 
   const handleInput = e => {
     const { name, value } = e.target;
@@ -20,33 +22,55 @@ function SignUp() {
 
   const navigate = useNavigate();
 
-  const idRules =
-    signUpValues.idInput.includes("@") && signUpValues.idInput.includes(".");
-  const pwRules = signUpValues.pwInput.length >= 8;
+  const idRules = signUpValues.idInput.match(
+    /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/
+  );
+
+  const pwRules = signUpValues.pwInput.match(
+    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[?!@#$%*&])[A-Za-z\d?!@#$%*&]{8,}$/
+  );
   const pwCheckRules = signUpValues.pwInput === signUpValues.pwInputCheck;
   const nameRules = signUpValues.idInput.length > 1;
   const emailRules =
     signUpValues.idInput.includes("@") && signUpValues.idInput.includes(".");
   const phoneNumRules = signUpValues.phoneInput.length === 11;
-  //정규표현식 가져오기
 
   const checkSignup = () => {
-    idRules &&
-    pwRules &&
-    pwCheckRules &&
-    nameRules &&
-    emailRules &&
-    phoneNumRules
-      ? goToSignUpDone()
-      : pleaseConfirm();
+    const valid =
+      idRules &&
+      pwRules &&
+      pwCheckRules &&
+      nameRules &&
+      emailRules &&
+      phoneNumRules;
+
+    if (valid) {
+      console.log(idInput, pwInput, nameInput, phoneInput);
+      fetch("http://10.58.7.248:8000/users/signup", {
+        method: "POST",
+        body: JSON.stringify({
+          email: idInput,
+          password: pwInput,
+          // pwInputCheck,
+          username: nameInput,
+          // emailInput,
+          phone_number: phoneInput,
+        }),
+      })
+        .then(response => response.json())
+        .then(result => {
+          if (result.message === "SUCCESS") {
+            console.log("성공!");
+            navigate("/signup_done", { replace: false });
+          }
+        });
+    } else {
+      alert("잘못된 내용이 없는지 확인바랍니다.");
+    }
   };
 
   const goToSignUpDone = () => {
     navigate("/signup_done");
-  };
-
-  const pleaseConfirm = () => {
-    alert("잘못된 내용이 없는지 확인바랍니다.");
   };
 
   const INPUT_LIST = [
@@ -70,7 +94,7 @@ function SignUp() {
       type: "password",
       rules: signUpValues.pwInput.length >= 8,
       checkMPass: "사용가능한 비밀번호입니다.",
-      checkMtWrong: "",
+      checkMtWrong: "대소문자와 특수문자를 포함한 8자리로 입력바랍니다.  ",
     },
     {
       important: true,
