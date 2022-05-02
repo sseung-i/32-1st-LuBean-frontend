@@ -57,7 +57,7 @@ const SellContainer = ({ feedsList, openModal }) => {
 
         <div className="totalPrice">
           <div>총합계금액 </div>
-          <div className="priceNum">{(count * 30000).toLocaleString()}</div>
+          <div className="priceNum">{(count * 30000).toLocaleString()}원</div>
         </div>
 
         <div className="buttonCart">
