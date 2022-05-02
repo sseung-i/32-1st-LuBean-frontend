@@ -5,7 +5,7 @@ const Info = ({ id, name, country, weight, isTag, productClick }) => {
   const paddingVal = isTag ? "10px" : "40px";
   return (
     <div
-      className="info"
+      className="productInfo"
       style={{ paddingTop: paddingVal }}
       onClick={() => productClick(id, name)}
     >
