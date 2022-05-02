@@ -16,30 +16,40 @@ const Main = () => {
       className: "item",
       alt: `item0`,
       src: `./images/slides/main0.jpg`,
+      title: "도현님....",
+      desc: "깃 살려주세요.... 헝헝 제꺼 풋터.. scss..헝헝 나만깨져 ㅠㅠ",
     },
     {
       "data-id": 1,
       className: "item",
       alt: `item1`,
       src: `./images/slides/main1.jpg`,
+      title: "도현니이이임....",
+      desc: "merㅏ하ge?",
     },
     {
       "data-id": 2,
       className: "item",
       alt: `item2`,
       src: `./images/slides/main2.jpg`,
+      title: "멘토님 많이 븉여주세요",
+      desc: "소환!!!!",
     },
     {
       "data-id": 3,
       className: "item",
       alt: `item3`,
       src: `./images/slides/main3.jpg`,
+      title: "경래님!!!!! ......백엔드 파이팅 ^_^",
+      desc: "우리 소듕한 뺵엔드분들 잘부탁드립니다........헿>ㅁ<",
     },
     {
       "data-id": 4,
       className: "item",
       alt: `item4`,
       src: `./images/slides/main4.jpg`,
+      title: "NEW CROP 생두 출시 예정",
+      desc: "따뜻하고 부드러운 바람이 내 마음을 감싸안은 듯한 평온함",
     },
   ];
   const INNER__PRODUCT = [
@@ -239,32 +249,40 @@ const Main = () => {
   return (
     <div className="main">
       {/* 위쪽 배너 슬라이드 */}
-      <div className="bannerContainerWrapper">
-        <div className="bannerContainer">
-          <div ref={bannerContainer} className="carousel">
-            {INNER__BANNER.map((inner, index) => {
-              return (
-                <div
-                  key={index}
-                  className={`inner ${bannerBtnNum === index && "active"}`}
-                >
-                  <img className="item" alt={inner.alt} src={inner.src} />
-                </div>
-              );
-            })}
-          </div>
-        </div>
+      <div ref={bannerContainer} className="bannerCarousel">
+        {INNER__BANNER.map(({ title, desc }, index) => {
+          return (
+            <div
+              key={index}
+              className={`inner ${bannerBtnNum === index && "active"}`}
+            >
+              <div className="slideText">
+                <h3 className={index >= 2 && "blackText"}>{title}</h3>
+                <p className={index >= 2 && "blackText"}>{desc}</p>
+              </div>
+              <div
+                className="item"
+                style={{
+                  backgroundImage: `url(
+                        images/slides/main_slide_${index + 1}.jpg)`,
+                }}
+              />
+              {/* <img className="item" alt={inner.alt} src={inner.src} /> */}
+            </div>
+          );
+        })}
         <Buttons
           imgLength={INNER__BANNER.length}
           btnNum={bannerBtnNum}
           handleBtnClick={bannerBtnClick}
         />
       </div>
+      {/* 
 
       {/* 가운데 상품 슬라이드 */}
       <div className="productContainer">
         <h2 className="title">인기 원두 Top 12</h2>
-        <div className="carousel">
+        <div className="productCarousel">
           <ul ref={productContainer} className="productWrap">
             {INNER__PRODUCT.map(
               ({ id, name, desc, country_name, price, imgUrl }) => (
@@ -295,27 +313,53 @@ const Main = () => {
 
       {/* 이벤트 페이지 그리드 */}
       <div className="girdContainer">
-        <img alt="item1" src="./images/slides/grid1.jpg" className="item1" />
-        <img alt="item2" src="./images/slides/grid2.jpg" className="item2" />
-        <img alt="item3" src="./images/slides/grid3.jpg" className="item3" />
-        <img alt="item4" src="./images/slides/grid4.jpg" className="item4" />
+        <div className="item1">
+          <p className="videoText">러빈의 향기</p>
+          <video autoPlay muted loop alt="item1">
+            <source src="./images/slides/grid1.mp4" />
+          </video>
+        </div>
+        <div className="imgWrap item2">
+          <img alt="item2" src="./images/slides/grid2(2).jpg" />
+        </div>
+        <div className="imgWrap item3">
+          <img alt="item3" src="./images/slides/grid3(3).jpg" />
+        </div>
+        <div className="imgWrap item4">
+          <img alt="item4" src="./images/slides/grid4.jpg" />
+        </div>
       </div>
 
       {/* 브랜드 설명*/}
       <div className="aboutBrand">
         <div className="text">
-          <h2 className="title">발리데이션 페이셜</h2>
+          <h2 className="title">I LuBean YOU</h2>
           <p className="description">
-            발리데이션 페이셜 스파 트리트먼트'로 온몸의 감각을 <br />
-            깨워보세요. 상의 보드라움이 피부 위에 내려앉은 듯한 <br />
-            느낌. 전문가의 능숙한 손길은 당신이 그리워하던 건강함 <br />을
-            되찾아줄 거예요.
+            러빈에서는 온도, 일광, 강우량 등 커피 재배에
+            <br />
+            이상적인 기후가 나타나는 고지대에서 생산된
+            <br />
+            최상의 풍미를 자랑하는 아라비카 원두를
+            <br />
+            만나보실 수 있습니다. 오랜 세월 경험을 쌓아온
+            <br />
+            최고의 로스팅 기술은 예술이자 과학입니다.
+            <br />
+            <br />
+            현재 러빈은 전 세계 50여 개국에서
+            <br />
+            800여 개 매장을 운영하고 있습니다.
+            <br />
+            러빈의 철학이 담긴 원두를 만나보세요.
+            <br />
+            <br />
+            네, 우리는 커피에 미친 사람들입니다.
           </p>
         </div>
         <img
           className="image"
           alt="slideImage"
-          src="./images/slides/coffee.png"
+          src="./images/slides/brandImg.jpg"
         />
       </div>
     </div>
