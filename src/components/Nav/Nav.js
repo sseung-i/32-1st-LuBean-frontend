@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import BtnWrap from "./BtnWrap/BtnWrap";
 import Category from "./Category/Category";
 import DropMenu from "./DropMenu/DropMenu";
-import { USER, CATEGORY, PRODUCTS_SUBMENU, GOODS_SUBMENU } from "./NAV_DATA";
+import { USER, CATEGORY } from "./NAV_DATA";
 import "./Nav.scss";
 
 const Nav = () => {
@@ -18,11 +18,11 @@ const Nav = () => {
   }, []);
 
   useEffect(() => {
-    if (nowTarget === "products") {
-      setSubMenuData(PRODUCTS_SUBMENU);
-    } else if (nowTarget === "goods") {
-      setSubMenuData(GOODS_SUBMENU);
-    }
+    CATEGORY.map(x => {
+      if (nowTarget === x.name) {
+        setSubMenuData(x.dropMenu);
+      }
+    });
   }, [nowTarget]);
 
   const onDropMenu = e => {
