@@ -3,9 +3,6 @@ import React, { useEffect, useState } from "react";
 import Country from "../Country/Country";
 import ProductsList from "./ProductsList/ProductsList";
 
-const widthEa = 4;
-const line = 3;
-
 const ListComponent = ({ originalData }) => {
   const { title, title_en, desc, topImg, listItem } = originalData;
   const [options, setOptions] = useState({ target: "all", sort: "recommend" });
@@ -13,8 +10,11 @@ const ListComponent = ({ originalData }) => {
   const [limit, setLimit] = useState(line);
   const [nowData, setNowData] = useState(listItem);
 
+  const WIDTH_EA = 4;
+  const LINE = 3;
+
   useEffect(() => {
-    setNowData(listItem.slice(0, widthEa * limit));
+    setNowData(listItem.slice(0, WIDTH_EA * LINE));
   }, [limit]);
 
   // let sortedData = listItem;

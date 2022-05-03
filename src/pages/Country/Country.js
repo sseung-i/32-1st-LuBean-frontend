@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Country.scss";
 
 const Country = ({ data, countryClick, target }) => {
-  const countryCount = {};
+  useEffect(() => {
+    const countryCount = {};
 
-  data.map(item =>
-    countryCount[item.country_name]
-      ? (countryCount[item.country_name] += 1)
-      : (countryCount[item.country_name] = 1)
-  );
+    data.map(item =>
+      countryCount[item.country_name]
+        ? (countryCount[item.country_name] += 1)
+        : (countryCount[item.country_name] = 1)
+    );
+  }, [data]);
 
   return (
     <ul className="country">
