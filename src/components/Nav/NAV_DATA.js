@@ -15,6 +15,7 @@ export const CATEGORY = [
       {
         id: 0,
         title: "싱글오리진",
+        title_en: "singleOrigin",
         subMenu: [
           { id: 0, country: "id값", text: "과테말라" },
           { id: 1, country: "id값", text: "니카라과" },
@@ -30,8 +31,8 @@ export const CATEGORY = [
           { id: 11, country: "id값", text: "파푸아뉴기니" },
         ],
       },
-      { id: 1, title: "블렌디드", subMenu: null },
-      { id: 2, title: "디카페인", subMenu: null },
+      { id: 1, title: "블렌디드", title_en: "blended", subMenu: null },
+      { id: 2, title: "디카페인", title_en: "decaffein", subMenu: null },
     ],
   },
   {
@@ -39,9 +40,9 @@ export const CATEGORY = [
     text: "굿즈",
     name: "goods",
     dropMenu: [
-      { id: 0, title: "티셔츠", subMenu: null },
-      { id: 1, title: "컵/텀블러", subMenu: null },
-      { id: 2, title: "커피용품", subMenu: null },
+      { id: 0, title: "티셔츠", title_en: "tshirt", subMenu: null },
+      { id: 1, title: "컵/텀블러", title_en: "cup", subMenu: null },
+      { id: 2, title: "커피용품", title_en: "coffeeGoods", subMenu: null },
     ],
   },
   { id: 3, text: "매장", name: "store", dropMenu: null },
