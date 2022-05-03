@@ -6,15 +6,14 @@ const DropMenu = ({ isEnter, onDropMenu, subMenuData }) => {
     <section
       data-id="dropMenu"
       className={`dropMenu ${!isEnter && "hidden"}`}
-      onMouseEnter={e => onDropMenu(e)}
+      onMouseEnter={onDropMenu}
     >
       <ul className="menuWrap">
         {subMenuData.map(({ id, title, title_en, subMenu }) => (
           <MainMenu
             key={id}
-            id={id}
+            title_en={title_en}
             title={title}
-            en={title_en}
             subMenu={subMenu}
           />
         ))}

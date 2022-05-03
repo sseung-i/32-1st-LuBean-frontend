@@ -12,23 +12,17 @@ const Nav = () => {
   const [subMenuData, setSubMenuData] = useState([]);
 
   useEffect(() => {
-    fetch("./NAV_DATA.js")
-      .then(res => res.json())
-      .then(data => console.log(data.USER));
-  }, []);
-
-  useEffect(() => {
-    CATEGORY.map(x => {
-      if (nowTarget === x.name) {
-        setSubMenuData(x.dropMenu);
+    CATEGORY.map(menu => {
+      if (nowTarget === menu.name) {
+        setSubMenuData(menu.dropMenu);
       }
     });
   }, [nowTarget]);
 
   const onDropMenu = e => {
-    const { text } = e.target.dataset;
-    if (text === "products" || text === "goods") {
-      setNowTarget(text);
+    const { id } = e.target;
+    if (id === "products" || id === "goods") {
+      setNowTarget(id);
       setIsEnter(true);
     } else {
       return;
@@ -43,11 +37,11 @@ const Nav = () => {
     <nav onMouseLeave={onLeaveMenu}>
       <section className="navWrap">
         <div className="logoWrap">
-          <Link to="/main">
+          <Link to="/">
             <img alt="logo" src="images/logo.svg" />
           </Link>
         </div>
-        <div className="rigintWrap">
+        <div className="rightWrap">
           <ul className="menuWrap">
             {CATEGORY.map(({ id, text, name }) => (
               <Category
