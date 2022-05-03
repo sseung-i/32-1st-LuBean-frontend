@@ -10,6 +10,14 @@ const SellContainer = ({ feedsList, openModal }) => {
     alert("주문성공!!");
   };
 
+  const handleMinus = () => {
+    if (count === 1) {
+      setCount(count);
+    } else {
+      setCount(count - 1);
+    }
+  };
+
   return (
     <div className="container">
       <section className="mainPic">
@@ -36,19 +44,14 @@ const SellContainer = ({ feedsList, openModal }) => {
         </div>
         <div className="itemCount">
           <span className="countContainer">
-            <button
-              className="minusBtn"
-              onClick={() => {
-                setCount(count - 1);
-              }}
-            >
+            <button className="minusBtn" onClick={handleMinus}>
               -
             </button>
             <input className="countBox" placeholder={count} type="text" />
             <button
               className="plusBtn"
               onClick={() => {
-                setCount(count + 1);
+                setCount(count => count + 1);
               }}
             >
               +

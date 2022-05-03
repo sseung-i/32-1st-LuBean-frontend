@@ -1,4 +1,5 @@
 import React from "react";
+import { makeStar } from "../../../utils/makeStar";
 
 const Star = ({ onStarChange }) => {
   return (
@@ -12,7 +13,8 @@ const Star = ({ onStarChange }) => {
             value={num}
             onClick={onStarChange}
           />
-          {"★".repeat(num) + "☆".repeat(5 - num)}
+          {makeStar(num)}
+          {/* {"★".repeat(num) + "☆".repeat(5 - num)} */}
         </label>
       ))}
     </>

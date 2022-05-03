@@ -21,9 +21,7 @@ const ReviewList = () => {
       id: index,
     }));
     setReviewList(resetId);
-  }, [reviewList.length]);
-
-  const rate = rateValue;
+  }, [reviewList]);
 
   const onInputChange = e => {
     setInputValue(e.target.value);
@@ -33,6 +31,7 @@ const ReviewList = () => {
   };
 
   const onFormSubmit = e => {
+    e.preventDefault();
     setReviewCounter(count => count + 1);
 
     if (inputValue !== "") {
@@ -40,14 +39,12 @@ const ReviewList = () => {
         id: reviewCounter,
         userName: "이**",
         content: inputValue,
-        star: rate,
+        star: rateValue,
       };
 
       setReviewList([...reviewList, newUser]);
+      setInputValue("");
     }
-
-    setInputValue("");
-    e.preventDefault();
   };
 
   const removeReview = id => {

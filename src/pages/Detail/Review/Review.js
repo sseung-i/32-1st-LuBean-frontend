@@ -1,4 +1,5 @@
 import React from "react";
+import { makeStar } from "../../../utils/makeStar";
 import "./Review.scss";
 
 const Review = ({ review, removeReview }) => {
@@ -7,7 +8,8 @@ const Review = ({ review, removeReview }) => {
       <div className="reviewArticle">
         <div className="summary">
           <div className="star">
-            {"★".repeat(review.star) + "☆".repeat(5 - review.star)}
+            {/* {"★".repeat(review.star) + "☆".repeat(5 - review.star)} */}
+            {makeStar(review.star)}
           </div>
           <div className="date">2022.04.26</div>
           <div className="name">{review.userName}</div>
