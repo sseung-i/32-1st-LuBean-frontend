@@ -271,7 +271,6 @@ const Main = () => {
                         images/slides/main_slide_${index + 1}.jpg)`,
                 }}
               />
-              {/* <img className="item" alt={inner.alt} src={inner.src} /> */}
             </div>
           );
         })}
