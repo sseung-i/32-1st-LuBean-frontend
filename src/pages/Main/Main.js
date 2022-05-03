@@ -233,11 +233,15 @@ const Main = () => {
     setCurrentBtnNum(e.target.dataset.id);
   }
 
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     setBannerBtnNum(bannerBtnNum < 4 ? bannerBtnNum + 1 : bannerBtnNum);
-  //   }, 4000);
-  // }, [bannerBtnNum]);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setBannerBtnNum(bannerBtnNum < 4 ? bannerBtnNum + 1 : 0);
+    }, 4000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [bannerBtnNum]);
 
   useEffect(() => {
     productContainer.current.style.transform = `translate(-${
