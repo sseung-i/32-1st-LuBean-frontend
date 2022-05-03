@@ -4,10 +4,11 @@ import "./Footer.scss";
 const Footer = () => {
   const [inputValue, setInputValue] = useState("");
 
-  function handleInputChange(e) {
+  const handleInputChange = e => {
     setInputValue(e.target.value);
-  }
-  function handleBtnClick(e) {
+  };
+
+  const handleBtnClick = e => {
     e.preventDefault();
     if (inputValue.includes("@")) {
       alert("구독 성공! 매주 월요일에 만나요!");
@@ -17,7 +18,7 @@ const Footer = () => {
       alert("이메일 형식을 맞춰주세요!");
     }
     setInputValue("");
-  }
+  };
 
   return (
     <div className="footer">
