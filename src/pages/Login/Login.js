@@ -1,9 +1,9 @@
+/* eslint-disable */
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import InputBox from "./Component/InputBox";
 import LOGIN_LIST from "./Component/LOGIN_LIST";
 import "./Login.scss";
-import "@fortawesome/fontawesome-free/js/all.js";
 
 function Login() {
   const [inputValues, setInputValues] = useState({
@@ -11,12 +11,15 @@ function Login() {
     pw: "",
   });
 
+  const navigate = useNavigate();
+  const idRules = inputValues.id.includes("@") && inputValues.id.includes(".");
+  const pwRules = inputValues.pw.length >= 8;
+
   const handleInput = e => {
     const { name, value } = e.target;
     setInputValues({ ...inputValues, [name]: value });
+    console.log(e.target.value);
   };
-
-  const navigate = useNavigate();
 
   const goToSignUp = () => {
     navigate("/signup");
@@ -34,7 +37,6 @@ function Login() {
       })
         .then(response => response.json())
         .then(result => {
-          console.log(result);
           if (result.message === "SUCCESS") {
             alert("환영합니다!");
             navigate("/main");
@@ -46,9 +48,6 @@ function Login() {
       alert("아이디와 비밀번호를 확인해주세요");
     }
   };
-
-  const idRules = inputValues.id.includes("@") && inputValues.id.includes(".");
-  const pwRules = inputValues.pw.length >= 8;
 
   return (
     <div className="loginAll">

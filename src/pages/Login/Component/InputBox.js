@@ -1,6 +1,5 @@
 import React from "react";
 import "./InputBox.scss";
-import "@fortawesome/fontawesome-free/js/all.js";
 
 function InputBox({ handleInput, name, type, placeholder, potato }) {
   return (

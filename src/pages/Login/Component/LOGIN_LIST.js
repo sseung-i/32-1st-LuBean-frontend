@@ -1,15 +1,13 @@
 const LOGIN_LIST = [
   {
-    // id: 1,
+    id: 1,
     name: "id",
     type: "text",
     placeholder: "아이디",
     iconName: "fa-solid fa-id-badge fa-2x",
-
-    // iconName: "images/Signup/IdIcon.png",
   },
   {
-    // id: 2,
+    id: 2,
     name: "pw",
     type: "password",
     placeholder: "비밀번호",

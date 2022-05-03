@@ -12,28 +12,28 @@ function SignUp() {
     emailInput: "",
     phoneInput: "",
   });
-  const { idInput, pwInput, nameInput, phoneInput } = signUpValues;
+
+  const { idInput, pwInput, pwInputCheck, nameInput, emailInput, phoneInput } =
+    signUpValues;
+
+  const navigate = useNavigate();
+
+  const idRules = idInput.match(
+    /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/
+  );
+
+  const pwRules = pwInput.match(
+    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[?!@#$%*&])[A-Za-z\d?!@#$%*&]{8,}$/
+  );
+  const pwCheckRules = pwInput === pwInputCheck;
+  const nameRules = nameInput.length > 1;
+  const emailRules = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
+  const phoneNumRules = phoneInput.length === 11;
 
   const handleInput = e => {
     const { name, value } = e.target;
     setSignUpValues({ ...signUpValues, [name]: value });
-    //1. 의미
   };
-
-  const navigate = useNavigate();
-
-  const idRules = signUpValues.idInput.match(
-    /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/
-  );
-
-  const pwRules = signUpValues.pwInput.match(
-    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[?!@#$%*&])[A-Za-z\d?!@#$%*&]{8,}$/
-  );
-  const pwCheckRules = signUpValues.pwInput === signUpValues.pwInputCheck;
-  const nameRules = signUpValues.idInput.length > 1;
-  const emailRules =
-    signUpValues.idInput.includes("@") && signUpValues.idInput.includes(".");
-  const phoneNumRules = signUpValues.phoneInput.length === 11;
 
   const checkSignup = () => {
     const signUpCondition =
@@ -45,7 +45,6 @@ function SignUp() {
       phoneNumRules;
 
     if (signUpCondition) {
-      //2. e.preventDefault(); ?  <form> 가 있을때 유효 새로고침 방지의 의미
       fetch("http://10.58.7.248:8000/users/signup", {
         method: "POST",
         body: JSON.stringify({
@@ -61,7 +60,6 @@ function SignUp() {
             navigate("/signup_done", { replace: false });
           }
         });
-      //3.여기까지의 의미
     } else {
       alert("잘못된 내용이 없는지 확인바랍니다.");
     }
@@ -74,9 +72,7 @@ function SignUp() {
       labelName: "아이디",
       name: "idInput",
       type: "text",
-      rules:
-        signUpValues.idInput.includes("@") &&
-        signUpValues.idInput.includes("."),
+      rules: idRules,
       checkMPass: "사용가능한 아이디입니다.",
       checkMtWrong: "이메일 형식으로 작성 바랍니다.",
     },
@@ -86,7 +82,7 @@ function SignUp() {
       labelName: "비밀번호",
       name: "pwInput",
       type: "password",
-      rules: signUpValues.pwInput.length >= 8,
+      rules: pwRules,
       checkMPass: "안전한 비밀번호입니다..",
       checkMtWrong: "(영문+숫자+특수문자) 8글자가 필요합니다.  ",
     },
@@ -96,7 +92,7 @@ function SignUp() {
       labelName: "비밀번호 확인",
       name: "pwInputCheck",
       type: "password",
-      rules: signUpValues.pwInput === signUpValues.pwInputCheck,
+      rules: pwCheckRules,
       checkMPass: "비밀번호가 일치합니다.",
       checkMtWrong: "비밀번호가 일치하지 않습니다.",
     },
@@ -106,7 +102,7 @@ function SignUp() {
       labelName: "이름",
       name: "nameInput",
       type: "text",
-      rules: signUpValues.idInput.length > 1,
+      rules: nameRules > 1,
       checkMPass: "사용가능한 이름입니다.",
       checkMtWrong: "",
     },
@@ -116,7 +112,7 @@ function SignUp() {
       labelName: "휴대폰번호",
       name: "phoneInput",
       type: "text",
-      rules: signUpValues.phoneInput.length === 11,
+      rules: phoneNumRules,
       checkMPass: "",
       checkMtWrong: "휴대폰번호를 다시 확인해주세요.",
     },
