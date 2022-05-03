@@ -6,15 +6,40 @@ import ProductsList from "./ProductsList/ProductsList";
 const ListComponent = ({ originalData }) => {
   const { title, title_en, desc, topImg, listItem } = originalData;
   const [options, setOptions] = useState({ target: "all", sort: "recommend" });
-
-  const [limit, setLimit] = useState(line);
+  const [countryButtonList, setcountryButtonList] = useState({});
   const [nowData, setNowData] = useState(listItem);
+
+  const [limit, setLimit] = useState(null);
 
   const WIDTH_EA = 4;
   const LINE = 3;
 
+  const SELECT_VALUE = [
+    { id: 0, value: "recommend", text: "추천순" },
+    { id: 1, value: "Ascending", text: "가격낮은순" },
+    { id: 2, value: "Descending", text: "가격높은순" },
+    { id: 3, value: "Word", text: "가나다순" },
+  ];
+
+  const setCountryCount = () => {
+    let countryCount = {};
+    listItem.map(item =>
+      countryCount[item.country_name]
+        ? (countryCount[item.country_name] += 1)
+        : (countryCount[item.country_name] = 1)
+    );
+    setcountryButtonList(countryCount);
+  };
+
   useEffect(() => {
-    setNowData(listItem.slice(0, WIDTH_EA * LINE));
+    setLimit(LINE);
+    setCountryCount();
+  }, []);
+
+  // console.log("개수", WIDTH_EA * limit);
+
+  useEffect(() => {
+    setNowData(listItem.slice(0, WIDTH_EA * limit));
   }, [limit]);
 
   // let sortedData = listItem;
@@ -43,15 +68,8 @@ const ListComponent = ({ originalData }) => {
   //   });
   // }
 
-  const selectValue = [
-    { id: 0, value: "recommend", text: "추천순" },
-    { id: 1, value: "Ascending", text: "가격낮은순" },
-    { id: 2, value: "Descending", text: "가격높은순" },
-    { id: 3, value: "Word", text: "가나다순" },
-  ];
-
   useEffect(() => {
-    const api_url = "";
+    const api_url = ` ?country_name="${options.target}" & sort="${options.sort}"`;
     fetch(api_url, {
       method: "POST",
       body: JSON.stringify({
@@ -63,7 +81,7 @@ const ListComponent = ({ originalData }) => {
   }, [options]);
 
   const countryClick = e => {
-    const countryData = e.target.dataset.id;
+    const countryData = e.target.id;
     setOptions({ ...options, target: countryData });
     // pageChangeRequest(countryData);
   };
@@ -74,12 +92,10 @@ const ListComponent = ({ originalData }) => {
     // pageChangeRequest(selectorData);
   };
 
-  const onMoreClick = e => {
-    e.preventDefault();
-    setLimit(curr => curr + line);
+  const onMoreClick = () => {
+    setLimit(curr => curr + LINE);
   };
-
-  console.log(listItem.length - nowData.length);
+  console.log(limit);
 
   return (
     <div className="list">
@@ -93,7 +109,7 @@ const ListComponent = ({ originalData }) => {
             {title} ({title_en})
           </h3>
           <select className="listSort" onChange={changeSelector}>
-            {selectValue.map(({ id, value, text }) => (
+            {SELECT_VALUE.map(({ id, value, text }) => (
               <option key={id} value={value}>
                 {text}
               </option>
@@ -102,7 +118,8 @@ const ListComponent = ({ originalData }) => {
         </article>
         {title_en === "Single Origin" && (
           <Country
-            data={listItem}
+            countryButtonList={countryButtonList}
+            countryLength={listItem.length}
             countryClick={countryClick}
             target={options.target}
           />

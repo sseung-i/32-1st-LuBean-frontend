@@ -2,11 +2,9 @@ import React from "react";
 import "./Info.scss";
 
 const Info = ({ id, name, country, weight, isTag, productClick }) => {
-  const paddingVal = isTag ? "10px" : "40px";
   return (
     <div
-      className="productInfo"
-      style={{ paddingTop: paddingVal }}
+      className={`productInfo ${isTag && "isTag"}`}
       onClick={() => productClick(id, name)}
     >
       <p className="name">{name}</p>

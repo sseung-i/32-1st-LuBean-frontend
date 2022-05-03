@@ -6,9 +6,8 @@ import "./ProductsList.scss";
 const ProductsList = ({ data }) => {
   const navigate = useNavigate();
 
-  const productClick = (id, name) => {
+  const productClick = id => {
     navigate(`${process.env.PUBLIC_URL}/detail/${id}`);
-    // console.log(id, name);
   };
 
   return (
@@ -16,7 +15,7 @@ const ProductsList = ({ data }) => {
       <ul className="productWrap">
         {data.map(({ id, name, country_name, weight, price, tag, imgUrl }) => (
           <li key={id}>
-            <div className="thumbnail" onClick={() => productClick(id, name)}>
+            <div className="thumbnail" onClick={() => productClick(id)}>
               <img className="thumb" alt={name} src={imgUrl[0]} />
               <img className="thumbHover" alt={name} src={imgUrl[1]} />
             </div>

@@ -1,30 +1,25 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Country.scss";
 
-const Country = ({ data, countryClick, target }) => {
-  useEffect(() => {
-    const countryCount = {};
-
-    data.map(item =>
-      countryCount[item.country_name]
-        ? (countryCount[item.country_name] += 1)
-        : (countryCount[item.country_name] = 1)
-    );
-  }, [data]);
-
+const Country = ({
+  countryButtonList,
+  countryClick,
+  countryLength,
+  target,
+}) => {
   return (
     <ul className="country">
       <li
-        data-id="all"
+        id="all"
         className={`countryAll ${target === "all" ? "nowView" : ""}`}
         onClick={countryClick}
       >
-        전체({data.length})
+        전체({countryLength})
       </li>
-      {Object.entries(countryCount).map((it, index) => (
+      {Object.entries(countryButtonList).map((it, index) => (
         <li
           key={index}
-          data-id={it[0]}
+          id={it[0]}
           className={`${target === it[0] ? "nowView" : ""}`}
           onClick={countryClick}
         >
