@@ -23,16 +23,15 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="icons">
-        <i className="fa-solid fa-mug-hot" />
-        <i className="fa-solid fa-mug-saucer" />
-        <i className="fa-solid fa-mug-hot" />
-        <i className="fa-solid fa-mug-saucer" />
-        <i className="fa-solid fa-mug-hot" />
-        <i className="fa-solid fa-mug-saucer" />
+        <img className="icon" src="./images/coffee-beans.png" alt="icon" />
+        <div className="text">LOVE</div>
+        <img className="icon" src="./images/coffee-beans.png" alt="icon" />
+        <div className="text">BEANS</div>
+        <img className="icon" src="./images/coffee-beans.png" alt="icon" />
       </div>
       <div className="info">
         <div className="infoLeft">
-          <div className="logo">LuBean</div>
+          <img className="logo" src="./images/logo.svg" alt="logo" />
           <p className="leftTop">
             고객센터 1644-4461
             <br />
@@ -54,11 +53,19 @@ const Footer = () => {
             </span>
           </p>
           <div className="favicons">
-            <i className="fa-brands fa-facebook-f" />
-            <i className="fa-brands fa-instagram" />
-            <i className="fa-brands fa-youtube" />
-            <i className="fa-brands fa-pinterest-p" />
-            <i className="fa-brands fa-twitter" />
+            {personData.map(person => {
+              return (
+                <a
+                  key={person.id}
+                  id={person.id}
+                  href={person.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i className={person.icon} />
+                </a>
+              );
+            })}
           </div>
         </div>
         <div className="infoRight">
@@ -115,3 +122,42 @@ const Footer = () => {
 };
 
 export default Footer;
+
+const personData = [
+  {
+    id: 0,
+    name: "guiah",
+    url: "https://github.com/guiahkim",
+    icon: "fa-brands fa-github",
+  },
+  {
+    id: 1,
+    name: "jaewon",
+    url: "https://github.com/JaewY",
+    icon: "fa-brands fa-github-alt",
+  },
+  {
+    id: 2,
+    name: "jinseop",
+    url: "https://github.com/nathanyoon1212",
+    icon: "fa-brands fa-github",
+  },
+  {
+    id: 3,
+    name: "hyunjung",
+    url: "https://github.com/hyunny123",
+    icon: "fa-brands fa-github-alt",
+  },
+  {
+    id: 4,
+    name: "sooyeon",
+    url: "https://github.com/imsooyeon",
+    icon: "fa-brands fa-github",
+  },
+  {
+    id: 5,
+    name: "seungi",
+    url: "https://github.com/sseung-i",
+    icon: "fa-brands fa-github-alt",
+  },
+];
