@@ -1,0 +1,79 @@
+@import "../../styles/variables.scss";
+
+nav {
+  position: fixed;
+  width: 100vw;
+  height: 100px;
+  background-color: #000;
+
+  .navWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    height: 100%;
+
+    .logoWrap {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 30%;
+
+      img {
+        height: 42px;
+      }
+    }
+
+    .rightWrap {
+      display: flex;
+      width: 70%;
+
+      .menuWrap {
+        width: 70%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+
+      .btnWrap {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 30%;
+
+        .iconBtn {
+          position: relative;
+          width: 30px;
+          height: 30px;
+          margin-left: 40px;
+
+          .fa-solid {
+            position: relative;
+            top: 7px;
+            left: 1px;
+            color: #fff;
+          }
+
+          .itemNum {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            right: -3px;
+            bottom: -5px;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7em;
+            border-radius: 9px;
+            color: #000;
+            border: 1px solid #000;
+            background-color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,1 +1,25 @@
+// @import "../../components/Button/Button.scss";
+// button {
+//   @include button(30px, 30px, 15px, rgb(129, 126, 126), #fff, #000);
+// }
+html {
+  scroll-behavior: smooth;
+}
 
+.detail {
+  margin-top: 100px;
+  .detailWrap {
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .mainContainer {
+      width: 100%;
+      max-width: 1200px;
+      // background-color: tomato;
+    }
+    .delivery {
+      padding: 100px 0 0;
+    }
+  }
+}

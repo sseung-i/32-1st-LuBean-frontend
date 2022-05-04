@@ -1,0 +1,50 @@
+.tab {
+  position: relative;
+  z-index: 0;
+  scroll-behavior: smooth;
+
+  .tabNav {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    font-size: 18px;
+    max-width: 1200px;
+    margin-bottom: 20px;
+
+    .tabBlock {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+
+      .info {
+        position: relative;
+        display: block;
+        background: #ffffff;
+        color: #111;
+        line-height: 45px;
+        text-decoration: none;
+        font-size: 16px;
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #111;
+
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0px;
+          width: 100%;
+          height: 3px;
+        }
+
+        &.active {
+          border-left: 1px solid #111;
+          border-right: 1px solid #111;
+          border-top: 1px solid #111;
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}

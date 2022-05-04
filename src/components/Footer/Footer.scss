@@ -46,11 +46,20 @@
         span {
           font-size: $font-S;
           line-height: 1.7;
+
+          .email {
+            border-bottom: 1px solid white;
+            cursor: pointer;
+          }
         }
       }
 
       .favicons {
         font-size: $font-L;
+
+        i {
+          cursor: pointer;
+        }
 
         .fa-brands {
           width: 35px;
