@@ -4,6 +4,11 @@
   font-weight: $weight;
 }
 
+@mixin SignUpwidth($width: 380px, $height: 38px) {
+  width: $width;
+  height: $height;
+}
+
 @mixin ButtonBlack {
   margin-top: 20px;
   margin: 40px 0px;

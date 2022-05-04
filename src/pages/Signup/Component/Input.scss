@@ -27,8 +27,7 @@ p {
 }
 
 input {
-  width: 370px;
-  height: 30px;
+  @include SignUpwidth;
 }
 
 .good {

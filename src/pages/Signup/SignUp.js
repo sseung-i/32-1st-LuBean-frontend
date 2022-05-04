@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "./Component/Input";
+import SelectInput from "./Component/SelectInput";
+import SELECT_ADDRESS from "./Component/SELECT_ADDRESS";
 import "./SignUp.scss";
 
 function SignUp() {
@@ -164,6 +166,15 @@ function SignUp() {
                 />
               )
             )}
+          </div>
+          <div>
+            {SELECT_ADDRESS.map(addressAndEmail => (
+              <SelectInput
+                key={addressAndEmail.id}
+                name={addressAndEmail.name}
+                state={addressAndEmail.state}
+              />
+            ))}
           </div>
         </div>
       </div>
