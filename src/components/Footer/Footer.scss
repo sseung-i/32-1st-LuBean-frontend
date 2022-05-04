@@ -16,6 +16,10 @@
     height: 171.09px;
     background-color: #f2f2f2;
 
+    .icon {
+      width: 80px;
+    }
+
     i {
       font-size: 80px;
     }
@@ -36,9 +40,14 @@
 
     .infoLeft {
       width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 100px;
 
       .logo {
-        margin-bottom: 55px;
+        width: 180px;
+        margin-bottom: 45px;
         font-size: 30px;
         font-weight: 700;
       }
@@ -60,20 +69,35 @@
       }
 
       .favicons {
+        display: flex;
         font-size: $font-L;
 
-        i {
-          cursor: pointer;
-        }
-
         .fa-brands {
-          width: 35px;
-          padding: 8px;
+          width: 25px;
+          padding: 4px;
           margin-right: 5px;
           border-radius: 50%;
           background-color: #808080;
           color: black;
           text-align: center;
+          cursor: pointer;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        div {
+          height: 50px;
+          width: 30px;
+          // margin-bottom: 40px;
+          p {
+            display: none;
+            position: relative;
+            top: 10px;
+            left: -3px;
+            font-size: $font-S;
+          }
         }
       }
     }
