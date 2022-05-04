@@ -112,10 +112,10 @@ const Main = () => {
           </video>
         </div>
         <div className="imgWrap item2">
-          <img alt="item2" src="./images/slides/grid2(3).jpg" />
+          <img alt="item2" src="./images/slides/grid2.jpg" />
         </div>
         <div className="imgWrap item3">
-          <img alt="item3" src="./images/slides/grid3(3).jpg" />
+          <img alt="item3" src="./images/slides/grid3.jpg" />
         </div>
         <div className="imgWrap item4">
           <img alt="item4" src="./images/slides/grid4.jpg" />

@@ -36,7 +36,7 @@ export const INNER__BANNER = [
     className: "item",
     alt: `item4`,
     src: `./images/slides/main4.jpg`,
-    title: "원두쓰리,원두쓰리,,",
+    title: "I LuBean You",
     desc: "최상의 풍미를 자랑하는 아라비카 원두",
   },
 ];
