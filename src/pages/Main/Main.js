@@ -6,6 +6,7 @@ import "./Main.scss";
 const Main = () => {
   const [bannerBtnNum, setBannerBtnNum] = useState(0);
   const [productBtnNum, setProductBtnNum] = useState(0);
+  const [productData, setProductData] = useState();
 
   const bannerContainer = useRef(null);
   const productContainer = useRef(null);
@@ -39,6 +40,14 @@ const Main = () => {
     productContainer.current.style.transition = `transform 800ms`;
   }, [productBtnNum]);
 
+  // useEffect(() => {
+  //   fetch("http://10.58.3.83:8000/products/list")
+  //     .then(response => response.json())
+  //     .then(data => setProductData(data.product_list_data));
+  // }, []);
+
+  // console.log(productData);
+  // console.log(typeof { productData });
   return (
     <div className="main">
       {/* 위쪽 배너 슬라이드 */}
@@ -69,7 +78,6 @@ const Main = () => {
           handleBtnClick={bannerBtnClick}
         />
       </div>
-      {/* 
 
       {/* 가운데 상품 슬라이드 */}
       <div className="productContainer">

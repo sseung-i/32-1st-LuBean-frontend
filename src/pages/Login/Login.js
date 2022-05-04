@@ -51,7 +51,7 @@ function Login() {
 
   return (
     <div className="loginAll">
-      <div className="forCenter">
+      <div className="centerFor">
         <div className="loginText">로그인</div>
         <div className="memberText">회원</div>
 
@@ -67,8 +67,8 @@ function Login() {
           ))}
         </div>
 
-        <label htmlFor="saveID">
-          <input type="checkBox" />
+        <label className="laberFor" htmlFor="saveID">
+          <input className="inputFor" type="checkBox" />
           아이디 저장
         </label>
 
