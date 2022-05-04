@@ -1,0 +1,32 @@
+{
+  "id": 1,
+  "itemTitleImg": "images/products/detail/main/detailmain.png",
+  "titleKr": "과테말라 엘 모리또",
+  "titleEn": "El Morito",
+  "price": 30000,
+  "weight": 100,
+  "productInfo": {
+    "review": {
+      "text": "적당한 산미와 달콤함이 혼합된 느낌으로 여운이 깊고 길게 남는 엘모리또, 워시드이긴 하지만, 내추럴 못지 않는 느낌 을 많이주는 원두인거 같아서 제 베스트 픽입니다!!",
+      "image": "images/products/detail/mainimg/beanimg01.png"
+    },
+    "info": "농장명 / 엘 모리또 El Morito\n농장주 / 로베르토 몬테로소 Roberto Monterroso\n지역 / 오리엔테 Oriente\n재배고도 / 1,600m\n품종 / 카투라, 카투아이 Caturra, Catuai\n가공방식 / 워시드 washed\n입고일 / 22.04.01",
+    "note": [
+      {
+        "img": "images/products/detail/note/apple.png",
+        "title": "사과",
+        "desc": "새콤하면서도 달큰함"
+      },
+      {
+        "img": "images/products/detail/note/maple.png",
+        "title": "메이플",
+        "desc": "달달한 뒷맛"
+      },
+      {
+        "img": "images/products/detail/note/blacktea.png",
+        "title": "블랙티",
+        "desc": "살짝 쌉싸래함 뒤 깔끔함"
+      }
+    ]
+  }
+}
