@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Info.scss";
 
 const Info = ({ infoList }) => {
   const { titleKr, titleEn, productInfo } = infoList;
+
+  const [btnNum, setBtnNum] = useState(0);
+
+  const noteContainer = useRef(null);
+
+  useEffect(() => {
+    noteContainer.current.style.transform = `translateX(${-350 * btnNum}px)`;
+  }, [btnNum]);
+
+  const handleLeftClick = () => {
+    if (btnNum > 0) {
+      setBtnNum(btnNum => btnNum - 1);
+    }
+  };
+
+  const handleRightClick = () => {
+    if (btnNum < 2) {
+      setBtnNum(btnNum => btnNum + 1);
+    }
+  };
   return (
     <div>
       <section className="sectionHeader">
@@ -47,18 +67,24 @@ const Info = ({ infoList }) => {
               ))}
             </ul>
           </div>
-          <div className="noteList">
-            {productInfo.note.map(({ img, title, desc }, index) => (
-              <div key={index} className={`noteItem1 ${title}`}>
-                <div className="noteThumb">
-                  <img alt={title} src={img} />
+          <div className="noteCarousel">
+            <div className="noteList" ref={noteContainer}>
+              {productInfo.note.map(({ img, title, desc }, index) => (
+                <div key={index} className={`noteItem1 ${title}`}>
+                  <div className="noteThumb">
+                    <img alt={title} src={img} />
+                  </div>
+                  <div className="itemText">
+                    <div className="itemTitle">{title}</div>
+                    <div className="itemDesc">{desc}</div>
+                  </div>
                 </div>
-                <div className="itemText">
-                  <div className="itemTitle">{title}</div>
-                  <div className="itemDesc">{desc}</div>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            <div className="noteCarouselBtn">
+              <button onClick={handleLeftClick}>◀️</button>
+              <button onClick={handleRightClick}>▶️</button>
+            </div>
           </div>
         </div>
       </section>

@@ -4,7 +4,7 @@ import "./Modal.scss";
 const Modal = ({ modalOpen, closeModal }, props) => {
   return (
     <div className={`modal ${modalOpen && "modal openModal"}`}>
-      {modalOpen ? (
+      {modalOpen && (
         <section className="modalSection">
           <div className="modalBox">
             <header className="modalHeader">
@@ -26,7 +26,7 @@ const Modal = ({ modalOpen, closeModal }, props) => {
             </footer>
           </div>
         </section>
-      ) : null}
+      )}
     </div>
   );
 };

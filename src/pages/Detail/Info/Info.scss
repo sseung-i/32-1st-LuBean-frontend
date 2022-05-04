@@ -72,10 +72,11 @@
   .innerNote {
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     // max-width: 960px;
     .titleNote {
-      width: 60%;
+      width: 50%;
+      margin-left: 50px;
       margin-bottom: 40px;
       padding-top: 75px;
       text-align: left;
@@ -102,49 +103,67 @@
       }
     }
 
-    .noteList {
-      display: flex;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
-      .noteItem1 {
+    .noteCarousel {
+      width: 350px;
+      overflow: hidden;
+      margin-top: 50px;
+
+      .noteList {
         display: flex;
-        align-items: center;
-        flex-direction: column;
-        // display: inline-block;
-        width: 35%;
-        // width: 192px;
-        text-align: center;
-        vertical-align: top;
 
-        .noteThumb {
-          position: relative;
-          width: 191px;
-          height: 191px;
-          overflow: hidden;
-          img {
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-            border-radius: 100px;
-          }
-        }
+        width: 100%;
+        // overflow: hidden;
+        // justify-content: space-evenly;
+        // flex-wrap: wrap;
+        .noteItem1 {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          // display: inline-block;
+          // width: 35%;
+          // width: 192px;
+          text-align: center;
+          vertical-align: top;
 
-        .itemText {
-          margin-top: 10px;
-          .itemTitle {
-            font-size: 20px;
-            font-weight: 700;
-            line-height: 1.4;
+          .noteThumb {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            overflow: hidden;
+            img {
+              object-fit: cover;
+              width: 100%;
+              height: 100%;
+              border-radius: 250px;
+            }
           }
-          .itemDesc {
-            min-height: 48px;
-            margin-top: 8px;
-            color: #6b6b6b;
-            font-size: 16px;
-            line-height: 24px;
+
+          .itemText {
+            margin-top: 10px;
+            .itemTitle {
+              font-size: 20px;
+              font-weight: 700;
+              line-height: 1.4;
+            }
+            .itemDesc {
+              min-height: 48px;
+              margin-top: 8px;
+              color: #6b6b6b;
+              font-size: 16px;
+              line-height: 24px;
+            }
           }
         }
       }
+      .noteCarouselBtn {
+        display: flex;
+        justify-content: center;
+
+        button {
+          background-color: #fff;
+        }
+      }
+
       // .blacktea {
       //   display: inline-block;
       //   width: 192px;
