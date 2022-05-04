@@ -31,14 +31,14 @@
   .welcomeBox {
     display: flex;
     justify-content: space-between;
-    width: 43%;
+    width: 30%;
 
     .imgCover {
       display: flex;
       justify-content: flex-end;
       height: 450px;
 
-      img {
+      .coverFor {
         width: inherit;
       }
     }

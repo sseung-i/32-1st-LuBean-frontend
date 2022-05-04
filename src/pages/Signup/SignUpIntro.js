@@ -20,8 +20,11 @@ function SignUpIntro() {
         쇼핑몰 회원가입
       </button>
 
-      <p>
-        이미 쇼핑몰 회원이세요? <span onClick={goToLogin}> 로그인 </span>
+      <p className="alreadyhaveid">
+        이미 쇼핑몰 회원이세요?{" "}
+        <span className="loginFor" onClick={goToLogin}>
+          로그인
+        </span>
       </p>
     </div>
   );
