@@ -1,10 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import "./Footer.scss";
 
 const Footer = () => {
   const [inputValue, setInputValue] = useState("");
-  // const [personId, setPersonId] = useState("");
-  const nameText = useRef(null);
+
   const handleInputChange = e => {
     setInputValue(e.target.value);
   };
@@ -19,17 +18,6 @@ const Footer = () => {
       alert("이메일 형식을 맞춰주세요!");
     }
     setInputValue("");
-  };
-
-  const handleMouseEnter = e => {
-    console.log(e.target.id);
-    // setPersonId(e.target.id);
-    nameText.current.style.display = "block";
-  };
-
-  const handleMouseLeave = e => {
-    // setPersonId(e.target.id);
-    nameText.current.style.display = "none";
   };
 
   return (
@@ -65,100 +53,19 @@ const Footer = () => {
             </span>
           </p>
           <div className="favicons">
-            {nameData.map(person => {
+            {personData.map(person => {
               return (
-                <>
-                  <a
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                    href={person.url}
-                  >
-                    <i key={person.id} id={person.name} class={person.icon} />
-                  </a>
-                  <p ref={nameText}>{person.name}</p>
-                </>
-                // <div
-                //   key={person.id}
-                //   id={person.id}
-                //   name={person.name}
-                //   onMouseEnter={handleMouseEnter}
-                //   onMouseLeave={handleMouseLeave}
-                // >
-                //   <a href={person.url} target="_blank" rel="noreferrer">
-                //     <i class={person.icon} />
-                //   </a>
-                //   <p ref={nameText}>{person.name}</p>
-                // </div>
+                <a
+                  key={person.id}
+                  id={person.id}
+                  href={person.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i className={person.icon} />
+                </a>
               );
             })}
-            {/* 
-            <div
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <a
-                href="https://github.com/guiahkim"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i class="fa-brands fa-github" />
-              </a>
-              <p ref={nameText}>guiah</p>
-            </div>
-
-            <div
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <a
-                href="https://github.com/JaewY"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i class="fa-brands fa-github-alt" />
-              </a>
-              <p ref={nameText}>jaewon</p>
-            </div>
-
-            <div>
-              <a>
-                <i class="fa-brands fa-github" />
-              </a>
-              <p>jinseop</p>
-            </div>
-
-            <div>
-              <a
-                href="https://github.com/hyunny123"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i class="fa-brands fa-github-alt" />
-              </a>
-              <p>hyunjeong</p>
-            </div>
-
-            <div>
-              <a
-                href="https://github.com/imsooyeon"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i class="fa-brands fa-github" />
-              </a>
-              <p>sooyoen</p>
-            </div>
-
-            <div>
-              <a
-                href="https://github.com/sseung-i"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i class="fa-brands fa-github-alt" />
-              </a>
-              <p>sseungi</p>
-            </div> */}
           </div>
         </div>
         <div className="infoRight">
@@ -216,7 +123,7 @@ const Footer = () => {
 
 export default Footer;
 
-const nameData = [
+const personData = [
   {
     id: 0,
     name: "guiah",
@@ -232,12 +139,12 @@ const nameData = [
   {
     id: 2,
     name: "jinseop",
-    url: "https://github.com/guiahkim",
+    url: "https://github.com/nathanyoon1212",
     icon: "fa-brands fa-github",
   },
   {
     id: 3,
-    name: "hyunjeong",
+    name: "hyunjung",
     url: "https://github.com/hyunny123",
     icon: "fa-brands fa-github-alt",
   },
@@ -249,7 +156,7 @@ const nameData = [
   },
   {
     id: 5,
-    name: "sseungi",
+    name: "seungi",
     url: "https://github.com/sseung-i",
     icon: "fa-brands fa-github-alt",
   },
