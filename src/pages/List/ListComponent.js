@@ -3,15 +3,23 @@ import { useLocation, useNavigate } from "react-router-dom";
 import ProductsList from "./ProductsList/ProductsList";
 import Country from "../Country/Country";
 
-const ListComponent = ({ originalData }) => {
-  const { category_name, sub_detail, product_image } = originalData[0];
+const ListComponent = ({ tumbnail, hoverImg, topImgUrl, originalData }) => {
+  const { category_name, sub_detail } = originalData[0];
+  const categorySlice = category_name.split("\\n");
+
+  const categoryName = {
+    ko: categorySlice[0],
+    en: categorySlice[1],
+  };
 
   // const { title, title_en, desc, topImg, listItem } = originalData;
   const [options, setOptions] = useState({ target: "all", sort: "recommend" });
   const [countryButtonList, setcountryButtonList] = useState({});
   const [nowData, setNowData] = useState(originalData);
 
-  // const [page, setPage] = useState(1);
+  // console.log(nowData);
+
+  const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -39,7 +47,7 @@ const ListComponent = ({ originalData }) => {
   };
 
   useEffect(() => {
-    console.log("useEffect", originalData);
+    // console.log("useEffect", originalData);
     // setLimit(LINE);
     setCountryCount();
   }, []);
@@ -100,11 +108,11 @@ const ListComponent = ({ originalData }) => {
     // pageChangeRequest(selectorData);
   };
 
-  const onMoreClick = () => {
-    setLimit(curr => curr + LINE);
-  };
+  // const onMoreClick = () => {
+  //   setLimit(curr => curr + LINE);
+  // };
 
-  //무한 스크롤
+  // 무한 스크롤
   // useEffect(() => {
   //   fetch(`/list${location.search}`)
   //     .then(res => res.json())
@@ -122,25 +130,25 @@ const ListComponent = ({ originalData }) => {
     <div className="list">
       <section
         className="title"
-        style={{ backgroundImage: `URL(${product_image[0]})` }}
+        style={{ backgroundImage: `URL('${topImgUrl}')` }}
       >
-        <h2>{category_name}</h2>
-        <p>{sub_detail}</p>
+        <h2>{categoryName.ko}</h2>
+        <p className="pageDesc">{sub_detail}</p>
       </section>
       <section className="products">
         <article className="top">
           <h3>
-            {category_name} ({category_name})
+            {categoryName.ko} ({categoryName.en})
           </h3>
-          {/* <select className="listSort" onChange={changeSelector}>
+          <select className="listSort" onChange={changeSelector}>
             {SELECT_VALUE.map(({ id, value, text }) => (
               <option key={id} value={value}>
                 {text}
               </option>
             ))}
-          </select> */}
+          </select>
         </article>
-        {category_name === "싱글오리진" && (
+        {categoryName.ko === "싱글오리진" && (
           <Country
             countryButtonList={countryButtonList}
             countryLength={originalData.length}
@@ -148,7 +156,13 @@ const ListComponent = ({ originalData }) => {
             target={options.target}
           />
         )}
-        {nowData && <ProductsList data={nowData} />}
+        {nowData && (
+          <ProductsList
+            hoverImg={hoverImg}
+            tumbnail={tumbnail}
+            data={nowData}
+          />
+        )}
       </section>
     </div>
   );

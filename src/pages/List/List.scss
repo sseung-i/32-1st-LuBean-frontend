@@ -2,7 +2,7 @@
 
 .list {
   padding-top: 100px;
-  .title {
+  > .title {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,7 +22,7 @@
       text-shadow: 0 0 7px rgba(0, 0, 0, 0.7);
     }
 
-    p {
+    .pageDesc {
       margin-top: 20px;
       font-size: 26px;
       font-weight: 400;

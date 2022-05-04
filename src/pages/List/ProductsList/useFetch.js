@@ -1,28 +1,27 @@
 import { useCallback, useEffect, useState } from "react";
 
-const END_POINT = "data/singleOriginData.json";
+// const END_POINT = "data/singleOriginData.json";
+const END_POINT = "http://10.58.3.83:8000/products/list";
 
 const useFetch = pageNum => {
+  // const useFetch = page => {
   const [list, setList] = useState([]);
   const [hasMore, setHasMore] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  console.log("hasMore :", hasMore);
+  // console.log("hasMore :", hasMore);
 
   const sendQuery = useCallback(async () => {
-    const URL = `${END_POINT}?${pageNum}`;
     const LIMIT = 12;
     const OFFSET = pageNum * LIMIT;
+    const URL = `${END_POINT}?offset=${OFFSET}&limit=${OFFSET + LIMIT}`;
 
-    console.log(
-      "재로드",
-      "OFFSET :",
-      OFFSET,
-      "LIMIT :",
-      LIMIT,
-      "계산값 :",
-      LIMIT * (pageNum + 1)
-    );
+    //query API 요청 보내기
+
+    // const sendQuery = useCallback(async () => {
+    //   const OFFSET = page * 12;
+    //   const LIMIT = OFFSET + 12;
+    //   const URL = `${END_POINT}?offset=${OFFSET}&limit=${LIMIT}`;
 
     try {
       setIsLoading(true);
@@ -30,10 +29,12 @@ const useFetch = pageNum => {
       if (!response) {
         throw new Error("오류오류!!!");
       }
+
       setList(prev => [
-        ...prev.concat(response.listItem.slice(OFFSET, OFFSET + LIMIT)),
+        // ...prev.concat(response.listItem.slice(OFFSET, OFFSET + LIMIT)),
+        ...prev.concat(response.product_list_data),
       ]);
-      setHasMore(response.listItem.length - LIMIT * (pageNum + 1) > 0);
+      setHasMore(response.product_list_data.length - LIMIT * (pageNum + 1) > 0);
       setIsLoading(false);
     } catch (e) {
       throw new Error(`오류!!!! ${e.message}`);
@@ -43,8 +44,21 @@ const useFetch = pageNum => {
   useEffect(() => {
     sendQuery();
   }, [sendQuery, pageNum]);
+  //       throw new Error(`오류오류`);
+  //     }
+  //     setList(prev => [...prev.concat(response.listItem.slice(OFFSET, LIMIT))]);
+  //     setHasMore(response.listItem.length > 0);
+  //     setIsLoading(false);
+  //   } catch (e) {
+  //     throw new Error(`오류!! ${e.message}`);
+  //   }
+  // }, [page]);
 
-  return { hasMore, list, isLoading };
+  // useEffect(() => {
+  //   sendQuery();
+  // }, [sendQuery, page]);
+
+  return { list, hasMore, isLoading };
 };
 
 export default useFetch;

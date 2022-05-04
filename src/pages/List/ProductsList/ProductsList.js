@@ -5,7 +5,7 @@ import Tag from "../Tag/Tag";
 import useFetch from "./useFetch";
 import "./ProductsList.scss";
 
-const ProductsList = () => {
+const ProductsList = ({ hoverImg, tumbnail }) => {
   const [pageNum, setPageNum] = useState(0);
   const { list, hasMore, isLoading } = useFetch(pageNum);
 
@@ -39,27 +39,41 @@ const ProductsList = () => {
   return (
     <article className="productsList">
       <ul className="productWrap">
-        {list.map(({ id, name, country_name, weight, price, tag, imgUrl }) => (
-          <li key={id}>
-            <div className="thumbnail" onClick={() => productClick(id)}>
-              <img className="thumb" alt={name} src={imgUrl[0]} />
-              <img className="thumbHover" alt={name} src={imgUrl[1]} />
-            </div>
-            {tag && <Tag tag={tag} />}
-            <Info
-              id={id}
-              name={name}
-              weight={weight}
-              country={country_name}
-              isTag={tag.length}
-              productClick={productClick}
-            />
-            <p className="cost">
-              <span>₩ </span>
-              {price.toLocaleString()}
-            </p>
-          </li>
-        ))}
+        {list.map(
+          ({
+            id,
+            english_name,
+            korean_name,
+            country_name,
+            weight,
+            product_price,
+            product_label,
+          }) => (
+            <li key={id}>
+              <div className="thumbnail" onClick={() => productClick(id)}>
+                <img
+                  className="thumb"
+                  alt={english_name}
+                  src={hoverImg[country_name]}
+                />
+                <img className="thumbHover" alt={english_name} src={tumbnail} />
+              </div>
+              {product_label && <Tag tag={product_label} />}
+              <Info
+                id={id}
+                name={korean_name}
+                weight={weight}
+                country={country_name}
+                isTag={product_label}
+                productClick={productClick}
+              />
+              <p className="cost">
+                <span>₩ </span>
+                {parseInt(product_price).toLocaleString()}
+              </p>
+            </li>
+          )
+        )}
       </ul>
       <div ref={observer} className="observerBox" />
     </article>
