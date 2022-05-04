@@ -9,7 +9,7 @@ function SelectInput({ name, state }) {
         <div className="redPointBox">
           <span className="redPoint" />
         </div>
-        <p>{name}</p>
+        <p className=".shortInput">{name}</p>
         <input className="shortInputBox" />
 
         <select className="address">

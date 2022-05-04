@@ -1,11 +1,13 @@
 @import "../../styles/variables.scss";
 
 .all {
+  width: 100vw;
+  height: calc(100vh - 642px);
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  margin-top: 300px;
+  padding-top: 50px;
 
   .join_text {
     @include LnBfont(40px, 600);
