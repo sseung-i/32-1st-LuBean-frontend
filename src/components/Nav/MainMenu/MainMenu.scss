@@ -1,0 +1,40 @@
+@import "../../../styles/variables.scss";
+
+.mainMenu {
+  display: flex;
+  align-items: flex-start;
+  padding: 55px 50px;
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: $font-L;
+
+    span {
+      cursor: pointer;
+      margin-bottom: 15px;
+    }
+
+    .subMenu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      li {
+        padding: 10px 0;
+        color: $color-main-gray;
+        font-size: $font-S;
+        transition: color 0.3s;
+        cursor: pointer;
+
+        &:hover {
+          color: #fff;
+          transition: color 0.3s;
+        }
+      }
+    }
+  }
+}
