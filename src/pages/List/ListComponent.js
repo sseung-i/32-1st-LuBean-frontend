@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import { Navigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Country from "../Country/Country";
 import ProductsList from "./ProductsList/ProductsList";
 
@@ -9,7 +9,10 @@ const ListComponent = ({ originalData }) => {
   const [countryButtonList, setcountryButtonList] = useState({});
   const [nowData, setNowData] = useState(listItem);
 
+  // const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const WIDTH_EA = 4;
   const LINE = 3;
@@ -32,15 +35,15 @@ const ListComponent = ({ originalData }) => {
   };
 
   useEffect(() => {
-    setLimit(LINE);
+    // setLimit(LINE);
     setCountryCount();
   }, []);
 
   // console.log("개수", WIDTH_EA * limit);
 
-  useEffect(() => {
-    setNowData(listItem.slice(0, WIDTH_EA * limit));
-  }, [limit]);
+  // useEffect(() => {
+  //   setNowData(listItem.slice(0, WIDTH_EA * limit));
+  // }, [limit]);
 
   // let sortedData = listItem;
 
@@ -95,7 +98,20 @@ const ListComponent = ({ originalData }) => {
   const onMoreClick = () => {
     setLimit(curr => curr + LINE);
   };
-  console.log(limit);
+
+  //무한 스크롤
+  // useEffect(() => {
+  //   fetch(`/list${location.search}`)
+  //     .then(res => res.json())
+  //     .then(data => setNowData(prev => prev.concat(data)));
+  // }, []);
+
+  // const getOffsetAndLimit = () => {
+  //   const offset = page * 12;
+  //   const limit = 12;
+  //   setPage(prev => (prev += 1));
+  //   navigate(`?offset=${offset}&limit=${limit}`);
+  // };
 
   return (
     <div className="list">
@@ -125,11 +141,11 @@ const ListComponent = ({ originalData }) => {
           />
         )}
         {nowData && <ProductsList data={nowData} />}
-        {listItem.length - nowData.length > 0 && (
-          <button className="moreBtn" onClick={onMoreClick}>
+        {/* {listItem.length - nowData.length > 0 && (
+          <button className="moreBtn" onClick={getOffsetAndLimit}>
             더보기
           </button>
-        )}
+        )} */}
       </section>
     </div>
   );

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import ListComponent from "./ListComponent";
 import "./List.scss";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 
 const List = () => {
   const [originalData, setOriginalData] = useState({});
-  const params = useParams();
+  // const params = useParams();
 
   useEffect(() => {
     // const api_url = `/${params.id}`;

@@ -1,10 +1,36 @@
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Info from "../Info/Info";
 import Tag from "../Tag/Tag";
+import useFetch from "./useFetch";
 import "./ProductsList.scss";
 
-const ProductsList = ({ data }) => {
+const ProductsList = () => {
+  const [pageNum, setPageNum] = useState(0);
+  const { list, hasMore, isLoading } = useFetch(pageNum);
+
+  // console.log("list : ", list, "page : ", pageNum, "loding : ", isLoading);
+
+  const observerRef = useRef();
   const navigate = useNavigate();
+
+  const observer = node => {
+    if (isLoading) return;
+    if (observerRef.current) observerRef.current.disconnect();
+
+    let options = {
+      rootMargin: "200px",
+      threshold: 1,
+    };
+
+    observerRef.current = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && hasMore) {
+        setPageNum(page => page + 1);
+      }
+    }, options);
+
+    node && observerRef.current.observe(node);
+  };
 
   const productClick = id => {
     navigate(`${process.env.PUBLIC_URL}/detail/${id}`);
@@ -13,7 +39,7 @@ const ProductsList = ({ data }) => {
   return (
     <article className="productsList">
       <ul className="productWrap">
-        {data.map(({ id, name, country_name, weight, price, tag, imgUrl }) => (
+        {list.map(({ id, name, country_name, weight, price, tag, imgUrl }) => (
           <li key={id}>
             <div className="thumbnail" onClick={() => productClick(id)}>
               <img className="thumb" alt={name} src={imgUrl[0]} />
@@ -35,6 +61,7 @@ const ProductsList = ({ data }) => {
           </li>
         ))}
       </ul>
+      <div ref={observer} className="observerBox" />
     </article>
   );
 };
