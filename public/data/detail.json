@@ -13,17 +13,17 @@
     "info": "농장명 / 엘 모리또 El Morito\n농장주 / 로베르토 몬테로소 Roberto Monterroso\n지역 / 오리엔테 Oriente\n재배고도 / 1,600m\n품종 / 카투라, 카투아이 Caturra, Catuai\n가공방식 / 워시드 washed\n입고일 / 22.04.01",
     "note": [
       {
-        "img": "images/products/detail/note/apple.png",
+        "img": "/images/products/detail/note/apple.png",
         "title": "사과",
         "desc": "새콤하면서도 달큰함"
       },
       {
-        "img": "images/products/detail/note/maple.png",
+        "img": "/images/products/detail/note/maple.png",
         "title": "메이플",
         "desc": "달달한 뒷맛"
       },
       {
-        "img": "images/products/detail/note/blacktea.png",
+        "img": "/images/products/detail/note/blacktea.png",
         "title": "블랙티",
         "desc": "살짝 쌉싸래함 뒤 깔끔함"
       }
