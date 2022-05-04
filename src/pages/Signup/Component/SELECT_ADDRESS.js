@@ -86,6 +86,9 @@ const SELECT_ADDRESS = [
       { id: 7, name: "iclould.com" },
     ],
   },
+  // {
+  //   state: [{ id: 1 }, { id: 2 }],
+  // },
 ];
 
 export default SELECT_ADDRESS;

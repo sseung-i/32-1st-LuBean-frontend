@@ -3,7 +3,6 @@ import SELECT_ADDRESS from "./SELECT_ADDRESS";
 import "./SelectInput.scss";
 
 function SelectInput({ name, state }) {
-  console.log(state);
   return (
     <>
       <div className="input">

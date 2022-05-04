@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "./Component/Input";
@@ -168,13 +169,15 @@ function SignUp() {
             )}
           </div>
           <div>
-            {SELECT_ADDRESS.map(addressAndEmail => (
-              <SelectInput
-                key={addressAndEmail.id}
-                name={addressAndEmail.name}
-                state={addressAndEmail.state}
-              />
-            ))}
+            {SELECT_ADDRESS.map(addressAndEmail => {
+              return (
+                <SelectInput
+                  key={addressAndEmail.id}
+                  name={addressAndEmail.name}
+                  state={addressAndEmail.state}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
