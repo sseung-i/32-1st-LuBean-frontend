@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Country from "../Country/Country";
 import ProductsList from "./ProductsList/ProductsList";
+import Country from "../Country/Country";
 
 const ListComponent = ({ originalData }) => {
-  const { title, title_en, desc, topImg, listItem } = originalData;
+  const { category_name, sub_detail, product_image } = originalData[0];
+
+  // const { title, title_en, desc, topImg, listItem } = originalData;
   const [options, setOptions] = useState({ target: "all", sort: "recommend" });
   const [countryButtonList, setcountryButtonList] = useState({});
-  const [nowData, setNowData] = useState(listItem);
+  const [nowData, setNowData] = useState(originalData);
 
   // const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(null);
@@ -26,15 +28,18 @@ const ListComponent = ({ originalData }) => {
 
   const setCountryCount = () => {
     let countryCount = {};
-    listItem.map(item =>
-      countryCount[item.country_name]
-        ? (countryCount[item.country_name] += 1)
-        : (countryCount[item.country_name] = 1)
-    );
+    originalData.length &&
+      originalData.map(item => {
+        if (item.country_name === "") return;
+        countryCount[item.country_name]
+          ? (countryCount[item.country_name] += 1)
+          : (countryCount[item.country_name] = 1);
+      });
     setcountryButtonList(countryCount);
   };
 
   useEffect(() => {
+    console.log("useEffect", originalData);
     // setLimit(LINE);
     setCountryCount();
   }, []);
@@ -72,7 +77,7 @@ const ListComponent = ({ originalData }) => {
   // }
 
   useEffect(() => {
-    const api_url = ` ?country_name="${options.target}" & sort="${options.sort}"`;
+    const api_url = `http://10.58.3.83:8000/products/list?country_name="${options.target}"&sort="${options.sort}"`;
     fetch(api_url, {
       method: "POST",
       body: JSON.stringify({
@@ -115,37 +120,35 @@ const ListComponent = ({ originalData }) => {
 
   return (
     <div className="list">
-      <section className="title" style={{ backgroundImage: `URL(${topImg})` }}>
-        <h2>{title}</h2>
-        <p>{desc}</p>
+      <section
+        className="title"
+        style={{ backgroundImage: `URL(${product_image[0]})` }}
+      >
+        <h2>{category_name}</h2>
+        <p>{sub_detail}</p>
       </section>
       <section className="products">
         <article className="top">
           <h3>
-            {title} ({title_en})
+            {category_name} ({category_name})
           </h3>
-          <select className="listSort" onChange={changeSelector}>
+          {/* <select className="listSort" onChange={changeSelector}>
             {SELECT_VALUE.map(({ id, value, text }) => (
               <option key={id} value={value}>
                 {text}
               </option>
             ))}
-          </select>
+          </select> */}
         </article>
-        {title_en === "Single Origin" && (
+        {category_name === "싱글오리진" && (
           <Country
             countryButtonList={countryButtonList}
-            countryLength={listItem.length}
+            countryLength={originalData.length}
             countryClick={countryClick}
             target={options.target}
           />
         )}
         {nowData && <ProductsList data={nowData} />}
-        {/* {listItem.length - nowData.length > 0 && (
-          <button className="moreBtn" onClick={getOffsetAndLimit}>
-            더보기
-          </button>
-        )} */}
       </section>
     </div>
   );
