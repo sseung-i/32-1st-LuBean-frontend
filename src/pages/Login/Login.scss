@@ -5,20 +5,20 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 130px;
+  padding-top: 100px;
 
-  .forCenter {
+  .centerFor {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    label {
+    .laberFor {
       display: flex;
       justify-content: flex-start;
       width: 120px;
 
-      input {
+      .inputFor {
         width: 15px;
         height: 15px;
         margin-right: 8px;

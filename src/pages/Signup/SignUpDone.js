@@ -20,7 +20,11 @@ function SignUpDone() {
 
       <div className="welcomeBox">
         <div className="imgCover">
-          <img alt="Gift" src="/images/Signup/coffeeTable.jpg" />
+          <img
+            alt="Gift"
+            className="coverFor"
+            src="/images/Signup/coffeeTable.jpg"
+          />
         </div>
         <div className="textCover">
           <p className="welcomeM">환영합니다.</p>

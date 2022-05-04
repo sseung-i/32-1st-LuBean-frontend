@@ -18,8 +18,14 @@ function Input({
         <div className="redPointBox">
           {important && <span className="redPoint" />}
         </div>
-        <p>{labelName}</p>
-        <input onChange={handleInput} name={name} type={type} value={value} />
+        <p className="laberFor">{labelName}</p>
+        <input
+          onChange={handleInput}
+          name={name}
+          type={type}
+          value={value}
+          className="inputFor"
+        />
 
         {value.length >= 1 &&
           (rules ? (
