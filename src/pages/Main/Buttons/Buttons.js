@@ -1,19 +1,18 @@
 import React from "react";
 
 const Buttons = ({ imgLength, btnNum, handleBtnClick }) => {
-  // console.log(btnNum);
   const li = Array(imgLength)
     .fill(0)
     .map((item, index) => {
       return index === btnNum ? (
         <li
-          data-id={index}
+          id={index}
           key={index}
           className="nowImg"
-          onClick={e => handleBtnClick(e)}
+          onClick={handleBtnClick}
         />
       ) : (
-        <li key={index} data-id={index} onClick={e => handleBtnClick(e)} />
+        <li key={index} id={index} onClick={handleBtnClick} />
       );
     });
   return <ul className="buttons">{li}</ul>;
