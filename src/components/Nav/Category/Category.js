@@ -1,5 +1,4 @@
 import React from "react";
-// import { useNavigate } from "react-router-dom";
 import "./Category.scss";
 
 const Category = ({ text, name, isEnter, onDropMenu, nowTarget }) => {
