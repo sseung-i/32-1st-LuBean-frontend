@@ -23,11 +23,11 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="icons">
-        <i className="fa-solid fa-mug-hot" />
         <i className="fa-solid fa-mug-saucer" />
-        <i className="fa-solid fa-mug-hot" />
+        {/* <i className="fa-solid fa-mug-hot" /> */}
+        <div className="text">LOVE</div>
         <i className="fa-solid fa-mug-saucer" />
-        <i className="fa-solid fa-mug-hot" />
+        <div className="text">BEANS</div>
         <i className="fa-solid fa-mug-saucer" />
       </div>
       <div className="info">
