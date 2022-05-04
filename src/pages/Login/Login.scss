@@ -1,0 +1,49 @@
+@import "../../styles/variables.scss";
+
+.loginAll {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 130px;
+
+  .forCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    label {
+      display: flex;
+      justify-content: flex-start;
+      width: 120px;
+
+      input {
+        width: 15px;
+        height: 15px;
+        margin-right: 8px;
+      }
+
+      //label&input flex start 적용안됨.
+    }
+  }
+
+  .loginText {
+    @include LnBfont(40px, 600);
+    margin: 70px;
+  }
+
+  .memberText {
+    @include LnBfont(18px, 600);
+    margin-bottom: 70px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid black;
+  }
+
+  .loginButton {
+    @include ButtonBlack;
+    @include LnBfont(15px, 600);
+    width: 335px;
+    height: 50px;
+  }
+}

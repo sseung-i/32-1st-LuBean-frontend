@@ -1,0 +1,32 @@
+@import "../../styles/variables.scss";
+
+.all {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 300px;
+
+  .join_text {
+    @include LnBfont(40px, 600);
+    margin-bottom: 50px;
+  }
+
+  .join_button {
+    @include ButtonBlack;
+    margin-bottom: 70px;
+    width: 400px;
+    height: 57px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  p {
+    display: flex;
+    justify-content: center;
+    width: 280px;
+    span {
+      margin-left: 10px;
+      border-bottom: 1px black solid;
+    }
+  }
+}
