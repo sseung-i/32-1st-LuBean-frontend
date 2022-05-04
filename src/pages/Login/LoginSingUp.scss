@@ -1,0 +1,54 @@
+@import "../../styles/variables.scss";
+
+//font-size
+@mixin LnJfont_XXL {
+  font-size: 55px;
+  font-weight: 900;
+}
+
+@mixin LnJfont_XL {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+@mixin LnJfont_L {
+  font-size: 20px;
+  font-weight: 500;
+  color: $color-main-black;
+}
+
+@mixin LnJfont_M {
+  font-size: 18px;
+  font-weight: 600;
+  color: $color-main-gray;
+}
+
+@mixin LnJfont_S {
+  font-size: 13px;
+  font-weight: 700;
+  color: $color-font-lightGray;
+}
+
+@mixin ButtonBlack {
+  margin-top: 20px;
+  margin: 40px 0px;
+  background: #000000;
+  color: #ffffff;
+
+  // width: 335px;
+  // height: 50px;
+  // font-size: 15px;
+  // font-weight: 600;
+}
+
+@mixin buttonWhite {
+  margin-top: 20px;
+  margin: 40px 0px;
+  width: 100%;
+  height: 50px;
+  margin-right: 10px;
+  font-size: 15px;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+}

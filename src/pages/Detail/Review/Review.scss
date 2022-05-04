@@ -1,0 +1,45 @@
+.reviewListBox {
+  .reviewArticle {
+    display: flex;
+    padding: 23px 20px;
+    border-bottom: 1px solid #ddd;
+
+    .summary {
+      width: 120px;
+      .star {
+        color: #333;
+        font-size: 17px;
+        line-height: 17px;
+        margin-bottom: 22px;
+      }
+      .date {
+        margin-bottom: 5px;
+      }
+    }
+    .reviewContent {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      .content {
+        margin-left: 20px;
+        // margin-right: 700px;
+        width: 100%;
+      }
+    }
+    .reviewBtn {
+      display: flex;
+      align-items: flex-end;
+
+      .btnDel {
+        width: 60px;
+        height: 26px;
+        font-size: 12px;
+        color: #fff;
+        background-color: #c7c7c7;
+        &:hover {
+          background-color: rgb(118, 118, 118);
+        }
+      }
+    }
+  }
+}
