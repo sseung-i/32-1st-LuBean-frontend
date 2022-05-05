@@ -3,28 +3,37 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "./Component/Input";
 import SelectInput from "./Component/SelectInput";
-import SELECT_ADDRESS from "./Component/SELECT_ADDRESS";
+import SELECT_ADDRESSnEMAil from "./Component/SELECT_ADDRESSnEMAil";
+import INPUT_LIST from "./Component/INPUT_LIST.JS";
+
 import "./SignUp.scss";
 
 function SignUp() {
+  //test 삭제시 렌더링 아예 안됨.
   const [signUpValues, setSignUpValues] = useState({
     idInput: "",
     pwInput: "",
     pwInputCheck: "",
     nameInput: "",
-    emailInput: "",
     phoneInput: "",
+    addressInput: "",
+    emailInput: "",
   });
-
-  const { idInput, pwInput, pwInputCheck, nameInput, emailInput, phoneInput } =
-    signUpValues;
+  const {
+    idInput,
+    pwInput,
+    pwInputCheck,
+    nameInput,
+    phoneInput,
+    addressInput,
+    emailInput,
+  } = signUpValues;
 
   const navigate = useNavigate();
 
   const idRules = idInput.match(
     /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/
   );
-
   const pwRules = pwInput.match(
     /^(?=.*[A-Za-z])(?=.*\d)(?=.*[?!@#$%*&])[A-Za-z\d?!@#$%*&]{8,}$/
   );
@@ -38,6 +47,16 @@ function SignUp() {
     setSignUpValues({ ...signUpValues, [name]: value });
   };
 
+  const saveAddress = e => {
+    const { name, value } = e.target;
+
+    if (name === "주소") {
+      setSignUpValues({ ...signUpValues, ["addressInput"]: value });
+    } else if (name === "메일") {
+      setSignUpValues({ ...signUpValues, ["emailInput"]: value });
+    }
+  };
+
   const checkSignup = () => {
     const signUpCondition =
       idRules &&
@@ -48,7 +67,7 @@ function SignUp() {
       phoneNumRules;
 
     if (signUpCondition) {
-      fetch("http://10.58.7.248:8000/users/signup", {
+      fetch("http://10.58.3.83:8000/users/signup", {
         method: "POST",
         body: JSON.stringify({
           email: idInput,
@@ -121,6 +140,99 @@ function SignUp() {
     },
   ];
 
+  const SELECT_ADDRESSnEMAil = [
+    {
+      id: 1,
+      name: "주소",
+      state: [
+        {
+          id: 1,
+          name: "서울특별시",
+        },
+        {
+          id: 2,
+          name: "부산광역시",
+        },
+        {
+          id: 3,
+          name: "대구광역시",
+        },
+        {
+          id: 4,
+          name: "인천광역시",
+        },
+        {
+          id: 5,
+          name: "광주광역시",
+        },
+        {
+          id: 6,
+          name: "대전광역시",
+        },
+        {
+          id: 7,
+          name: "울산광역시",
+        },
+        {
+          id: 8,
+          name: "세종특별자치시",
+        },
+        {
+          id: 9,
+          name: "경기도",
+        },
+        {
+          id: 10,
+          name: "강원도",
+        },
+        {
+          id: 11,
+          name: "충청북도",
+        },
+        {
+          id: 12,
+          name: "충청남도",
+        },
+        {
+          id: 13,
+          name: "전라북도",
+        },
+        {
+          id: 14,
+          name: "전라남도",
+        },
+        {
+          id: 15,
+          name: "경상북도",
+        },
+        {
+          id: 16,
+          name: "경상남도",
+        },
+        {
+          id: 17,
+          name: "제주도",
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: "메일",
+      state: [
+        { id: 1, name: "gmail.com" },
+        { id: 2, name: "naver.com" },
+        { id: 3, name: "hanmail.net" },
+        { id: 4, name: "daum.net" },
+        { id: 5, name: "hotmail.com" },
+        { id: 6, name: "nate.com" },
+        { id: 7, name: "iclould.com" },
+      ],
+    },
+    // {
+    //   state: [{ id: 1 }, { id: 2 }],
+    // },
+  ];
+
   return (
     <div className="signupAll">
       <div className="signupBox">
@@ -130,7 +242,6 @@ function SignUp() {
           <span className="sideBar">|</span>
           <span className="done">가입완료</span>
         </div>
-
         <div className="signupInfoBox">
           <div className="infoTitle">
             <p className="basicInfo">기본정보</p>
@@ -168,13 +279,16 @@ function SignUp() {
               )
             )}
           </div>
-          <div>
-            {SELECT_ADDRESS.map(addressAndEmail => {
+          <div className="selectInputBox">
+            {SELECT_ADDRESSnEMAil.map(addressAndEmail => {
               return (
                 <SelectInput
+                  saveAddress={saveAddress}
                   key={addressAndEmail.id}
                   name={addressAndEmail.name}
                   state={addressAndEmail.state}
+                  addressInput={addressInput}
+                  emailInput={emailInput}
                 />
               );
             })}

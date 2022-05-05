@@ -1,4 +1,4 @@
-const SELECT_ADDRESS = [
+const SELECT_ADDRESSnEMAil = [
   {
     id: 1,
     name: "주소",
@@ -91,4 +91,4 @@ const SELECT_ADDRESS = [
   // },
 ];
 
-export default SELECT_ADDRESS;
+export default SELECT_ADDRESSnEMAil;

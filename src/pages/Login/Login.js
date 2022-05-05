@@ -28,7 +28,7 @@ function Login() {
   const onLoginBtnClick = e => {
     e.preventDefault();
     if (idRules && pwRules) {
-      fetch("http://10.58.7.248:8000/users/login", {
+      fetch("http://10.58.3.83:8000/users/login", {
         method: "POST",
         body: JSON.stringify({
           email: inputValues.id,
@@ -39,7 +39,7 @@ function Login() {
         .then(result => {
           if (result.message === "SUCCESS") {
             alert("환영합니다!");
-            navigate("/main");
+            navigate("/");
           } else {
             alert("아이디와 비밀번호 확인바랍니다.");
           }
