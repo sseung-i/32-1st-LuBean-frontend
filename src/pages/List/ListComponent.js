@@ -1,23 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import ProductsList from "./ProductsList/ProductsList";
 import Country from "../Country/Country";
 
 const ListComponent = ({ tumbnail, hoverImg, topImgUrl, singleOriginData }) => {
+  // const { title, title_en, desc, topImg, listItem } = originalData;
+  const [options, setOptions] = useState({ target: "all", sort: "recommend" });
+  const [countryButtonList, setcountryButtonList] = useState({});
+  const [nowData, setNowData] = useState(singleOriginData);
+
   const { category_name, sub_detail } = singleOriginData[0];
   const categorySlice = category_name.split("\\n");
+
+  const params = useParams();
 
   const categoryName = {
     ko: categorySlice[0],
     en: categorySlice[1].trim(),
   };
 
-  // const { title, title_en, desc, topImg, listItem } = originalData;
-  const [options, setOptions] = useState({ target: "all", sort: "recommend" });
-  const [countryButtonList, setcountryButtonList] = useState({});
-  const [nowData, setNowData] = useState(singleOriginData);
+  console.log("들어오냐!!", singleOriginData);
 
-  // console.log(nowData);
+  useEffect(() => {}, []);
 
   const location = useLocation();
 
@@ -91,6 +95,7 @@ const ListComponent = ({ tumbnail, hoverImg, topImgUrl, singleOriginData }) => {
   }, [options]);
 
   const countryClick = e => {
+    console.log(e.target);
     const countryData = e.target.id;
     setOptions({ ...options, target: countryData });
     // pageChangeRequest(countryData);
