@@ -54,7 +54,7 @@ const List = () => {
           )
         )
         .catch(error => console.log("에러", error));
-    } else if (params.pageName === "blended") {
+    } else if (params.pageName.includes("blended")) {
       fetch(
         `http://10.58.3.83:8000/products/list?offset=${0}&limit=${LIMIT_MAX}`
       )
@@ -68,7 +68,7 @@ const List = () => {
           )
         )
         .catch(error => console.log("에러", error));
-    } else if (params.pageName === "decaffeine") {
+    } else if (params.pageName.includes("decaffeine")) {
       fetch(
         `http://10.58.3.83:8000/products/list?offset=${0}&limit=${LIMIT_MAX}`
       )
@@ -85,12 +85,16 @@ const List = () => {
     }
   }, [params.pageName]);
 
+  const paramsConditional = params.pageName.includes("_")
+    ? params.pageName.split("_")[0]
+    : params.pageName;
+
   return (
     originalData.length && (
       <ListComponent
-        tumbnail={THUMBNAIL[params.pageName]}
+        tumbnail={THUMBNAIL[paramsConditional]}
         hoverImg={THUMBNAIL_HOVER}
-        topImgUrl={TOP_IMG_URL[params.pageName]}
+        topImgUrl={TOP_IMG_URL[paramsConditional]}
         singleOriginData={originalData}
       />
     )
