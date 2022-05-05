@@ -21,11 +21,21 @@ const useFetch = pageNum => {
     const OFFSET = pageNum * LIMIT;
     // const URL = `${END_POINT}?offset=${OFFSET}&limit=${OFFSET + LIMIT}`;
 
+    // const mainMenu = params.pageName.includes(
+    //   "singleOrigin" || "blended" || "decaffeine"
+    // );
+
     const URL = `${END_POINT}?offset=0&limit=${110}`;
+
+    // const URL = mainMenu
+    //   ? `${END_POINT}?offset=0&limit=${110}`
+    //   : `${END_POINT}?sub_category_id=${params.pageName}&offset=0&limit=${110}`;
 
     try {
       setIsLoading(true);
+
       const response = await (await fetch(URL)).json();
+
       if (!response) {
         throw new Error("오류오류!!!");
       }
@@ -56,7 +66,7 @@ const useFetch = pageNum => {
           )
         );
         // setHasMore(20 - LIMIT * (pageNum + 1) > 0);
-      } else if (params.pageName === "과테말라") {
+      } else if (params.pageName.includes("과테말라")) {
         console.log("싱글오리진 - 과테말라 로드");
         setList(
           response.product_list_data.filter(item =>
