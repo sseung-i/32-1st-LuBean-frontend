@@ -75,7 +75,7 @@ const SELECT_ADDRESS = [
   },
   {
     id: 2,
-    name: "email",
+    name: "메일",
     state: [
       { id: 1, name: "gmail.com" },
       { id: 2, name: "naver.com" },

@@ -31,7 +31,7 @@
   .welcomeBox {
     display: flex;
     justify-content: space-between;
-    width: 30%;
+    width: 45%;
 
     .imgCover {
       display: flex;
@@ -46,8 +46,8 @@
       display: flex;
       justify-content: center;
       flex-direction: column;
-      padding-left: 70px;
-      width: 450px;
+      padding-left: 30px;
+      width: 400px;
 
       .welcomeM {
         @include LnBfont(28px, 600);

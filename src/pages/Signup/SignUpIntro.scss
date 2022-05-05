@@ -2,12 +2,12 @@
 
 .all {
   width: 100vw;
-  height: calc(100vh - 642px);
+  // height: calc(100vh - 642px);
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  padding-top: 50px;
+  padding: 300px 0;
 
   .join_text {
     @include LnBfont(40px, 600);
