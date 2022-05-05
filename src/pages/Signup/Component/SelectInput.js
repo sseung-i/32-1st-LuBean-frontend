@@ -1,18 +1,17 @@
 import React from "react";
-import SELECT_ADDRESS from "./SELECT_ADDRESS";
 import "./SelectInput.scss";
 
-function SelectInput({ name, state }) {
+function SelectInput({ handleInput, name, state, addressInput, emailInput }) {
   return (
     <>
       <div className="inputSelectPage">
         <div className="redPointBoxInSelectPage">
           <span className="redPointInSelectPage" />
         </div>
-        <p className="titleInSelectPage">{name}</p>
-        <input className="shortInputBox" />
+        <p className="titleInSelectPage">주소</p>
+        <input className="shortInputBox" value={addressInput} />
 
-        <select className="addressEmail">
+        <select className="addressEmail" name={name} onChange={handleInput}>
           {state.map(addressLists => (
             <option key={addressLists.id}>{addressLists.name}</option>
           ))}

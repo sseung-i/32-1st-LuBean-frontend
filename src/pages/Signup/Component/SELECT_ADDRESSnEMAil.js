@@ -1,4 +1,4 @@
-const SELECT_ADDRESS = [
+const SELECT_ADDRESSnEMAil = [
   {
     id: 1,
     name: "주소",
@@ -73,22 +73,6 @@ const SELECT_ADDRESS = [
       },
     ],
   },
-  {
-    id: 2,
-    name: "메일",
-    state: [
-      { id: 1, name: "gmail.com" },
-      { id: 2, name: "naver.com" },
-      { id: 3, name: "hanmail.net" },
-      { id: 4, name: "daum.net" },
-      { id: 5, name: "hotmail.com" },
-      { id: 6, name: "nate.com" },
-      { id: 7, name: "iclould.com" },
-    ],
-  },
-  // {
-  //   state: [{ id: 1 }, { id: 2 }],
-  // },
 ];
 
-export default SELECT_ADDRESS;
+export default SELECT_ADDRESSnEMAil;
