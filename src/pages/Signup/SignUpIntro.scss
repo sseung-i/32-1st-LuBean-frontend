@@ -2,12 +2,12 @@
 
 .all {
   width: 100vw;
-  height: calc(100vh - 642px);
+  // height: calc(100vh - 642px);
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  padding-top: 50px;
+  padding: 300px 0px 150px 0px;
 
   .join_text {
     @include LnBfont(40px, 600);
@@ -21,6 +21,7 @@
     height: 57px;
     font-size: 15px;
     font-weight: 500;
+    cursor: pointer;
   }
   .alreadyhaveid {
     display: flex;
@@ -29,6 +30,7 @@
     .loginFor {
       margin-left: 10px;
       border-bottom: 1px black solid;
+      cursor: pointer;
     }
   }
 }

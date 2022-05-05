@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-top: 100px;
+  padding: 100px 0px 30px 0px;
 
   .centerFor {
     display: flex;
@@ -16,15 +16,13 @@
     .laberFor {
       display: flex;
       justify-content: flex-start;
-      width: 120px;
+      width: 310px;
 
       .inputFor {
         width: 15px;
         height: 15px;
         margin-right: 8px;
       }
-
-      //label&input flex start 적용안됨.
     }
   }
 
@@ -35,7 +33,7 @@
 
   .memberText {
     @include LnBfont(18px, 600);
-    margin-bottom: 70px;
+    margin-bottom: 30px;
     padding-bottom: 3px;
     border-bottom: 1px solid black;
   }
@@ -45,5 +43,6 @@
     @include LnBfont(15px, 600);
     width: 335px;
     height: 50px;
+    cursor: pointer;
   }
 }

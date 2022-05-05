@@ -1,0 +1,31 @@
+@import "../../../styles/variables.scss";
+
+.tag {
+  display: flex;
+  justify-content: center;
+
+  > li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    color: #fff;
+
+    span {
+      width: 60px;
+      height: 24px;
+      border-radius: 12px;
+      line-height: 26px;
+      font-size: $font-S;
+      text-align: center;
+
+      &.new {
+        background-color: $color-tag-green;
+      }
+
+      &.best {
+        background-color: $color-tag-lightGreen;
+      }
+    }
+  }
+}

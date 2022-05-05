@@ -1,27 +1,27 @@
 @import "../../../styles/variables.scss";
 
-.input {
+.inputSelectPage {
   display: flex;
   justify-content: left;
   align-items: center;
   padding-top: 30px;
 
-  .redPointBox {
+  .redPointBoxInSelectPage {
     display: flex;
     justify-content: left;
     align-items: center;
+
     width: 15px;
     height: 15px;
 
-    .redPoint {
+    .redPointInSelectPage {
       width: 5px;
       height: 5px;
-      background-color: red;
     }
   }
 }
 
-.shortInput {
+.titleInSelectPage {
   width: 180px;
   font-size: 15px;
 }
@@ -32,10 +32,10 @@
   margin-right: 10px;
 }
 
-select {
+.addressEmail {
   width: 120px;
   height: 38px;
-  font-size: large;
+  font-size: medium;
 }
 
 .longInputBox {

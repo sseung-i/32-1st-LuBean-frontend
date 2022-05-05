@@ -5,14 +5,14 @@ import "./SelectInput.scss";
 function SelectInput({ name, state }) {
   return (
     <>
-      <div className="input">
-        <div className="redPointBox">
-          <span className="redPoint" />
+      <div className="inputSelectPage">
+        <div className="redPointBoxInSelectPage">
+          <span className="redPointInSelectPage" />
         </div>
-        <p className=".shortInput">{name}</p>
+        <p className="titleInSelectPage">{name}</p>
         <input className="shortInputBox" />
 
-        <select className="address">
+        <select className="addressEmail">
           {state.map(addressLists => (
             <option key={addressLists.id}>{addressLists.name}</option>
           ))}
