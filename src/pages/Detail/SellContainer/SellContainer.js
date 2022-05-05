@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import "./SellContainer.scss";
 
 const SellContainer = ({ feedsList, openModal, mockdata }) => {
-  const { image_url, korean_name, english_name, product_weight } = feedsList;
+  const {
+    image_url,
+    korean_name,
+    english_name,
+    product_weight,
+    thumbnail_url,
+  } = feedsList;
   const { price } = mockdata;
 
   // console.log(feedsList);
@@ -46,7 +52,7 @@ const SellContainer = ({ feedsList, openModal, mockdata }) => {
     feedsList && (
       <div className="container">
         <section className="mainPic">
-          <img className="pic" src={image_url} alt="상세페이지 커피" />
+          <img className="pic" src={thumbnail_url} alt="상세페이지 커피" />
         </section>
         <section className="mainContent">
           <div className="mainName">

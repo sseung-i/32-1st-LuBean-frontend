@@ -14,6 +14,7 @@ const Detail = () => {
   const [mockdata, setMockdata] = useState({});
   const [modalOpen, setModalOpen] = useState(false);
   const params = useParams();
+  console.log(params);
 
   const openModal = () => {
     setModalOpen(true);

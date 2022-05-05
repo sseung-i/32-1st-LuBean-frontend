@@ -1,0 +1,80 @@
+@import "../../styles/variables.scss";
+
+.signUpDoneAll {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  .joinText {
+    @include LnBfont(50px, 900);
+    margin: 200px 100px 50px 100px;
+  }
+
+  .location {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 70px;
+    width: 200px;
+    font-size: 15px;
+    font-weight: 900;
+
+    .info {
+      color: $color-main-gray;
+    }
+
+    .sideBar {
+      color: $color-main-gray;
+    }
+  }
+
+  .welcomeBox {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+
+    .imgCover {
+      display: flex;
+      justify-content: flex-end;
+      height: 450px;
+
+      .coverFor {
+        width: inherit;
+      }
+    }
+    .textCover {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding-left: 70px;
+      width: 450px;
+
+      .welcomeM {
+        @include LnBfont(28px, 600);
+        width: 80%;
+        margin-bottom: 60px;
+      }
+
+      .conM {
+        @include LnBfont(18px, 600);
+        width: 80%;
+        margin-bottom: 30px;
+        color: $color-main-gray;
+      }
+
+      .enjM {
+        @include LnBfont(15px, 500);
+        width: 80%;
+        color: $color-font-lightGray;
+      }
+    }
+  }
+  .login_button {
+    @include ButtonBlack;
+    width: 280px;
+    height: 63px;
+    margin-top: 50px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+}

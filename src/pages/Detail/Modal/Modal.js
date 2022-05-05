@@ -1,7 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Modal.scss";
 
 const Modal = ({ modalOpen, closeModal }, props) => {
+  const orderModal = () => {
+    alert("장바구니로 이동!!!!");
+  };
+
   return (
     <div className={`modal ${modalOpen && "modal openModal"}`}>
       {modalOpen && (
@@ -17,10 +22,12 @@ const Modal = ({ modalOpen, closeModal }, props) => {
               <p className="mainSecondLine">바로 확인하시겠습니까?</p>
             </main>
             <footer className="modalFooter">
-              <button className="footerCartBtn" onClick={closeModal}>
-                계속 쇼핑하기
-              </button>
-              <button className="footerOrderBtn" onClick={closeModal}>
+              <Link to="/list">
+                <button className="footerCartBtn" onClick={closeModal}>
+                  계속 쇼핑하기
+                </button>
+              </Link>
+              <button className="footerOrderBtn" onClick={orderModal}>
                 확인하기
               </button>
             </footer>

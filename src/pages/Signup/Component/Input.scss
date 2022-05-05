@@ -1,0 +1,45 @@
+@import "../../../styles/variables.scss";
+
+.input {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-top: 30px;
+
+  .redPointBox {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+
+    .redPoint {
+      width: 5px;
+      height: 5px;
+      background-color: red;
+    }
+  }
+}
+
+.laberFor {
+  width: 180px;
+  font-size: 15px;
+}
+
+.inputFor {
+  @include SignUpwidth;
+}
+
+.good {
+  margin-left: 15px;
+  color: #00a44c;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.wrong {
+  margin-left: 15px;
+  color: rgba(255, 0, 0, 0.671);
+  font-size: 12px;
+  font-weight: 600;
+}

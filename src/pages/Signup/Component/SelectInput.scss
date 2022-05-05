@@ -1,0 +1,44 @@
+@import "../../../styles/variables.scss";
+
+.input {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-top: 30px;
+
+  .redPointBox {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+
+    .redPoint {
+      width: 5px;
+      height: 5px;
+      background-color: red;
+    }
+  }
+}
+
+.shortInput {
+  width: 180px;
+  font-size: 15px;
+}
+
+.shortInputBox {
+  width: 250px;
+  height: 38px;
+  margin-right: 10px;
+}
+
+select {
+  width: 120px;
+  height: 38px;
+  font-size: large;
+}
+
+.longInputBox {
+  @include SignUpwidth;
+  margin: 28px 5px 5px 195px;
+}
