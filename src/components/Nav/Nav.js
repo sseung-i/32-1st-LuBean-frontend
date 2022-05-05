@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import BtnWrap from "./BtnWrap/BtnWrap";
 import Category from "./Category/Category";
 import DropMenu from "./DropMenu/DropMenu";
@@ -10,6 +10,12 @@ const Nav = () => {
   const [isEnter, setIsEnter] = useState(false);
   const [nowTarget, setNowTarget] = useState(null);
   const [subMenuData, setSubMenuData] = useState([]);
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     CATEGORY.map(menu => {

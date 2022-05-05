@@ -2,12 +2,13 @@ import React, { useEffect, useState, useRef } from "react";
 import Buttons from "./Buttons/Buttons";
 import { INNER__BANNER, INNER__PRODUCT } from "./MainData";
 import "./Main.scss";
+import { useNavigate } from "react-router-dom";
 
 const Main = () => {
   const [bannerBtnNum, setBannerBtnNum] = useState(0);
   const [productBtnNum, setProductBtnNum] = useState(0);
-  const [productData, setProductData] = useState();
-
+  // const [productData, setProductData] = useState();
+  const navigate = useNavigate();
   const bannerContainer = useRef(null);
   const productContainer = useRef(null);
 
@@ -19,6 +20,10 @@ const Main = () => {
   const productBtnClick = e => {
     const { id } = e.target;
     setProductBtnNum(Number(id));
+  };
+
+  const goToDetail = id => {
+    navigate(`/detail/${id}`);
   };
 
   useEffect(() => {
@@ -87,7 +92,12 @@ const Main = () => {
             {INNER__PRODUCT.map(
               ({ id, name, desc, country_name, price, imgUrl }) => (
                 <li key={id} data-country={country_name}>
-                  <div className="thumbnail">
+                  <div
+                    onClick={() => {
+                      goToDetail(id);
+                    }}
+                    className="thumbnail"
+                  >
                     <img className="thumb" alt={name} src={imgUrl[0]} />
                     <img className="thumbHover" alt={name} src={imgUrl[1]} />
                   </div>
