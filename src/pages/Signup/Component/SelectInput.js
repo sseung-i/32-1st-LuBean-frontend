@@ -1,8 +1,7 @@
 import React from "react";
-import SELECT_ADDRESS from "./SELECT_ADDRESS";
 import "./SelectInput.scss";
 
-function SelectInput({ name, state }) {
+function SelectInput({ saveAddress, name, state, addressInput, emailInput }) {
   return (
     <>
       <div className="inputSelectPage">
@@ -10,9 +9,12 @@ function SelectInput({ name, state }) {
           <span className="redPointInSelectPage" />
         </div>
         <p className="titleInSelectPage">{name}</p>
-        <input className="shortInputBox" />
+        <input
+          className="shortInputBox"
+          value={name === "주소" ? addressInput : emailInput}
+        />
 
-        <select className="addressEmail">
+        <select className="addressEmail" name={name} onChange={saveAddress}>
           {state.map(addressLists => (
             <option key={addressLists.id}>{addressLists.name}</option>
           ))}
