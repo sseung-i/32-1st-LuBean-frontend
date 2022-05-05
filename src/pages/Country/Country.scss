@@ -1,0 +1,26 @@
+@import "../../styles/variables.scss";
+
+.country {
+  position: relative;
+  left: -10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 10px 0;
+
+  > li {
+    padding: 10px 16px;
+    color: $color-font-lightGray;
+    font-size: $font-S;
+    word-break: keep-all;
+    cursor: pointer;
+
+    &:hover {
+      color: #000;
+    }
+
+    &.nowView {
+      color: #000;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@import "../../../styles/variables.scss";
+
+.productInfo {
+  padding-top: 40px;
+  padding-bottom: 10px;
+  text-align: center;
+  cursor: pointer;
+  &.isTag {
+    padding-top: 10px;
+  }
+  .name {
+    font-size: $font-M;
+    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: hidden;
+  }
+
+  .desc {
+    padding-top: 5px;
+    color: $color-font-lightGray;
+    font-size: $font-S;
+  }
+}
