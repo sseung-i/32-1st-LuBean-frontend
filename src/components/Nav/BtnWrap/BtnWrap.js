@@ -15,7 +15,7 @@ const BtnWrap = ({ cartNum }) => {
           <i className="fa-solid fa-xl fa-basket-shopping" />
         </div>
       </Link>
-      <Link to="/">
+      <Link to="/login">
         <div className="iconBtn">
           <i className="fa-solid fa-xl fa-circle-user" />
         </div>

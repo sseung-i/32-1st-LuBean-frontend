@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import "./Country.scss";
 
 const Country = ({
@@ -7,12 +8,16 @@ const Country = ({
   countryLength,
   target,
 }) => {
+  const navigate = useNavigate();
+  const params = useParams();
   return (
     <ul className="country">
       <li
         id="all"
         className={`countryAll ${target === "all" ? "nowView" : ""}`}
-        onClick={countryClick}
+        onClick={() => {
+          navigate(`/list/${params}`);
+        }}
       >
         전체({countryLength})
       </li>

@@ -8,6 +8,7 @@
     grid-template-columns: (repeat(4, 1fr));
 
     > li {
+      width: 100%;
       padding: 0 5px 30px;
     }
   }

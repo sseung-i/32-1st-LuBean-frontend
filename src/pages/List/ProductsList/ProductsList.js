@@ -5,7 +5,7 @@ import Tag from "../Tag/Tag";
 import useFetch from "./useFetch";
 import "./ProductsList.scss";
 
-const ProductsList = ({ hoverImg, tumbnail }) => {
+const ProductsList = ({ hoverImg, tumbnail, categoryName }) => {
   const [pageNum, setPageNum] = useState(0);
   const { list, hasMore, isLoading } = useFetch(pageNum);
 
@@ -41,28 +41,35 @@ const ProductsList = ({ hoverImg, tumbnail }) => {
       <ul className="productWrap">
         {list.map(
           ({
-            id,
+            product_id,
             english_name,
             korean_name,
             country_name,
-            weight,
+            product_weight,
             product_price,
             product_label,
           }) => (
-            <li key={id}>
-              <div className="thumbnail" onClick={() => productClick(id)}>
+            <li key={product_id}>
+              <div
+                className="thumbnail"
+                onClick={() => productClick(product_id)}
+              >
                 <img
                   className="thumb"
                   alt={english_name}
-                  src={hoverImg[country_name]}
+                  src={
+                    categoryName === "싱글오리진"
+                      ? hoverImg[country_name]
+                      : hoverImg[categoryName]
+                  }
                 />
                 <img className="thumbHover" alt={english_name} src={tumbnail} />
               </div>
               {product_label && <Tag tag={product_label} />}
               <Info
-                id={id}
+                id={product_id}
                 name={korean_name}
-                weight={weight}
+                weight={product_weight}
                 country={country_name}
                 isTag={product_label}
                 productClick={productClick}

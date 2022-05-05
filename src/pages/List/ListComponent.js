@@ -1,27 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import ProductsList from "./ProductsList/ProductsList";
 import Country from "../Country/Country";
 
-const ListComponent = ({ tumbnail, hoverImg, topImgUrl, originalData }) => {
-  const { category_name, sub_detail } = originalData[0];
+const ListComponent = ({ tumbnail, hoverImg, topImgUrl, singleOriginData }) => {
+  const { category_name, sub_detail } = singleOriginData[0];
   const categorySlice = category_name.split("\\n");
 
   const categoryName = {
     ko: categorySlice[0],
-    en: categorySlice[1],
+    en: categorySlice[1].trim(),
   };
 
   // const { title, title_en, desc, topImg, listItem } = originalData;
   const [options, setOptions] = useState({ target: "all", sort: "recommend" });
   const [countryButtonList, setcountryButtonList] = useState({});
-  const [nowData, setNowData] = useState(originalData);
+  const [nowData, setNowData] = useState(singleOriginData);
 
   // console.log(nowData);
 
-  const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(null);
-  const navigate = useNavigate();
   const location = useLocation();
 
   const WIDTH_EA = 4;
@@ -33,11 +30,10 @@ const ListComponent = ({ tumbnail, hoverImg, topImgUrl, originalData }) => {
     { id: 2, value: "Descending", text: "가격높은순" },
     { id: 3, value: "Word", text: "가나다순" },
   ];
-
   const setCountryCount = () => {
     let countryCount = {};
-    originalData.length &&
-      originalData.map(item => {
+    singleOriginData.length &&
+      singleOriginData.map(item => {
         if (item.country_name === "") return;
         countryCount[item.country_name]
           ? (countryCount[item.country_name] += 1)
@@ -47,8 +43,6 @@ const ListComponent = ({ tumbnail, hoverImg, topImgUrl, originalData }) => {
   };
 
   useEffect(() => {
-    // console.log("useEffect", originalData);
-    // setLimit(LINE);
     setCountryCount();
   }, []);
 
@@ -85,7 +79,7 @@ const ListComponent = ({ tumbnail, hoverImg, topImgUrl, originalData }) => {
   // }
 
   useEffect(() => {
-    const api_url = `http://10.58.3.83:8000/products/list?country_name="${options.target}"&sort="${options.sort}"`;
+    const api_url = `http://10.58.3.83:8000/products/list?sub_country_name=${options.target}&sort=${options.sort}`;
     fetch(api_url, {
       method: "POST",
       body: JSON.stringify({
@@ -151,18 +145,16 @@ const ListComponent = ({ tumbnail, hoverImg, topImgUrl, originalData }) => {
         {categoryName.ko === "싱글오리진" && (
           <Country
             countryButtonList={countryButtonList}
-            countryLength={originalData.length}
+            countryLength={singleOriginData.length}
             countryClick={countryClick}
             target={options.target}
           />
         )}
-        {nowData && (
-          <ProductsList
-            hoverImg={hoverImg}
-            tumbnail={tumbnail}
-            data={nowData}
-          />
-        )}
+        <ProductsList
+          hoverImg={hoverImg}
+          tumbnail={tumbnail}
+          categoryName={categoryName.ko}
+        />
       </section>
     </div>
   );

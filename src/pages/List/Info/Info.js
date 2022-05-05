@@ -2,7 +2,6 @@ import React from "react";
 import "./Info.scss";
 
 const Info = ({ id, name, country, weight, isTag, productClick }) => {
-  console.log(Boolean(isTag));
   return (
     <div
       className={`productInfo ${Boolean(isTag) && "isTag"}`}
@@ -10,7 +9,7 @@ const Info = ({ id, name, country, weight, isTag, productClick }) => {
     >
       <p className="name">{name}</p>
       <p className="desc">
-        {country} / {weight}
+        {country} / {weight}g
       </p>
     </div>
   );
