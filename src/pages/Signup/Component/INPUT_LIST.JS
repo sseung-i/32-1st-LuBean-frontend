@@ -1,4 +1,13 @@
-//test
+const idRules = idInput.match(
+  /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/
+);
+const pwRules = pwInput.match(
+  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[?!@#$%*&])[A-Za-z\d?!@#$%*&]{8,}$/
+);
+const pwCheckRules = pwInput === pwInputCheck;
+const nameRules = nameInput.length > 1;
+const phoneNumRules = phoneInput.length === 11;
+
 const INPUT_LIST = [
   {
     important: true,

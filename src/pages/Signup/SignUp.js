@@ -16,7 +16,7 @@ function SignUp() {
     pwInputCheck: "",
     nameInput: "",
     phoneInput: "",
-    addressInput: "",
+    addressInput: "서울특별시",
     emailInput: "",
   });
   const {
@@ -47,15 +47,10 @@ function SignUp() {
     setSignUpValues({ ...signUpValues, [name]: value });
   };
 
-  const saveAddress = e => {
-    const { name, value } = e.target;
-
-    if (name === "주소") {
-      setSignUpValues({ ...signUpValues, ["addressInput"]: value });
-    } else if (name === "메일") {
-      setSignUpValues({ ...signUpValues, ["emailInput"]: value });
-    }
-  };
+  // const saveAddress = e => {
+  //   const { name, value } = e.target;
+  //   setSignUpValues({ ...signUpValues, [name]: value });
+  // };
 
   const checkSignup = () => {
     const signUpCondition =
@@ -143,7 +138,7 @@ function SignUp() {
   const SELECT_ADDRESSnEMAil = [
     {
       id: 1,
-      name: "주소",
+      name: "addressInput",
       state: [
         {
           id: 1,
@@ -215,22 +210,6 @@ function SignUp() {
         },
       ],
     },
-    {
-      id: 2,
-      name: "메일",
-      state: [
-        { id: 1, name: "gmail.com" },
-        { id: 2, name: "naver.com" },
-        { id: 3, name: "hanmail.net" },
-        { id: 4, name: "daum.net" },
-        { id: 5, name: "hotmail.com" },
-        { id: 6, name: "nate.com" },
-        { id: 7, name: "iclould.com" },
-      ],
-    },
-    // {
-    //   state: [{ id: 1 }, { id: 2 }],
-    // },
   ];
 
   return (
@@ -283,7 +262,7 @@ function SignUp() {
             {SELECT_ADDRESSnEMAil.map(addressAndEmail => {
               return (
                 <SelectInput
-                  saveAddress={saveAddress}
+                  handleInput={handleInput}
                   key={addressAndEmail.id}
                   name={addressAndEmail.name}
                   state={addressAndEmail.state}
