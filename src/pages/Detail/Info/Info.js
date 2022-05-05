@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Info.scss";
 
-const Info = ({ infoList }) => {
-  const { titleKr, titleEn, productInfo } = infoList;
+const Info = ({ infoList, mockdata }) => {
+  const { korean_name, english_name, product_detail, image_url } = infoList;
+  const { productInfo } = mockdata;
 
   const [btnNum, setBtnNum] = useState(0);
 
@@ -29,8 +30,8 @@ const Info = ({ infoList }) => {
         <div className="headerInner">
           <p className="headerCategory">New Crops</p>
           <h1 className="headerTitle">
-            <span className="titleKr">{titleKr}</span>
-            <span className="titleEn">{titleEn}</span>
+            <span className="titleKr">{korean_name}</span>
+            <span className="titleEn">{english_name}</span>
           </h1>
         </div>
       </section>
@@ -38,7 +39,7 @@ const Info = ({ infoList }) => {
       <section className="sectionImg">
         <div className="titleImg">
           <div className="bgImg">
-            <img alt="원두이미지" src={productInfo.review.image} />
+            <img alt="원두이미지" src={image_url[0]} />
           </div>
           <div className="reviewBox">
             <div className="boxInner">
@@ -55,14 +56,7 @@ const Info = ({ infoList }) => {
             <h1 className="titleHead"> Check Info & Note</h1>
             <span className="infoSub">✴︎ 제품상세정보</span>
             <ul className="notelist">
-              {/* <li>농장명 / 엘 모리또 El Morito</li>
-              <li>농장주 / 로베르토 몬테로소 Roberto Monterroso</li>
-              <li>지역 / 오리엔테 Oriente</li>
-              <li>재배고도 / 1,600m</li>
-              <li>품종 / 카투라, 카투아이 Caturra, Catuai</li>
-              <li>가공방식 / 워시드 washed</li>
-              <li>입고일 / 22.04.01</li> */}
-              {productInfo.info.split("\n").map((x, index) => (
+              {product_detail.split("\\n ").map((x, index) => (
                 <li key={index}>{x}</li>
               ))}
             </ul>
