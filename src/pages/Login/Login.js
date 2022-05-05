@@ -21,8 +21,8 @@ function Login() {
     console.log(e.target.value);
   };
 
-  const goToSignUp = () => {
-    navigate("/signup");
+  const goToSignUpIntro = () => {
+    navigate("/signup_intro");
   };
 
   const onLoginBtnClick = e => {
@@ -75,7 +75,7 @@ function Login() {
         <button className="loginButton" onClick={onLoginBtnClick}>
           로그인
         </button>
-        <span className="other" onClick={goToSignUp}>
+        <span className="other" onClick={goToSignUpIntro}>
           회원가입
         </span>
       </div>
