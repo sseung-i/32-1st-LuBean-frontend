@@ -8,13 +8,13 @@
 
   .joinText {
     @include LnBfont(50px, 900);
-    margin: 200px 100px 50px 100px;
+    margin: 180px 100px 50px 100px;
   }
 
   .location {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
     width: 200px;
     font-size: 15px;
     font-weight: 900;
@@ -73,7 +73,7 @@
     @include ButtonBlack;
     width: 280px;
     height: 63px;
-    margin-top: 50px;
+    margin-top: 20px;
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
