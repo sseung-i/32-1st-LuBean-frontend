@@ -22,7 +22,7 @@ const Modal = ({ modalOpen, closeModal }, props) => {
               <p className="mainSecondLine">바로 확인하시겠습니까?</p>
             </main>
             <footer className="modalFooter">
-              <Link to="/list">
+              <Link to="/list/singleOrigin">
                 <button className="footerCartBtn" onClick={closeModal}>
                   계속 쇼핑하기
                 </button>
