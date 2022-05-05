@@ -38,7 +38,7 @@ const Nav = () => {
       <section className="navWrap">
         <div className="logoWrap">
           <Link to="/">
-            <img alt="logo" src="images/logo.svg" />
+            <img alt="logo" src="/images/logo.svg" />
           </Link>
         </div>
         <div className="rightWrap">

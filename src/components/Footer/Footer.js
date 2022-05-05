@@ -23,15 +23,15 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="icons">
-        <img className="icon" src="./images/coffee-beans.png" alt="icon" />
+        <img className="icon" src="/images/coffee-beans.png" alt="icon" />
         <div className="text">LOVE</div>
-        <img className="icon" src="./images/coffee-beans.png" alt="icon" />
+        <img className="icon" src="/images/coffee-beans.png" alt="icon" />
         <div className="text">BEANS</div>
-        <img className="icon" src="./images/coffee-beans.png" alt="icon" />
+        <img className="icon" src="/images/coffee-beans.png" alt="icon" />
       </div>
       <div className="info">
         <div className="infoLeft">
-          <img className="logo" src="./images/logo.svg" alt="logo" />
+          <img className="logo" src="/images/logo.svg" alt="logo" />
           <p className="leftTop">
             고객센터 1644-4461
             <br />
