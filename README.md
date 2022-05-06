@@ -51,8 +51,12 @@
 ## 화면
 
 - Login
+  ![](https://velog.velcdn.com/images/hnmpot/post/271680a9-7509-464b-a8db-692c8617cec5/image.png)
 
-![](https://velog.velcdn.com/images/hnmpot/post/271680a9-7509-464b-a8db-692c8617cec5/image.pngin)
+- Join
+  ![](https://velog.velcdn.com/images/hnmpot/post/796a41d0-681f-4260-8686-342c6e076de5/image.png)
+  ![](https://velog.velcdn.com/images/hnmpot/post/44dc21a1-00d7-419a-b1b8-6da4cb7b7a0f/image.png)
+  ![](https://velog.velcdn.com/images/hnmpot/post/4d65406e-4a99-4e71-a773-abdd710e9824/image.png)
 
 - Main
 - Detail
