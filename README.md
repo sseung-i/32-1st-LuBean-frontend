@@ -51,8 +51,8 @@
 ## 화면
 
 - Login
-  ![login1](/images/forREADME/login.png)
-  ![login2](https://files.slack.com/files-pri/TH0U6FBTN-F03E52V2WNA/login.)
+  ![](/images/forREADME/login.png)
+  ![](https://files.slack.com/files-pri/TH0U6FBTN-F03E52V2WNA/login.)
   <img alt="login3" src="https://files.slack.com/files-pri/TH0U6FBTN-F03E52V2WNA/login.png"/>
 - Join
 - Main
