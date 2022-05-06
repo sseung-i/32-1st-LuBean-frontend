@@ -51,10 +51,9 @@
 ## 화면
 
 - Login
-  ![](/images/forREADME/login.png)
-  ![](https://files.slack.com/files-pri/TH0U6FBTN-F03E52V2WNA/login.)
-  <img alt="login3" src="https://files.slack.com/files-pri/TH0U6FBTN-F03E52V2WNA/login.png"/>
-- Join
+
+![](https://velog.velcdn.com/images/hnmpot/post/271680a9-7509-464b-a8db-692c8617cec5/image.pngin)
+
 - Main
 - Detail
 - List
