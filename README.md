@@ -27,6 +27,11 @@
   - setLnterval 4초마다 자동전환
   - 상품리스트 버튼 클릭 시 4개씩 이동
   - 그리드 사용 영상 첨가
+- List
+  - nav메뉴 클릭시 해당 리스트 데이터 불러옴
+  - 싱글 오리진만 fiter>country 버튼 생성
+  - 제품 클릭 시 디테일에 :id 전달
+  - 이미지 상수데이터 활용하여 제품별 &&
 - Detail
   - LIST 페이지에 Params :id 사용
   - 데이터에 없는 부분은 목데이터를 사용
@@ -35,11 +40,6 @@
   - 메뉴 탭 클릭시 스크롤 이동
   - 수량 증가시 가격변경
   - 장바구니 > 계속쇼핑하기 > 리스트 페이지 이동
-- List
-  - nav메뉴 클릭시 해당 리스트 데이터 불러옴
-  - 싱글 오리진만 fiter>country 버튼 생성
-  - 제품 클릭 시 디테일에 :id 전달
-  - 이미지 상수데이터 활용하여 제품별 &&
 - Nav
   - 원두/상품만 드롭다운 메뉴 생성
   - 카테고리 마다 삼각형 생성 / 드롭메뉴 내용 변경
@@ -48,19 +48,29 @@
   - 구독하기 버튼 클릭 시 조건에 따라 다른 메세지 alert창 팝업
   - 아이콘 클릭 시 깃헙 링크로 연결
 
-## 화면
+## 상세 화면
 
 - Login
   ![](https://velog.velcdn.com/images/hnmpot/post/271680a9-7509-464b-a8db-692c8617cec5/image.png)
-
 - Join
   ![](https://velog.velcdn.com/images/hnmpot/post/796a41d0-681f-4260-8686-342c6e076de5/image.png)
   ![](https://velog.velcdn.com/images/hnmpot/post/44dc21a1-00d7-419a-b1b8-6da4cb7b7a0f/image.png)
   ![](https://velog.velcdn.com/images/hnmpot/post/4d65406e-4a99-4e71-a773-abdd710e9824/image.png)
-
 - Main
-- Detail
+  ![](https://velog.velcdn.com/images/hnmpot/post/86ece741-658d-43b4-9bbc-1b4a2a8c1be8/image.png)
+
 - List
+  ![](https://velog.velcdn.com/images/hnmpot/post/91f01cd1-a128-433a-aef8-83245d64e30c/image.png)
+
+![](https://velog.velcdn.com/images/hnmpot/post/9fc8f24a-a9a7-4e40-b600-51774b66b74a/image.png)
+![](https://velog.velcdn.com/images/hnmpot/post/29b051b8-58d5-4bd5-ba53-68346413e40a/image.png)
+
+- Detail
+
+![](https://velog.velcdn.com/images/hnmpot/post/4c8b2c23-27fd-4b2c-abb5-96b7308543b5/image.png)
 
 - Nav
+  ![](https://velog.velcdn.com/images/hnmpot/post/8074225d-4791-4cf4-9e52-40be738c44df/image.png)
+
 - Footer
+  ![](https://velog.velcdn.com/images/hnmpot/post/ef8a100c-185e-4698-a61d-95899188cf39/image.png)
