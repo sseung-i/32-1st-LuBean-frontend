@@ -4,12 +4,10 @@ import { useNavigate } from "react-router-dom";
 import Input from "./Component/Input";
 import SelectInput from "./Component/SelectInput";
 import SELECT_ADDRESSnEMAil from "./Component/SELECT_ADDRESSnEMAil";
-import INPUT_LIST from "./Component/INPUT_LIST.JS";
 
 import "./SignUp.scss";
 
 function SignUp() {
-  //test 삭제시 렌더링 아예 안됨.
   const [signUpValues, setSignUpValues] = useState({
     idInput: "",
     pwInput: "",
@@ -46,11 +44,6 @@ function SignUp() {
     const { name, value } = e.target;
     setSignUpValues({ ...signUpValues, [name]: value });
   };
-
-  // const saveAddress = e => {
-  //   const { name, value } = e.target;
-  //   setSignUpValues({ ...signUpValues, [name]: value });
-  // };
 
   const checkSignup = () => {
     const signUpCondition =
@@ -135,6 +128,7 @@ function SignUp() {
     },
   ];
 
+  //삭제시 state 변경 안됨
   const SELECT_ADDRESSnEMAil = [
     {
       id: 1,
