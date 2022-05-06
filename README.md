@@ -18,7 +18,7 @@
 
 ## 구현기능
 
-- 회원가입, 로그인
+- Login / Join
   - Login / Join_intro / Join / Join_done 페이지 분할 생성
   - 유효성 검사를 적용하여 input 에 입력 이벤트가 발생할때마다 pass여부를 알림
   - fetch로 back과 서버 통신 완료
@@ -50,4 +50,13 @@
 
 ## 화면
 
-- 사진 링크 달기
+- Login
+  https://files.slack.com/files-pri/TH0U6FBTN-F03E52V2WNA/login.png
+
+- Join
+- Main
+- Detail
+- List
+
+- Nav
+- Footer
