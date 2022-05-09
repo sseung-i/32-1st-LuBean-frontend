@@ -5,16 +5,26 @@
 - LUSH 코리아 사이트 클론 프로젝트
 - 2주라는 짧은 기간안에 개발을 해야하기에 전체적인 UI적 틀과 기획부분만 클론하였습니다.
 
+<br>
+
 ## 팀원 및 프로젝트 기간
 
 - 백엔드 : 윤진섭, 임수연
 - 프론트 : 김귀아, 양재원, 이현정, 최승이
 - 프로젝트 기간 : 2022.04.25 (월) ~ 2022.05.06 (금) (2주)
 
-## 기술 스택
+<br>
 
-- Back-End : Python, Django
-- Front-End : React, sass
+## 기술 스택
+<img src="https://user-images.githubusercontent.com/78680486/158049033-6a7836e9-da4a-4333-8f80-ea7972b2f922.svg"> <img src="https://user-images.githubusercontent.com/78680486/158049035-1b7122ad-cc99-477c-8d94-98ce48944d92.svg"> <img src= "https://user-images.githubusercontent.com/78680486/158049032-6368747a-c353-491c-8d22-63cdc1c525b1.svg"> <img src= "https://user-images.githubusercontent.com/78680486/158049036-4c7371ab-443d-4db9-baa0-6877a4528034.svg" >
+
+### backend
+<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white"> <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=Sass&logoColor=white">
+
+### front
+<img src="https://user-images.githubusercontent.com/78680486/158049034-cc1a893a-bc48-463f-811d-72e57853121d.svg" alt ="github"> <img src="https://user-images.githubusercontent.com/78680486/158049038-9c0dd825-e9c8-4e9d-aa60-f66deb56178d.svg" /> <img src="https://user-images.githubusercontent.com/78680486/158049039-55093258-f377-468f-bcf0-d4e7474b7e84.svg" />
+
+<br>
 
 ## 구현기능
 
@@ -34,9 +44,9 @@
 ### List
 
 - nav메뉴 클릭시 해당 리스트 데이터 불러옴
-- 싱글 오리진만 fiter>country 버튼 생성
-- 제품 클릭 시 디테일에 :id 전달
-- 이미지 상수데이터 활용하여 제품별 &&
+- 싱글 오리진만 fiter사용하여 country(count) 버튼 생성
+- 제품 클릭 시 디테일페이지에서 path parameter로 받을 수 있도록 :id 전달
+- 싱글오리진 submenu = 이미지 상수데이터 활용하여 제품별 이미지 filter
 
 ### Detail
 
@@ -59,39 +69,23 @@
 - 구독하기 버튼 클릭 시 조건에 따라 다른 메세지 alert창 팝업
 - 아이콘 클릭 시 깃헙 링크로 연결
 
+<br>
+
 ## 상세 화면
 
-### Login
-
-![](https://velog.velcdn.com/images/hnmpot/post/271680a9-7509-464b-a8db-692c8617cec5/image.png)
-
-### Join
-
-![](https://velog.velcdn.com/images/hnmpot/post/796a41d0-681f-4260-8686-342c6e076de5/image.png)
-![](https://velog.velcdn.com/images/hnmpot/post/44dc21a1-00d7-419a-b1b8-6da4cb7b7a0f/image.png)
-![](https://velog.velcdn.com/images/hnmpot/post/
-4d65406e-4a99-4e71-a773-abdd710e9824/image.png)
+### Login & Join
+![로그인_조인](https://user-images.githubusercontent.com/93138130/167325212-791ddac1-7f49-46e5-b8cc-419be50bea47.gif)
 
 ### Main
+![메인-캐러셀](https://user-images.githubusercontent.com/93138130/167324691-6ce7c97f-0ff3-435f-8822-1b557761b635.gif)
 
-![](https://velog.velcdn.com/images/hnmpot/post/36f731a2-a4c8-4eff-a3da-a5ab0c132b94/image.png)
-
-### List
-
-![](https://velog.velcdn.com/images/hnmpot/post/71c0632d-c915-4dc0-a22c-6ebd433d2443/image.png)
-
-![](https://velog.velcdn.com/images/hnmpot/post/542fa3c5-e6a4-4548-877a-b183a5d73317/image.png)
-
-![](https://velog.velcdn.com/images/hnmpot/post/29b051b8-58d5-4bd5-ba53-68346413e40a/image.png)
+### Nav & List
+![상품리스트](https://user-images.githubusercontent.com/93138130/167326263-471873cb-07e2-4603-b184-98aeac1b4bb5.gif)
 
 ### Detail
 
-![](https://velog.velcdn.com/images/hnmpot/post/4c8b2c23-27fd-4b2c-abb5-96b7308543b5/image.png)
-
-### Nav
-
-![](https://velog.velcdn.com/images/hnmpot/post/8074225d-4791-4cf4-9e52-40be738c44df/image.png)
+![상세페이지](https://user-images.githubusercontent.com/93138130/167326572-2bce6916-f8bb-41e1-97f0-d6e74907c3ca.gif)
 
 ### Footer
 
-![](https://velog.velcdn.com/images/hnmpot/post/ef8a100c-185e-4698-a61d-95899188cf39/image.png)
+![메인-푸터](https://user-images.githubusercontent.com/93138130/167324866-86de910c-eb5a-4c65-948e-d4b21f4fd72a.gif)
